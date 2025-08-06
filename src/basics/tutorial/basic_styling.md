@@ -1,76 +1,77 @@
-# Basic styling
-## `Set` rule
+# 기본 스타일링
+## `Set` 규칙
 ```typ
 #set page(width: 15cm, margin: (left: 4cm, right: 4cm))
 
-That was great, but using functions everywhere, especially
-with many arguments every time is awfully cumbersome.
+훌륭했지만, 모든 곳에서 함수를 사용하는 것, 특히
+매번 많은 인수를 사용하는 것은 매우 번거롭습니다.
 
-That's why Typst has _rules_. No, not for you, for the document.
+그래서 Typst에는 _규칙_이 있습니다. 아니요, 당신을 위한 것이 아니라, 문서를 위한 것입니다.
 
 #set par(justify: true)
 
-And the first rule we will consider there is `set` rule.
-As you see, I've just used it on `par` (which is short from paragraph)
-and now all paragraphs became _justified_.
+그리고 여기서 우리가 고려할 첫 번째 규칙은 `set` 규칙입니다.
+보시다시피, 저는 `par`(단락의 줄임말)에 그것을 사용했고
+이제 모든 단락이 _양쪽 정렬_되었습니다.
 
-It will apply to all paragraphs after the rule,
-but will work only in its _scope_ (we will discuss them later).
+이 규칙은 규칙 이후의 모든 단락에 적용되지만,
+해당 _스코프_ 내에서만 작동합니다(나중에 논의할 것입니다).
 
 #par(justify: false)[
-  Of course, you can override a `set` rule.
-  This rule just sets the _default value_
-  of an argument of an element.
+  물론, `set` 규칙을 재정의할 수 있습니다.
+  이 규칙은 요소의 인수의 _기본값_을
+  설정할 뿐입니다.
 ]
 
-By the way, at first line of this snippet
-I've reduced page size to make justifying more visible,
-also increasing margins to add blank space on left and right.
+덧붙여, 이 스니펫의 첫 줄에서
+양쪽 정렬을 더 잘 보이게 하기 위해 페이지 크기를 줄였고,
+왼쪽과 오른쪽에 공백을 추가하기 위해 여백도 늘렸습니다.
 ```
 
-## A bit about length units
+## 길이 단위에 대한 약간의 이야기
 ```typ
-Before we continue with rules, we should talk about length. There are several absolute length units in Typst:
+규칙을 계속하기 전에, 길이에 대해 이야기해야 합니다. Typst에는 여러 절대 길이 단위가 있습니다:
 
 #set rect(height: 1em)
 
 #table(
   columns: 2,
-  [Points], rect(width: 72pt),
-  [Millimeters], rect(width: 25.4mm),
-  [Centimeters], rect(width: 2.54cm),
-  [Inches], rect(width: 1in),
-  [Relative to font size], rect(width: 6.5em)
+  [포인트], rect(width: 72pt),
+  [밀리미터], rect(width: 25.4mm),
+  [센티미터], rect(width: 2.54cm),
+  [인치], rect(width: 1in),
+  [글꼴 크기 기준], rect(width: 6.5em)
 )
 
-`1 em` = current font size. \
-It is a very convenient unit,
-so we are going to use it a lot
+`1 em` = 현재 글꼴 크기. \
+이것은 매우 편리한 단위이므로,
+앞으로 많이 사용할 것입니다.
 ```
 
-## Setting something else
+## 다른 것 설정하기
 
-Of course, you can use `set` rule with all built-in functions
-and all their named arguments to make some argument "default".
+물론, 내장된 모든 함수와
+그것들의 모든 이름 있는 인수와 함께 `set` 규칙을 사용하여
+어떤 인수를 "기본값"으로 만들 수 있습니다.
 
-For example, let's make all quotes in this snippet authored by the book:
+예를 들어, 이 스니펫의 모든 인용문을 이 책의 저자로 만들어 봅시다:
 
 ```typ
-#set quote(block: true, attribution: [Typst Examples Book])
+#set quote(block: true, attribution: [Typst 예제집])
 
 #quote[
-  Typst is great!
+  Typst는 훌륭합니다!
 ]
 
 #quote[
-  The problem with quotes on the internet is
-  that it is hard to verify their authenticity.
+  인터넷의 인용문의 문제점은
+  그 진위성을 확인하기 어렵다는 것입니다.
 ]
 ```
 
-## Opinionated defaults
+## 독자적인 기본값
 
-That allows you to set Typst default styling as you want it:
+이를 통해 원하는 대로 Typst 기본 스타일링을 설정할 수 있습니다:
 
 ```typ
 #set par(justify: true)
@@ -78,38 +79,39 @@ That allows you to set Typst default styling as you want it:
 #set enum(indent: 1em)
 #set page(numbering: "1")
 
-- List item
-- List item
+- 목록 항목
+- 목록 항목
 
-+ Enum item
-+ Enum item
++ 열거 항목
++ 열거 항목
 ```
 
-Don't complain about bad defaults! `Set` your own.
+나쁜 기본값에 대해 불평하지 마세요! 자신만의 `Set`을 만드세요.
 
-## Numbering
+## 번호 매기기
 
 ```typ
-= Numbering
+= 번호 매기기
 
-Some of elements have a property called "numbering".
-They accept so-called "numbering patterns" and
-are very useful with set rules. Let's see what I mean.
+일부 요소에는 "번호 매기기"라는 속성이 있습니다.
+이것들은 소위 "번호 매기기 패턴"을 받아들이며
+set 규칙과 함께 매우 유용합니다. 무슨 말인지 봅시다.
 
 #set heading(numbering: "I.1:")
 
-= This is first level
-= Another first
-== Second
-== Another second
-=== Now third
-== And second again
-= Now returning to first
-= These are actual romanian numerals
+= 이것은 첫 번째 수준입니다
+= 또 다른 첫 번째
+== 두 번째
+== 또 다른 두 번째
+=== 이제 세 번째
+== 그리고 다시 두 번째
+= 이제 첫 번째로 돌아갑니다
+= 이것들은 실제 로마 숫자입니다
 ```
 
-Of course, there are lots of other cool properties
-that can be _set_, so feel free to dive into [Official Reference](https://typst.app/docs/reference/)
-and explore them!
+물론, _설정_될 수 있는 다른 멋진 속성들이
+많이 있으니, [공식 레퍼런스](https://typst.app/docs/reference/)에
+자유롭게 뛰어들어 탐색해 보세요!
 
-And now we are moving into something much more interesting…
+그리고 이제 우리는 훨씬 더 흥미로운 것으로 넘어가고 있습니다…
+```

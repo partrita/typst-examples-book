@@ -1,2 +1,2 @@
-# Tutorial by Examples
-The first section of Typst Basics is very similar to [Official Tutorial](https://typst.app/docs/tutorial/), with more specialized examples and less words. It is _highly recommended to read the official tutorial anyway_.
+# 예제를 통한 튜토리얼
+Typst 기초의 첫 번째 섹션은 [공식 튜토리얼](https://typst.app/docs/tutorial/)과 매우 유사하며, 더 전문화된 예제와 적은 단어로 구성되어 있습니다. _어쨌든 공식 튜토리얼을 읽는 것을 강력히 권장합니다_.
