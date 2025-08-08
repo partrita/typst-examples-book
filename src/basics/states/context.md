@@ -1,92 +1,92 @@
-## Context for styling
-<div class="warning">This section may be not very complete and fully updated for last Typst versions. Any contribution is very welcome!.</div>
+## 스타일링을 위한 컨텍스트
+<div class="warning">이 섹션은 최신 Typst 버전에 대해 완전히 완전하거나 업데이트되지 않았을 수 있습니다. 어떤 기여든 매우 환영합니다!.</div>
 
-> [Context in Reference](https://typst.app/docs/reference/context/)
+> [참조의 컨텍스트](https://typst.app/docs/reference/context/)
 
-(if you haven't read the `state` section yet, read it; the `context` is started to be discussed there)
+(`state` 섹션을 아직 읽지 않았다면 읽으십시오; `context`는 거기서 논의되기 시작했습니다)
 
-As we've already seen in `states` chapter, `context` is kind of object that stores the "layout instructions" of content that may be heavily dependent on outer states. These instructions are rendered later.
+`states` 챕터에서 이미 보았듯이, `context`는 외부 상태에 크게 의존할 수 있는 콘텐츠의 "레이아웃 지침"을 저장하는 일종의 객체입니다. 이러한 지침은 나중에 렌더링됩니다.
 
-What is important to know is that _the "outer states" I mention there include not just `state`_ (and counters, that are just special states for counting), but also _styling_.
+중요한 것은 제가 거기서 언급한 "외부 상태"가 `state`(그리고 세기를 위한 특별한 상태인 카운터)뿐만 아니라 _스타일링_도 포함한다는 것입니다.
 
-What do I mean?
+무슨 뜻일까요?
 
-Well, see yourself:
+음, 직접 확인하세요:
 
-### Getting current style
+### 현재 스타일 가져오기
 
 ```typ
-Current font: #context text.font
+현재 글꼴: #context text.font
 ```
 
-We just got the current font that easily, and that works basically for **any settable property**! Isn't that neat?
+우리는 현재 글꼴을 그렇게 쉽게 얻었고, 이것은 기본적으로 **설정 가능한 모든 속성**에 대해 작동합니다! 멋지지 않나요?
 
-See another example that demonstrates the properties of context better. Let's create a `box` that would be always the color of text:
+컨텍스트의 속성을 더 잘 보여주는 다른 예를 봅시다. 항상 텍스트 색상과 같은 색상의 `box`를 만들어 봅시다:
 
 ```typ
 #let colorful-rect = context box(stroke: text.fill, inset: 0.3em)[#repr(text.fill)]
 
-Current color in box of the same color: #colorful-rect.
+같은 색상의 상자 안의 현재 색상: #colorful-rect.
 
 #set text(red)
 
-Current color in box of the same color: #colorful-rect.
+같은 색상의 상자 안의 현재 색상: #colorful-rect.
 ```
 
-### How to get things out of context?
+### 컨텍스트에서 어떻게 무언가를 꺼낼 수 있을까요?
 
-That's the neat part, _you don't_!
+그것이 멋진 부분입니다, _꺼내지 않습니다_!
 
-Why? That's easy: for Typst the `context` block is a black box that can be opened only during rendering, when put inside the documents.
+왜냐고요? 쉽습니다: Typst에게 `context` 블록은 문서 내부에 넣을 때 렌더링 중에만 열 수 있는 블랙박스입니다.
 
-So if you want to get something, you should get it _inside `context`_.
+따라서 무언가를 얻고 싶다면, _`context` 내부에서_ 얻어야 합니다.
 
-### Writing functions
+### 함수 작성
 
-Important fact: function, as any other content, may be _context-depending_ without any declarations. And it is usually better to allow user to wrap them in context themselves instead of putting it in `context`.
+중요한 사실: 함수는 다른 콘텐츠와 마찬가지로 선언 없이도 _컨텍스트에 의존_할 수 있습니다. 그리고 일반적으로 사용자가 `context`에 넣는 대신 컨텍스트로 직접 감싸도록 허용하는 것이 좋습니다.
 
 
-Let's say you want to create a list that depends on some style (or maybe `state`) things. It would require context, so you can wrap it in context:
+어떤 스타일(또는 `state`)에 의존하는 목록을 만들고 싶다고 가정해 봅시다. 컨텍스트가 필요하므로 컨텍스트로 감쌀 수 있습니다:
 
 ```typ
-(Bad)
+(나쁨)
 
 #let page-dimensions = context (page.width, page.height)
-#page-dimensions, representation of that object is: #repr(page-dimensions)
+#page-dimensions, 이 객체의 표현은: #repr(page-dimensions)
 ```
 
-That object would be almost useless. It's black box, so you can only put into the doc and that's all.
+그 객체는 거의 쓸모가 없을 것입니다. 블랙박스이므로 문서에 넣는 것 외에는 할 수 있는 것이 없습니다.
 
-Hover, you can do this instead:
+하지만 대신 이렇게 할 수 있습니다:
 
 ```typ
-(Good!)
+(좋음!)
 
-// To be context-dependent function it needs to be function, not just a fixed content
+// 컨텍스트에 의존하는 함수가 되려면 고정된 콘텐츠가 아니라 함수여야 합니다
 #let page-dimensions() = (page.width, page.height)
 
 #context page-dimensions()
 
 #context [
     #let (x, y) = page-dimensions()
-    Half-width is: #(x/2), height is #y
+    절반 너비는: #(x/2), 높이는 #y
 ]
 ```
 
-So with context-dependent functions you allow user to put `context` anywhere they want.
+따라서 컨텍스트에 의존하는 함수를 사용하면 사용자가 원하는 곳 어디에나 `context`를 넣을 수 있습니다.
 
-### Rules inside of context
+### 컨텍스트 내부의 규칙
 
-As we've already discussed, `context` captures the _outer_ state of the document, and doesn't see anything that happens inside it. So if you do
+이미 논의했듯이, `context`는 문서의 _외부_ 상태를 캡처하고 내부에서 일어나는 일은 보지 못합니다. 따라서 이렇게 하면
 
 ```typ
 #context [
-    Text, color: #text.fill
+    텍스트, 색상: #text.fill
 
     #set text(blue)
 
-    Text, color: #text.fill
+    텍스트, 색상: #text.fill
 ]
 ```
 
-...right, the rules inside wouldn't affect style inside the context.
+...맞습니다, 내부의 규칙은 컨텍스트 내부의 스타일에 영향을 미치지 않습니다.

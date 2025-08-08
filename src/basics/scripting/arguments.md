@@ -1,14 +1,14 @@
-# Advanced arguments
-## Spreading arguments from list
+# 고급 인수
+## 목록에서 인수 펼치기
 
-Spreading operator allows you to "unpack" the list of values into arguments of function:
+펼치기 연산자를 사용하면 값 목록을 함수 인수로 "풀" 수 있습니다:
 
 ```typ
 #let func(a, b, c, d, e) = [#a #b #c #d #e]
 #func(..(([hi],) * 5))
 ```
 
-This may be super useful in tables:
+이것은 표에서 매우 유용할 수 있습니다:
 
 ```typ
 #let a = ("hi", "b", "c")
@@ -19,24 +19,23 @@ This may be super useful in tables:
 )
 ```
 
-## Key arguments
+## 키 인수
 
-The same idea works with key arguments:
+키 인수에서도 동일한 아이디어가 작동합니다:
 
 ```typ
 #let text-params = (fill: blue, size: 0.8em)
 
-Some #text(..text-params)[text].
+일부 #text(..text-params)[텍스트].
 ```
 
-# Managing arbitrary arguments
+# 임의의 인수 관리하기
 
-Typst allows taking as many arbitrary positional and key arguments as you want.
+Typst를 사용하면 원하는 만큼 임의의 위치 및 키 인수를 사용할 수 있습니다.
 
-In that case function is given special `arguments` object that stores in it
-positional and named arguments.
+이 경우 함수에는 위치 및 명명된 인수를 저장하는 특수 `arguments` 객체가 제공됩니다.
 
-> Link to [reference](https://typst.app/docs/reference/foundations/arguments/)
+> [참조](https://typst.app/docs/reference/foundations/arguments/) 링크
 
 ```typ
 #let f(..args) = [
@@ -47,7 +46,7 @@ positional and named arguments.
 #f(1, "a", width: 50%, block: false)
 ```
 
-You can combine them with other arguments. Spreading operator will "eat" all remaining arguments:
+다른 인수와 결합할 수 있습니다. 펼치기 연산자는 나머지 모든 인수를 "먹습니다":
 
 ```typ
 #let format(title, ..authors) = {
@@ -55,14 +54,14 @@ You can combine them with other arguments. Spreading operator will "eat" all rem
     .pos()
     .join(", ", last: " and ")
 
-  [*#title* \ _Written by #by;_]
+  [*#title* \ _#by 가 씀;_]
 }
 
 #format("ArtosFlow", "Jane", "Joe")
 ```
 
-## Optional argument
+## 선택적 인수
 
-_Currently the only way in Typst to create optional positional arguments is using `arguments` object:_
+_현재 Typst에서 선택적 위치 인수를 만드는 유일한 방법은 `arguments` 객체를 사용하는 것입니다:_
 
 TODO

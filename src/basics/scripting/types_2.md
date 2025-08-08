@@ -1,68 +1,68 @@
-# Types, part II
-In Typst, most of things are **immutable**. You can't change content, you can just create new using this one (for example, using addition).
+# 타입, 파트 II
+Typst에서 대부분의 것들은 **불변**합니다. 내용을 변경할 수 없으며, 기존 내용을 사용하여 새 내용을 만들 수만 있습니다(예: 덧셈 사용).
 
-Immutability is very important for Typst since it tries to be _as pure language as possible_. Functions do nothing outside of returning some value.
+불변성은 Typst가 _가능한 한 순수한 언어_가 되려고 하기 때문에 매우 중요합니다. 함수는 어떤 값을 반환하는 것 외에는 아무것도 하지 않습니다.
 
-However, purity is partly "broken" by these types. They are *super-useful* and not adding them would make Typst much pain.
+그러나 이러한 타입에 의해 순수성이 부분적으로 "깨집니다". 이것들은 *매우 유용*하며, 추가하지 않으면 Typst가 훨씬 더 고통스러워질 것입니다.
 
-However, using them adds complexity.
+그러나 이것들을 사용하면 복잡성이 추가됩니다.
 
-## Arrays (`array`)
-> [Link to Reference](https://typst.app/docs/reference/foundations/array/).
+## 배열 (`array`)
+> [참조 링크](https://typst.app/docs/reference/foundations/array/).
 
-Mutable object that stores data with their indices.
+인덱스와 함께 데이터를 저장하는 가변 객체입니다.
 
-### Working with indices
+### 인덱스로 작업하기
 ```typ
 #let values = (1, 7, 4, -3, 2)
 
-// take value at index 0
+// 인덱스 0의 값 가져오기
 #values.at(0) \
-// set value at 0 to 3
+// 0의 값을 3으로 설정
 #(values.at(0) = 3)
-// negative index => start from the back
+// 음수 인덱스 => 뒤에서부터 시작
 #values.at(-1) \
-// add index of something that is even
+// 짝수인 것의 인덱스 추가
 #values.find(calc.even)
 ```
 
-### Iterating methods
+### 반복 메소드
 ```typ
 #let values = (1, 7, 4, -3, 2)
 
-// leave only what is odd
+// 홀수만 남기기
 #values.filter(calc.odd) \
-// create new list of absolute values of list values
+// 목록 값의 절대값으로 새 목록 만들기
 #values.map(calc.abs) \
-// reverse
+// 뒤집기
 #values.rev() \
-// convert array of arrays to flat array
+// 배열의 배열을 평평한 배열로 변환
 #(1, (2, 3)).flatten() \
-// join array of string to string
+// 문자열 배열을 문자열로 결합
 #(("A", "B", "C")
  .join(", ", last: " and "))
 ```
 
-### List operations
+### 목록 연산
 ```typ
-// sum of lists:
+// 목록의 합:
 #((1, 2, 3) + (4, 5, 6))
 
-// list product:
+// 목록 곱:
 #((1, 2, 3) * 4)
 ```
 
-### Empty list
+### 빈 목록
 ```typ
-#() \ // this is an empty list
-#(1,) \  // this is a list with one element
-BAD: #(1) // this is just an element, not a list!
+#() \ // 이것은 빈 목록입니다
+#(1,) \  // 이것은 하나의 요소가 있는 목록입니다
+나쁨: #(1) // 이것은 목록이 아니라 그냥 요소입니다!
 ```
 
-## Dictionaries (`dict`)
-> [Link to Reference](https://typst.app/docs/reference/foundations/dictionary/).
+## 사전 (`dict`)
+> [참조 링크](https://typst.app/docs/reference/foundations/dictionary/).
 
-Dictionaries are objects that store a string "key" and a value, associated with that key.
+사전은 문자열 "키"와 해당 키와 연관된 값을 저장하는 객체입니다.
 ```typ
 #let dict = (
   name: "Typst",
@@ -79,8 +79,8 @@ Dictionaries are objects that store a string "key" and a value, associated with 
 #("name" in dict)
 ```
 
-### Empty dictionary
+### 빈 사전
 ```typ
-This is an empty list: #() \
-This is an empty dict: #(:)
+이것은 빈 목록입니다: #() \
+이것은 빈 사전입니다: #(:)
 ```

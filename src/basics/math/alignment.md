@@ -1,8 +1,8 @@
-# Alignment
+# 정렬
 
-## General alignment
+## 일반 정렬
 
-By default display math is center-aligned, but that can be set up with `show` rule:
+기본적으로 디스플레이 수학은 가운데 정렬되지만, `show` 규칙으로 설정할 수 있습니다:
 
 ```typ
 #show math.equation: set align(right)
@@ -12,28 +12,28 @@ $
 $
 ```
 
-Or using `align` element:
+또는 `align` 요소를 사용하여:
 
 ```typ
 #align(left, block($ x = 5 $))
 ```
 
-## Alignment points
+## 정렬 지점
 
-When equations include multiple alignment points (&), this creates blocks of alternatingly _right-_ and _left-_ aligned columns.
+방정식에 여러 정렬 지점(&)이 포함된 경우, 이것은 번갈아 가며 _오른쪽_ 및 _왼쪽_ 정렬된 열의 블록을 만듭니다.
 
-In the example below, the expression `(3x + y) / 7` is _right-aligned_ and `= 9` is _left-aligned_.
+아래 예에서, 표현식 `(3x + y) / 7`은 _오른쪽 정렬_되고 `= 9`는 _왼쪽 정렬_됩니다.
 
 ```typ
-$ (3x + y) / 7 &= 9 && "given" \
-  3x + y &= 63 & "multiply by 7" \
-  3x &= 63 - y && "subtract y" \
-  x &= 21 - y/3 & "divide by 3" $
+$ (3x + y) / 7 &= 9 && "주어진" \
+  3x + y &= 63 & "7 곱하기" \
+  3x &= 63 - y && "y 빼기" \
+  x &= 21 - y/3 & "3으로 나누기" $
 ```
 
-The word "given" is also left-aligned because `&&` creates two alignment points in a row, _alternating the alignment twice_.
+"주어진"이라는 단어는 `&&`가 연속으로 두 개의 정렬 지점을 만들어 _정렬을 두 번 번갈아_ 하기 때문에 왼쪽 정렬됩니다.
 
-`& &` and `&&` behave exactly the same way.
-Meanwhile, "multiply by 7" is left-aligned because just one `&` precedes it.
+`& &`와 `&&`는 정확히 동일하게 작동합니다.
+한편, "7 곱하기"는 앞에 `&`가 하나만 있기 때문에 왼쪽 정렬됩니다.
 
-**Each alignment point simply alternates between right-aligned/left-aligned.**
+**각 정렬 지점은 단순히 오른쪽 정렬/왼쪽 정렬 사이를 번갈아 가며 전환합니다.**
