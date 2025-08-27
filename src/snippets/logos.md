@@ -1,9 +1,9 @@
-# Logos & Figures
-Using SVG-s images is totally fine. Totally. But if you are lazy and don't want to search for images, here are some logos you can just copy-paste in your document.
+# 로고 및 그림
+SVG 이미지 사용은 전적으로 괜찮습니다. 정말로. 하지만 게으르고 이미지를 검색하고 싶지 않다면, 문서에 복사하여 붙여넣을 수 있는 몇 가지 로고가 있습니다.
 
-**Important**: _Typst in text doesn't need a special writing (unlike LaTeX)_. Just write "Typst", maybe "**Typst**", and it is okay.
+**중요**: _텍스트의 Typst는 특별한 글쓰기가 필요하지 않습니다(LaTeX와 달리)_. 그냥 "Typst"라고 쓰거나, 아마도 "**Typst**"라고 쓰면 괜찮습니다.
 
-## TeX and LaTeX
+## TeX 및 LaTeX
 ```typ
 
 #let TeX = {
@@ -24,14 +24,14 @@ Using SVG-s images is totally fine. Totally. But if you are lazy and don't want 
   })
 }
 
-Typst is not that hard to learn when you know #TeX and #LaTeX.
+Typst는 #TeX 및 #LaTeX를 알면 배우기 어렵지 않습니다.
 ```
 
-## Typst guy
+## Typst 가이
 
-<!--TODO: Make scrollable-->
+<!--TODO: 스크롤 가능하게 만들기-->
 ```typ
-// author: fenjalien
+// 저자: fenjalien
 #import "@preview/cetz:0.3.4": *
 
 #set page(width: auto, height: auto)
@@ -42,7 +42,7 @@ Typst is not that hard to learn when you know #TeX and #LaTeX.
   scale(y: -1)
   set-style(fill: color, stroke: none,)
 
-  // body
+  // 몸
   merge-path({
     bezier(
       (112.847, 134.007),
@@ -99,7 +99,7 @@ Typst is not that hard to learn when you know #TeX and #LaTeX.
     )
   })
 
-  // left pupil
+  // 왼쪽 동공
   merge-path({
     bezier(
       (70.4667, 65.6833),
@@ -133,7 +133,7 @@ Typst is not that hard to learn when you know #TeX and #LaTeX.
     )
   })
 
-  // right pupil
+  // 오른쪽 동공
   merge-path({
     bezier(
       (132.37, 61.668),
@@ -172,7 +172,7 @@ Typst is not that hard to learn when you know #TeX and #LaTeX.
     fill: none,
   )
 
-  // left eye
+  // 왼쪽 눈
   merge-path({
     bezier(
       (58.5, 64.7273),
@@ -202,7 +202,7 @@ Typst is not that hard to learn when you know #TeX and #LaTeX.
       (58.5, 71.0909)
     )
   })
-  // eye lash
+  // 속눈썹
   line(
     (62.5, 55),
     (59.5, 52),
@@ -237,7 +237,7 @@ Typst is not that hard to learn when you know #TeX and #LaTeX.
 
   set-style(stroke: (thickness: 4pt))
 
-  // right arm
+  // 오른쪽 팔
   merge-path({
     bezier(
       (109.523, 115.614),
@@ -253,7 +253,7 @@ Typst is not that hard to learn when you know #TeX and #LaTeX.
     )
   })
 
-  // right first finger
+  // 오른쪽 첫 번째 손가락
   bezier(
     (137, 106.591),
     (140.5, 98.0908),
@@ -261,7 +261,7 @@ Typst is not that hard to learn when you know #TeX and #LaTeX.
     (138.562, 99.817)
   )
 
-  // right second finger
+  // 오른쪽 두 번째 손가락
   bezier(
     (137, 106.591),
     (146, 101.591),
@@ -269,13 +269,13 @@ Typst is not that hard to learn when you know #TeX and #LaTeX.
     (142.425, 101.713)
   )
 
-  // right third finger
+  // 오른쪽 세 번째 손가락
   line(
     (137, 106.591),
     (148, 106.591)
   )
 
-  //right forth finger
+  //오른쪽 네 번째 손가락
   bezier(
     (137, 106.591),
     (146, 111.091),
@@ -283,7 +283,7 @@ Typst is not that hard to learn when you know #TeX and #LaTeX.
     (143.119, 110.812)
   )
 
-  // left arm
+  // 왼쪽 팔
   bezier(
     (95.365, 116.979),
     (73.5, 107.591),
@@ -291,22 +291,22 @@ Typst is not that hard to learn when you know #TeX and #LaTeX.
     (80.587, 112.887)
   )
 
-  // left first finger
+  // 왼쪽 첫 번째 손가락
   line(
     (73.5, 107.591),
     (rel: (0, -9.5))
   )
-  // left second finger
+  // 왼쪽 두 번째 손가락
   line(
     (73.5, 107.591),
     (65.396, 100.824)
   )
-  // left third finger
+  // 왼쪽 세 번째 손가락
   line(
     (73.5, 107.591),
     (63.012, 105.839)
   )
-  // left fourth finger
+  // 왼쪽 네 번째 손가락
   bezier(
     (73.5, 107.591),
     (63.012, 111.04),
@@ -315,4 +315,3 @@ Typst is not that hard to learn when you know #TeX and #LaTeX.
   )
 })
 ```
-

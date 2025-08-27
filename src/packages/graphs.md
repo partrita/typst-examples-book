@@ -298,15 +298,15 @@ canvas(length: 1cm, {
   ```
   digraph structs {
       node [shape=plaintext]
-      struct1 [label=<
+      struct1 [label=< 
   <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
     <TR><TD>left</TD><TD PORT="f1">mid dle</TD><TD PORT="f2">right</TD></TR>
   </TABLE>>];
-      struct2 [label=<
+      struct2 [label=< 
   <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
     <TR><TD PORT="f0">one</TD><TD>two</TD></TR>
   </TABLE>>];
-      struct3 [label=<
+      struct3 [label=< 
   <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
     <TR>
       <TD ROWSPAN="3">hello<BR/>world</TD>
@@ -363,14 +363,14 @@ canvas(length: 1cm, {
 #render(```
          /\_/\
 bob ->  ( o.o )
-         \ " /
-  .------/  /
- (        | |
+         \ " / 
+  .------/  / 
+ (        | | 
   `====== o o
 ```)
 `````
 
-`````typ
+```````typ
 #import "@preview/bob-draw:0.1.0": *
 #show raw.where(lang: "bob"): it => render(it)
 
@@ -401,9 +401,9 @@ bob ->  ( o.o )
     + |         |     |       |  |         |    |       |
     -===-      _|_    |       | .+.        |    |       |
     -===-      .-.    |       | | | 2k2    |    |       |
-    -===-    470| +   |       | | |        |    |      _|_
+    -===-    470| +   |       | | |        |    |      _|_ 
     - |       uF|     '--.    | '+'       .+.   |      \ / LED
-      +---------o        |6   |7 |8    1k | |   |      -+-
+      +---------o        |6   |7 |8    1k | |   |      -+- 
              ___|___   .-+----+--+--.     | |   |       |
               -═══-    |            |     '+'   |       |
                 -      |            |1     |  |/  BC    |
@@ -424,9 +424,9 @@ bob ->  ( o.o )
                |            5|   4|             |             |
                |             |    '-------------o-------------o
                |             |                           ___  |
-               `-------------*------/\/\/------------o--|___|-'
+               `-------------*------/\/\------------o--|___|-' 
                                      2k              |       1k0
-                                                    .+.
+                                                    .+. 
                                                     | | 5k6 + 3k3
                                                     | | in Serie
                                                     '+'

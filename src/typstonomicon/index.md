@@ -1,9 +1,9 @@
-# Typstonomicon, or The Code You Should Not Write
-Totally cursed examples with lots of quires, measure and other things to hack around current Typst limitations.
-Generally you should use this code only if you really need it.
+# Typstonomicon, 또는 작성해서는 안 되는 코드
+현재 Typst 제한 사항을 해결하기 위해 많은 쿼리, 측정 및 기타 사항이 포함된 완전히 저주받은 예제입니다.
+일반적으로 정말로 필요한 경우에만 이 코드를 사용해야 합니다.
 
 <div class="warning">
-    Code in this chapter may break in lots of circumstances and debugging it will be very painful. You are warned.
+    이 챕터의 코드는 많은 상황에서 깨질 수 있으며 디버깅하는 것은 매우 고통스러울 것입니다. 경고했습니다.
 </div>
 
-I think that this chapter will slowly die as Typst matures.
+Typst가 성숙해짐에 따라 이 챕터는 서서히 사라질 것이라고 생각합니다.

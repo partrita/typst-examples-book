@@ -1,11 +1,11 @@
-# Color & Gradients
+# 색상 및 그라데이션
 
-## Gradients
+## 그라데이션
 
-Gradients may be very cool for presentations or just a pretty look.
+그라데이션은 프레젠테이션이나 예쁜 모양을 위해 매우 멋질 수 있습니다.
 
 ```typ
-/// author: frozolotl
+/// 저자: frozolotl
 #set page(paper: "presentation-16-9", margin: 0pt)
 #set text(fill: white, font: "Inter")
 
@@ -34,7 +34,7 @@ Gradients may be very cool for presentations or just a pretty look.
 
 #place(bottom, block(inset: 40pt)[
   #text(size: 30pt)[
-    Presentation Title
+    프레젠테이션 제목
   ]
 
   #text(size: 16pt)[#lorem(20) | #datetime.today().display()]

@@ -1,6 +1,6 @@
-# Wrapping figures
+# 그림 감싸기
 
-The better native support for wrapping is planned, however, something is already possible via package:
+더 나은 기본 감싸기 지원이 계획되어 있지만, 패키지를 통해 이미 일부 가능합니다:
 
 ```typ
 #import "@preview/wrap-it:0.1.1": wrap-content, wrap-top-bottom
@@ -8,7 +8,7 @@ The better native support for wrapping is planned, however, something is already
 #set par(justify: true)
 #let fig = figure(
   rect(fill: teal, radius: 0.5em, width: 8em),
-  caption: [A figure],
+  caption: [그림],
 )
 #let body = lorem(40)
 #wrap-content(fig, body)
@@ -27,9 +27,9 @@ The better native support for wrapping is planned, however, something is already
 
 #let fig2 = figure(
   rect(fill: lime, radius: 0.5em),
-  caption: [Another figure],
+  caption: [다른 그림],
 )
 #wrap-top-bottom(boxed, fig2, lorem(60))
 ```
 
-<div class="warning">Limitations: non-ideal spacing near warping, only top-bottom left/right are supported.</div>
+<div class="warning">제한 사항: 감싸기 근처의 이상적이지 않은 간격, 상단-하단 왼쪽/오른쪽만 지원됩니다.</div>

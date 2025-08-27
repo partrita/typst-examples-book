@@ -1,11 +1,11 @@
-# Make all math display math
+# 모든 수학을 디스플레이 수학으로 만들기
 
 <div class="warning">
-    May slightly interfere with math blocks.
+    수학 블록과 약간 충돌할 수 있습니다.
 </div>
 
 ```typ
-// author: eric1102
+// 저자: eric1102
 #show math.equation: it => {
   if it.body.fields().at("size", default: none) != "display" {
     return math.display(it)
@@ -13,8 +13,8 @@
   it
 }
 
-Inline math: $sum_(n=0)^oo e^(x^2 - n/x^2)$\
-Some other text on new line.
+인라인 수학: $sum_(n=0)^oo e^(x^2 - n/x^2)$\ 
+새 줄에 다른 텍스트.
 
 
 $

@@ -1,11 +1,11 @@
-# Scripts
+# 스크립트
 
-> To set scripts and limits see [Typst Basics section](../../basics/math/limits.md)
+> 스크립트 및 제한 설정은 [Typst 기본 섹션](../../basics/math/limits.md)을 참조하세요.
 
-## Make every character upright when used in subscript
+## 아래 첨자에 사용될 때 모든 문자를 정자로 만들기
 
 ```typ
-// author: emilyyyylime
+// 저자: emilyyyylime
 
 $f_a, f_b, f^a, f_italic("word")$
 #show math.attach: it => {

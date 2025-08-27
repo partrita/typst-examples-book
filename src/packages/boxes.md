@@ -1,19 +1,19 @@
-# Custom boxes
+# 사용자 정의 상자
 
-## Showbox
+## Showybox
 
 ```typ
 #import "@preview/showybox:2.0.1": showybox
 
 #showybox(
-  [Hello world!]
+  [안녕하세요, 세상!]
 )
 ```
 
 ```typ
 #import "@preview/showybox:2.0.1": showybox
 
-// First showybox
+// 첫 번째 showybox
 #showybox(
   frame: (
     border-color: red.darken(50%),
@@ -28,12 +28,12 @@
   shadow: (
     offset: 3pt,
   ),
-  title: "Red-ish showybox with separated sections!",
+  title: "분리된 섹션이 있는 빨간색 showybox!",
   lorem(20),
   lorem(12)
 )
 
-// Second showybox
+// 두 번째 showybox
 #showybox(
   frame: (
     dash: "dashed",
@@ -49,8 +49,8 @@
 	  offset: (x: 2pt, y: 3pt),
     color: yellow.lighten(70%)
   ),
-  [This is an important message!],
-  [Be careful outside. There are dangerous bananas!]
+  [이것은 중요한 메시지입니다!],
+  [밖은 위험하니 조심하세요. 위험한 바나나가 있습니다!]
 )
 ```
 
@@ -58,16 +58,16 @@
 #import "@preview/showybox:2.0.1": showybox
 
 #showybox(
-  title: "Stokes' theorem",
+  title: "스토크스의 정리",
   frame: (
     border-color: blue,
     title-color: blue.lighten(30%),
     body-color: blue.lighten(95%),
     footer-color: blue.lighten(80%)
   ),
-  footer: "Information extracted from a well-known public encyclopedia"
+  footer: "잘 알려진 공개 백과사전에서 발췌한 정보"
 )[
-  Let $Sigma$ be a smooth oriented surface in $RR^3$ with boundary $diff Sigma equiv Gamma$. If a vector field $bold(F)(x,y,z)=(F_x (x,y,z), F_y (x,y,z), F_z (x,y,z))$ is defined and has continuous first order partial derivatives in a region containing $Sigma$, then
+  $Sigma$를 경계 $diff Sigma equiv Gamma$를 갖는 $RR^3$의 매끄러운 유향 곡면이라고 가정합니다. 벡터 필드 $bold(F)(x,y,z)=(F_x (x,y,z), F_y (x,y,z), F_z (x,y,z))$가 $Sigma$를 포함하는 영역에서 정의되고 연속적인 1계 편도함수를 갖는 경우,
 
   $ integral.double_Sigma (bold(nabla) times bold(F)) dot bold(Sigma) = integral.cont_(diff Sigma) bold(F) dot dif bold(Gamma) $
 ]
@@ -89,9 +89,9 @@
     thickness: (left: 1pt),
     radius: 0pt
   ),
-  title: "Carnot cycle's efficiency"
+  title: "카르노 사이클의 효율성"
 )[
-  Inside a Carnot cycle, the efficiency $eta$ is defined to be:
+  카르노 사이클 내부에서 효율성 $eta$는 다음과 같이 정의됩니다:
 
   $ eta = W/Q_H = frac(Q_H + Q_C, Q_H) = 1 - T_C/T_H $
 ]
@@ -106,12 +106,12 @@
     align: right,
     color: black
   ),
-  title: "Divergence theorem",
+  title: "발산 정리",
   footer: [
-    In the case of $n=3$, $V$ represents a volume in three-dimensional space, and $diff V = S$ its surface
+    $n=3$의 경우, $V$는 3차원 공간의 부피를 나타내고 $diff V = S$는 그 표면입니다
   ]
 )[
-  Suppose $V$ is a subset of $RR^n$ which is compact and has a piecewise smooth boundary $S$ (also indicated with $diff V = S$). If $bold(F)$ is a continuously differentiable vector field defined on a neighborhood of $V$, then:
+  $V$가 조각적으로 매끄러운 경계 $S$(또한 $diff V = S$로 표시됨)를 갖는 $RR^n$의 부분 집합이라고 가정합니다. $bold(F)$가 $V$의 근방에서 정의된 연속적으로 미분 가능한 벡터 필드인 경우:
 
   $ integral.triple_V (bold(nabla) dot bold(F)) dif V = integral.surf_S (bold(F) dot bold(hat(n))) dif S $
 ]
@@ -129,15 +129,15 @@
     body-inset: 2em,
     dash: "densely-dash-dotted"
   ),
-  title: "Gauss's Law"
+  title: "가우스의 법칙"
 )[
-  The net electric flux through any hypothetical closed surface is equal to $1/epsilon_0$ times the net electric charge enclosed within that closed surface. The closed surface is also referred to as Gaussian surface. In its integral form:
+  가상 폐쇄 표면을 통과하는 순 전기 선속은 해당 폐쇄 표면 내에 둘러싸인 순 전하량의 $1/epsilon_0$배와 같습니다. 폐쇄 표면은 가우스 표면이라고도 합니다. 적분 형태:
 
   $ Phi_E = integral.surf_S bold(E) dot dif bold(A) = Q/epsilon_0 $
 ]
 ```
 
-## Colorful boxes
+## 다채로운 상자
 
 ```typ
 #import "@preview/colorful-boxes:1.2.0": colorbox, slantedColorbox, outlinebox, stickybox
@@ -188,6 +188,6 @@
 ]
 ```
 
-## Theorems
+## 정리
 
-See [math](./math.md)
+[수학](./math.md) 참조

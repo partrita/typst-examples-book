@@ -1,19 +1,19 @@
 ---
-name: New snippet
-about: Add new snippet to the book
-title: "[Snippet(s) name here]"
+name: 새 스니펫
+about: 책에 새 스니펫 추가
+title: "[여기에 스니펫 이름]"
 labels: new snippet
 assignees: sitandr
 
 ---
 
-**Location**: [where in the book should be snippet located]
+**위치**: [책의 어느 부분에 스니펫이 위치해야 하나요]
 
-**Importance**: [why should it be in the book]
+**중요성**: [왜 책에 포함되어야 하나요]
 
-**Snippet**:
+**스니펫**:
 ```typ
-[The code there]
+[여기에 코드]
 ```
 
-<!-- If possible, attach rendered image from snippet, plese. -->
+<!-- 가능하다면, 스니펫에서 렌더링된 이미지를 첨부해주세요. -->

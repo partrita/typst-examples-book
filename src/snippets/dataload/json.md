@@ -1,17 +1,17 @@
 # JSON
 
-`author: MuhammadAly11`
+`저자: MuhammadAly11`
 
-Here's an example of how you could import and use json array form json file.
+json 파일에서 json 배열을 가져와 사용하는 방법의 예입니다.
 
-Consider the following example of data for the test you want to write:
+작성하려는 테스트에 대한 다음 데이터 예제를 고려하십시오:
 
 ```json
 [
     {
         "sn": "1",
         "source": "Science",
-        "question": "What is the chemical symbol for water?",
+        "question": "물의 화학 기호는 무엇입니까?",
         "answer": "a",
         "a": "H₂O",
         "b": "CO₂",
@@ -21,7 +21,7 @@ Consider the following example of data for the test you want to write:
     {
         "sn": "2",
         "source": "History",
-        "question": "Who was the first president of the United States?",
+        "question": "미국의 초대 대통령은 누구였습니까?",
         "answer": "a",
         "a": "George Washington",
         "b": "Abraham Lincoln",
@@ -30,7 +30,7 @@ Consider the following example of data for the test you want to write:
 ]
 ```
 
-You can import this file and use it in Typst:
+이 파일을 가져와 Typst에서 사용할 수 있습니다:
 
 ```typ
 #let json_data = json("../file.json")

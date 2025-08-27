@@ -1,12 +1,12 @@
 ---
-name: Mistake found
-about: Point a problem in example, language, rendering or anything else
-title: "[What mistake you've found?]"
+name: 발견된 오류
+about: 예제, 언어, 렌더링 또는 기타 문제 지적
+title: "[어떤 오류를 발견했나요?]"
 labels: mistake
 assignees: sitandr
 
 ---
 
-**Issue**: [what problem have you found]
+**문제**: [어떤 문제를 발견했나요]
 
-**Location**: [where in the book the mistake is located, attach the url and specify the example if possible]
+**위치**: [책의 어느 부분에 오류가 있는지, 가능하다면 URL을 첨부하고 예시를 명시해주세요]

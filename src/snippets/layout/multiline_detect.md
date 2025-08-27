@@ -1,11 +1,11 @@
-# Multiline detection
+# 여러 줄 감지
 
-Detects if figure caption (may be any other element) _has more than one line_.
+그림 캡션(다른 요소일 수 있음)에 _한 줄 이상_이 있는지 감지합니다.
 
-If the caption is multiline, it makes it left-aligned.
+캡션이 여러 줄이면 왼쪽 정렬됩니다.
 
 <div class="warning">
- Breaks on manual linebreaks.
+ 수동 줄 바꿈에서 깨집니다.
 </div>
 
 `````typ

@@ -1,8 +1,8 @@
-# Scripting
-## Unflatten arrays
+# 스크립팅
+## 배열 평탄화 해제
 
 ```typ
-// author: PgSuper
+// 저자: PgSuper
 #let unflatten(arr, n) = {
   let columns = range(0, n).map(_ => ())
   for (i, x) in arr.enumerate() {
@@ -15,41 +15,39 @@
 #unflatten((1, 2, 3, 4, 5, 6), 3)
 ```
 
-## Create an abbreviation
+## 약어 만들기
 ```typ
 #let full-name = "Federal University of Ceará"
 
 #let letts = {
   full-name
     .split()
-    .map(word => word.at(0)) // filter only capital letters
+    .map(word => word.at(0)) // 대문자만 필터링
     .filter(l => upper(l) == l)
     .join()
 }
 #letts
 ```
 
-## Split the string retrieving separators
+## 구분 기호를 검색하여 문자열 분할
 
 ```typ
 #",this, is a a a a; a. test? string!".matches(regex("(\b[\P{Punct}\s]+\b|\p{Punct})")).map(x => x.captures).join()
 ```
 
-## Create selector matching any values in an array
+## 배열의 모든 값과 일치하는 선택기 만들기
 
-This snippet creates a selector (that is then used in a show rule) that
-matches any of the values inside the array. Here, it is used to highlight
-a few raw lines, but it can be easily adapted to any kind of selector.
+이 스니펫은 배열 내부의 모든 값과 일치하는 선택기(그런 다음 표시 규칙에서 사용됨)를 만듭니다. 여기서는 몇 개의 원시 줄을 강조 표시하는 데 사용되지만 모든 종류의 선택기에 쉽게 적용할 수 있습니다.
 
 ````typ
-// author: Blokyk
+// 저자: Blokyk
 #let lines = (2, 3, 5)
 #let lines-selectors = lines.map(lineno => raw.line.where(number: lineno))
 #let lines-combined-selector = lines-selectors.fold(
-  // start with the first selector by default
-  // you can also use a selector that wouldn't ever match anything, if possible
+  // 기본적으로 첫 번째 선택기로 시작
+  // 가능한 경우 아무것도 일치하지 않는 선택기를 사용할 수도 있습니다.
   lines-selectors.at(0),
-  selector.or // create an OR of all selectors (alternatively: (acc, sel) => acc.or(sel))
+  selector.or // 모든 선택기의 OR 만들기 (또는: (acc, sel) => acc.or(sel))
 )
 
 #show lines-combined-selector: highlight
@@ -63,29 +61,26 @@ def foo(x, y):
 ```
 ````
 
-## Synthesize show (or show-set) rules from dictionnary
+## 사전에서 표시(또는 표시-설정) 규칙 합성
 
-This snippet applies a show-set rule to any element inside a dictionary,
-by using the key as the selector and the value as the parameter to set.
-In this example, it's used to give custom supplements to custom figure
-kinds, based on a dictionnary of correspondances.
+이 스니펫은 사전을 사용하여 키를 선택기로 사용하고 값을 설정할 매개변수로 사용하여 사전 내부의 모든 요소에 표시-설정 규칙을 적용합니다. 이 예에서는 대응 사전을 기반으로 사용자 정의 그림 종류에 사용자 정의 보충 자료를 제공하는 데 사용됩니다.
 
 ```typ
-// author: laurmaedje
+// 저자: laurmaedje
 #let kind_supp_dict = (
-  algo: "Pseudo-code",
-  ex: "Example",
-  prob: "Problem",
+  algo: "의사 코드",
+  ex: "예제",
+  prob: "문제",
 )
 
-// apply this rule to the whole (rest of the) document
+// 이 규칙을 전체 (나머지) 문서에 적용합니다.
 #show: it => {
   kind_supp_dict
-    .pairs() // get an array of key-value pairs
-    .fold( // we're going to stack show-set rules before the document
-      it, // start with the default document
+    .pairs() // 키-값 쌍의 배열 가져오기
+    .fold( // 문서 앞에 표시-설정 규칙을 쌓을 것입니다.
+      it, // 기본 문서로 시작
       (acc, (kind, supp)) => {
-        // add the curent kind-supp combination on top of the rest
+        // 나머지 위에 현재 종류-보충 조합을 추가합니다.
         show figure.where(kind: kind): set figure(supplement: supp)
         acc
       }
@@ -93,12 +88,11 @@ kinds, based on a dictionnary of correspondances.
 }
 #figure(
     kind: "algo",
-    caption: [My code],
-    ```Algorithm there```
+    caption: [내 코드],
+    ```거기에 알고리즘```
 )
 ```
 
-Additonnaly, as this is applied at the position where you
-write it, these show-set rules will appear as if they were added in
-the same place where you wrote this rule. This means that you can
-override them later, just like any other show-set rules.
+추가로, 이것은
+작성한 위치에 적용되므로 이러한 표시-설정 규칙은
+작성한 것과 동일한 위치에 추가된 것처럼 나타납니다. 즉, 다른 표시-설정 규칙과 마찬가지로 나중에 재정의할 수 있습니다.

@@ -1,9 +1,9 @@
-# Shaped boxes with text
+# 텍스트가 있는 모양 상자
 
-(I guess that will make a package eventually, but let it be a snippet for now)
+(결국 패키지가 될 것이라고 생각하지만, 지금은 스니펫으로 두겠습니다)
 
 ```typ
-/// author: JustForFun88
+/// 저자: JustForFun88
 #import "@preview/oxifmt:0.2.1": strfmt
 
 #let shadow_svg_path = `
@@ -14,14 +14,14 @@
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:svg="http://www.w3.org/2000/svg">
-    <!-- Definitions for reusable components -->
+    <!-- 재사용 가능한 구성 요소에 대한 정의 -->
     <defs>
         <filter id="shadowing" >
             <feGaussianBlur in="SourceGraphic" stdDeviation="{blur}" />
         </filter>
     </defs>
 
-    <!-- Drawing the rectangle with a fill and feGaussianBlur effect -->
+    <!-- 채우기 및 feGaussianBlur 효과가 있는 사각형 그리기 -->
     <path
         style="fill: {flood-color}; opacity: {flood-opacity}; filter:url(#shadowing)"
         d="{vertices} Z" />
@@ -108,11 +108,11 @@
     inset: 1em, fill: teal,
     stroke: 1.5pt + teal.darken(50%),
     shadow_fill: red,
-    dx: 0.5em, dy: 0.35em, blur: 3)[Hello there!]
+    dx: 0.5em, dy: 0.35em, blur: 3)[안녕하세요!]
 #shadowed_shape(shape: parallelogram,
     inset: 1em, fill: teal,
     stroke: 1.5pt + teal.darken(50%),
     shadow_fill: red,
-    dx: 0.5em, dy: 0.35em, blur: 3)[Hello there!]
+    dx: 0.5em, dy: 0.35em, blur: 3)[안녕하세요!]
 
 ```

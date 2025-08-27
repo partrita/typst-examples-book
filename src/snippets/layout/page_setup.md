@@ -1,6 +1,6 @@
-# Page setup
+# 페이지 설정
 
-> See [Official Page Setup guide](https://typst.app/docs/guides/page-setup-guide/)
+> [공식 페이지 설정 가이드](https://typst.app/docs/guides/page-setup-guide/) 참조
 
 
 ```typ
@@ -16,21 +16,13 @@
 
 ```typ
 #set page(columns: 2, height: 4.8cm)
-Climate change is one of the most
-pressing issues of our time, with
-the potential to devastate
-communities, ecosystems, and
-economies around the world. It's
-clear that we need to take urgent
-action to reduce our carbon
-emissions and mitigate the impacts
-of a rapidly changing climate.
+기후 변화는 우리 시대의 가장 시급한 문제 중 하나이며, 전 세계 지역 사회, 생태계 및 경제를 황폐화시킬 가능성이 있습니다. 탄소 배출량을 줄이고 급격하게 변화하는 기후의 영향을 완화하기 위해 시급한 조치를 취해야 한다는 것은 분명합니다.
 ```
 
 ```typ
 #set page(fill: rgb("444352"))
 #set text(fill: rgb("fdfdfd"))
-*Dark mode enabled.*
+*다크 모드 활성화됨.*
 ```
 
 ```typ
@@ -50,7 +42,5 @@ of a rapidly changing climate.
 ```typ
 #set page(foreground: text(24pt)[🥸])
 
-Reviewer 2 has marked our paper
-"Weak Reject" because they did
-not understand our approach...
+검토자 2는 우리의 접근 방식을 이해하지 못했기 때문에 우리 논문을 "약한 거절"로 표시했습니다...
 ```

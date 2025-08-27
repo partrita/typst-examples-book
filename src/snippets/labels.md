@@ -1,5 +1,5 @@
-# Labels
-## Get chapter of label
+# 레이블
+## 레이블의 챕터 가져오기
 ```typ
 #let ref-heading(label) = context {
   let elems = query(label)
@@ -13,29 +13,29 @@
   link(label, element.body)
 }
 
-= Design <design>
+= 디자인 <design>
 #lorem(20)
 
-= Implementation
-In #ref-heading(<design>), we discussed...
+= 구현
+#ref-heading(<design>)에서 논의했듯이...
 ```
 
-## Allow missing references
+## 누락된 참조 허용
 
 ```typ
-// author: Enivex
+// 저자: Enivex
 #set heading(numbering: "1.")
 
 #let myref(label) = context {
     if query(label).len() != 0 {
         ref(label)
     } else {
-        // missing reference
+        // 누락된 참조
         text(fill: red)[???]
     }
 }
 
-= Second <test2>
+= 두 번째 <test2>
 
 #myref(<test>)
 

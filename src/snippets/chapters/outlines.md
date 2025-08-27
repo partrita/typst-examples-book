@@ -1,26 +1,26 @@
-# Outlines
+# 개요
 
-# Outlines
+# 개요
 
-> Lots of outlines examples are already available in [official reference](https://typst.app/docs/reference/model/outline/)
+> [공식 참조](https://typst.app/docs/reference/model/outline/)에서 많은 개요 예제를 이미 사용할 수 있습니다.
 
-## Table of contents
+## 목차
 
 ```typ
 #outline()
 
-= Introduction
+= 서론
 #lorem(5)
 
-= Prior work
+= 이전 연구
 #lorem(10)
 ```
 
-## Outline of figures
+## 그림 개요
 
 ```typ
 #outline(
-  title: [List of Figures],
+  title: [그림 목록],
   target: figure.where(kind: table),
 )
 
@@ -30,70 +30,70 @@
     [t], [1], [2], [3],
     [y], [0.3], [0.7], [0.5],
   ),
-  caption: [Experiment results],
+  caption: [실험 결과],
 )
 ```
 
-You can use arbitrary selector there, so you can do any crazy things.
+거기서 임의의 선택자를 사용할 수 있으므로, 어떤 미친 짓이든 할 수 있습니다.
 
-<!--TODO: crazy example with labels and selector combinations-->
+<!--TODO: 레이블과 선택자 조합의 미친 예제-->
 
-## Ignore low-level headings
+## 낮은 수준의 제목 무시
 
 ```typ
 #set heading(numbering: "1.")
 #outline(depth: 2)
 
-= Yes
-Top-level section.
+= 예
+최상위 섹션.
 
-== Still
-Subsection.
+== 여전히
+하위 섹션.
 
-=== Nope
-Not included.
+=== 아니요
+포함되지 않음.
 ```
 
-## Set indentation
+## 들여쓰기 설정
 
 ```typ
 #set heading(numbering: "1.a.")
 
 #outline(
-  title: [Contents (Automatic)],
+  title: [목차 (자동)],
   indent: auto,
 )
 
 #outline(
-  title: [Contents (Length)],
+  title: [목차 (길이)],
   indent: 2em,
 )
 
 #set outline.entry(fill: "→")
 #outline(
-  title: [Contents (Function)],
+  title: [목차 (함수)],
 )
 
-= About ACME Corp.
-== History
-=== Origins
+= ACME Corp. 소개
+== 역사
+=== 기원
 #lorem(10)
 
-== Products
+== 제품
 #lorem(10)
 ```
 
-## Replace default dots
+## 기본 점 바꾸기
 
 ```typ
 #set outline.entry(fill: line(length: 100%))
 #outline(indent: 2em)
 
-= First level
-== Second level
+= 첫 번째 수준
+== 두 번째 수준
 ```
 
-## Make different outline levels look different
+## 다른 개요 수준을 다르게 보이게 만들기
 
 ```typ
 #set heading(numbering: "1.")
@@ -107,19 +107,19 @@ Not included.
 
 #outline(indent: auto)
 
-= Introduction
-= Background
-== History
-== State of the Art
-= Analysis
-== Setup
+= 서론
+= 배경
+== 역사
+== 최신 기술
+= 분석
+== 설정
 ```
 
-## Long and short captions for the outline
+## 개요를 위한 길고 짧은 캡션
 
 ```typ
-// author: laurmaedje
-// Put this somewhere in your template or at the start of your document.
+// 저자: laurmaedje
+// 템플릿이나 문서 시작 부분에 이것을 넣으세요.
 #let in-outline = state("in-outline", false)
 #show outline: it => {
   in-outline.update(true)
@@ -129,29 +129,29 @@ Not included.
 
 #let flex-caption(long, short) = context if in-outline.get() { short } else { long }
 
-// And this is in the document.
-#outline(title: [Figures], target: figure)
+// 그리고 이것은 문서에 있습니다.
+#outline(title: [그림], target: figure)
 
 #figure(
   rect(),
   caption: flex-caption(
-    [This is my long caption text in the document.],
-    [This is short],
+    [이것은 문서의 긴 캡션 텍스트입니다.],
+    [이것은 짧습니다],
   )
 )
 ```
 
-## Ignore citations and footnotes
+## 인용 및 각주 무시
 
-That's a workaround a problem that if you make a footnote a heading, its number will be displayed in outline:
+각주를 제목으로 만들면 개요에 번호가 표시되는 문제를 해결하는 방법입니다:
 
 ```typ
 
-= Heading #footnote[A footnote]
+= 제목 #footnote[각주]
 
-Text
+텍스트
 
-#outline() // bad :(
+#outline() // 나쁨 :(
 
 #pagebreak()
 #{

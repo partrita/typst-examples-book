@@ -1,4 +1,4 @@
-# Individual language fonts
+# 개별 언어 글꼴
 
 ```typ
 A cat แปลว่า แมว

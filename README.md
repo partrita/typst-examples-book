@@ -1,57 +1,57 @@
-# Typst Examples Book
+# Typst 예제집
 
-See the book there: https://sitandr.github.io/typst-examples-book/book/
+여기에서 책을 보세요: https://sitandr.github.io/typst-examples-book/book/
 
-## Highlight & rendering
+## 하이라이트 및 렌더링
 
-Currently powered by https://github.com/sitandr/mdbook-typst-highlight.
+현재 https://github.com/sitandr/mdbook-typst-highlight 로 구동됩니다.
 
-## Contributing
+## 기여
 
-If you have a snippet you want to have in a book, feel free to create an issue.
+책에 넣고 싶은 스니펫이 있다면 언제든지 이슈를 생성해주세요.
 
-Any PR-s are very welcome!
+어떤 PR이든 대환영입니다!
 
-Generally encouraged:
+일반적으로 권장되는 사항:
 
-- Editing (expanding examples, fixing bad language issues)
-- Selecting any really useful code examples from Discord and Github
-- Ideas (just any ideas how to make the book more useful)
+- 편집 (예제 확장, 잘못된 언어 문제 수정)
+- Discord 및 Github에서 정말 유용한 코드 예제 선택
+- 아이디어 (책을 더 유용하게 만드는 방법에 대한 모든 아이디어)
 
-Currently needed:
-- Help with updating state manual to context expressions.
-- Updating examples with possibilities of new Typst versions
-- Some impressive demos
+현재 필요한 것:
+- 상태 설명서를 컨텍스트 표현식으로 업데이트하는 데 도움.
+- 새로운 Typst 버전의 가능성으로 예제 업데이트
+- 몇 가지 인상적인 데모
 
-If you think you can do some large work, please DM me in Discord (@sitandr) or mail (andr.sitnikov34@gmail.com) to avoid duplication.
+큰 작업을 할 수 있다고 생각되면 중복을 피하기 위해 Discord (@sitandr) 또는 메일 (andr.sitnikov34@gmail.com)로 DM을 보내주세요.
 
-Also please DM me if I'm forgetting about your PR. I have bad memory.
+또한 제가 당신의 PR을 잊어버렸다면 DM을 보내주세요. 기억력이 좋지 않습니다.
 
-## Rules
+## 규칙
 
-1. Many snippets are taken from Discord, Github or other places. Without using them that book would much, much more harder to write. However, getting a consent for every snippet will be a total disaster.
-    So, as a general rule, if the snippet is a non-trivial one (one that combines typst functions in a smart way), there should be a credit to original author (of course, the credit will be removed if author objects).
-2. In "Typst by Example" section the concepts that are not told yet should be avoided if possible. Although it is okay to use them if they are really intuitive and without them the demonstration would be too dull.
-3. "Typst Snippets" and "Typstonomicon" should not include staff that is already present in official packages. Instead, there should be a link to a package. However, it is allowed to use packages as a tool in snippets, if the package using is "secondary" there or the idea of using that package for that task is not obvious.
-4. Giant queries and hack things should go to "Typstonomicon", not "Typst snippets", even if they are super-useful. "Typst snippets" should contain code as clean as possible.
+1. 많은 스니펫은 Discord, Github 또는 다른 곳에서 가져옵니다. 그것들을 사용하지 않으면 그 책은 훨씬 더 쓰기 어려울 것입니다. 그러나 모든 스니펫에 대한 동의를 얻는 것은 완전한 재앙이 될 것입니다.
+    따라서 일반적인 규칙으로, 스니펫이 사소하지 않은 것(typst 함수를 영리한 방식으로 결합하는 것)인 경우 원저자에게 크레딧을 제공해야 합니다(물론 저자가 반대하면 크레딧은 제거됩니다).
+2. "예제로 보는 Typst" 섹션에서는 아직 설명되지 않은 개념은 가능한 한 피해야 합니다. 그러나 정말 직관적이고 그것들 없이는 데모가 너무 지루할 경우 사용하는 것은 괜찮습니다.
+3. "Typst 스니펫" 및 "Typstonomicon"에는 공식 패키지에 이미 있는 직원이 포함되어서는 안 됩니다. 대신 패키지에 대한 링크가 있어야 합니다. 그러나 패키지 사용이 "부차적"이거나 해당 작업에 해당 패키지를 사용하는 아이디어가 명확하지 않은 경우 스니펫에서 패키지를 도구로 사용하는 것이 허용됩니다.
+4. 거대한 쿼리와 해킹은 "Typst 스니펫"이 아니라 "Typstonomicon"으로 가야 합니다. "Typst 스니펫"은 가능한 한 깨끗한 코드를 포함해야 합니다.
 
-## Cleaning cached Typst files
+## 캐시된 Typst 파일 정리
 
 ```bash
 git clean -d -X -i
 ```
 
-Make sure to avoid deleting something useful.
+유용한 것을 삭제하지 않도록 주의하세요.
 
-## Compiling
+## 컴파일
 
-To compile the book, you need `typst` cli installed, `mdbook` and my highlighting & rendering preprocessor `mdbook-typst-highlight`. Assuming `typst` is already installed, installation using cargo:
+책을 컴파일하려면 `typst` cli, `mdbook` 및 저의 하이라이팅 및 렌더링 전처리기 `mdbook-typst-highlight`가 설치되어 있어야 합니다. `typst`가 이미 설치되어 있다고 가정하고 cargo를 사용한 설치:
 
 ```bash
 cargo install mdbook
 cargo install --git https://github.com/sitandr/mdbook-typst-highlight
 ```
 
-Alternatively you can install them precompiled from `mdbook` and `mdbook-typst-highlight` releases. In the end you should have to have the latest versions of them all in your PATH.
+또는 `mdbook` 및 `mdbook-typst-highlight` 릴리스에서 사전 컴파일된 것을 설치할 수 있습니다. 결국 PATH에 모든 최신 버전이 있어야 합니다.
 
-After everything installed, `mdbook build` will build the book. You can also use `mdbook watch` for continuous rebuilding, and `--open` option to open the book in your browser. For more details on building, see `mdbook` documentation.
+모든 것이 설치되면 `mdbook build`가 책을 빌드합니다. 지속적인 재빌드를 위해 `mdbook watch`를 사용할 수도 있으며, 브라우저에서 책을 열려면 `--open` 옵션을 사용하세요. 빌드에 대한 자세한 내용은 `mdbook` 설명서를 참조하세요.

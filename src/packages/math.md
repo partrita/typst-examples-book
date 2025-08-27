@@ -96,16 +96,16 @@
   // expval(평균/기댓값), eval(평가 경계)
   [$ expval(X) = eval(f(x)/g(x))^oo_1 $],
   // 디랙 브라켓 표기법
-  [$
-    bra(u), braket(u), braket(u, v), \
-    ket(u), ketbra(u), ketbra(u, v), \
+  [$ 
+    bra(u), braket(u), braket(u, v), \ 
+    ket(u), ketbra(u), ketbra(u, v), \ 
     mel(phi, hat(p), psi) $],
   // 명시적으로 활성화해야 하는 위 첨자 표시 규칙.
   // 콘텐츠 블록에 넣으면 해당 블록의 범위만 제어합니다.
   [
     #show: super-T-as-transpose // "..^T" 필기처럼
     #show: super-plus-as-dagger // "..^+" 필기처럼
-    $ op("conj")A^T =^"def" A^+ \
+    $ op("conj")A^T =^"def" A^+ \ 
       e^scripts(T), e^scripts(+) $ ], // scripts()로 재정의
 )
 ```
@@ -133,7 +133,7 @@ $
 
 $ dmat(1, 2)  dmat(1, a_1, xi, fill:0)               quad
   admat(1, 2) admat(1, a_1, xi, fill:dot, delim:"[") quad
-  imat(2)     imat(3, delim:"{",fill:*) quad
+  imat(2)     imat(3, delim:"{",fill:*") quad
   zmat(2)     zmat(3, delim:"|") $
 ```
 
@@ -285,7 +285,10 @@ Lemmify는 많은 선택자 및 번호 매기기 기능이 있는 또 다른 정
 #import "@preview/lemmify:0.1.5": *
 
 #let my-thm-style(
-  thm-type, name, number, body
+  thm-type,
+  name,
+  number,
+  body
 ) = grid(
   columns: (1fr, 3fr),
   column-gutter: 1em,

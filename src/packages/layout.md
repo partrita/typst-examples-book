@@ -52,7 +52,7 @@
 
   #greybox[
     함수 $g(n)$이 주어졌을 때, $O(g(n))$은 다음 *함수 집합*을 나타냅니다:
-    #redbold(${f(n): "존재" c > 0 "그리고" n_0 > 0, "그런" f(n) <= c dot g(n) "모든" n >= n_0}$)
+    #redbold(${f(n): "존재" c > 0 "그리고" n_0 > 0, "그런" f(n) <= c dot g(n) "모든" n >= n_0$})
   ]
 
   #pinit-highlight("h1", "h2")
@@ -63,7 +63,7 @@
 
   #pinit-line(stroke: 3pt + crimson, start-dy: -0.25em, end-dy: -0.25em, 1, 2)
 
-  #block[삽입 정렬 #pin("r1")예시#pin("r2"):]
+  #block[삽입 정렬 #pin("r1")예시#pin("r2"): ]
 
   - 최상의 경우: $T(n) approx c n + c' n - c''$ #pin(3)
   - 최악의 경우: $T(n) approx c n + (c' \/ 2) n^2 - c''$ #pin(4)
@@ -295,4 +295,6 @@
 
 = 부록
 #lorem(10)
+```
+
 ```

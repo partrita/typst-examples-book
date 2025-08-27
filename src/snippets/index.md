@@ -1,2 +1,2 @@
-# Typst Snippets
-Useful snippets for common (and not) tasks.
+# Typst 스니펫
+일반적인 (그리고 그렇지 않은) 작업에 유용한 스니펫입니다.
