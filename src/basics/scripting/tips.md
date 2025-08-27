@@ -1,10 +1,10 @@
-# Tips
+# 팁
 
-There are lots of elements in Typst scripting that are not obvious, but important. All the book is designated to show them, but some of them
+Typst 스크립팅에는 명확하지 않지만 중요한 요소가 많이 있습니다. 이 책 전체가 그것들을 보여주기 위해 만들어졌지만, 그 중 일부는
 
-## Equality
+## 동등성
 
-Equality doesn't mean objects are really the same, like in many other objects:
+동등성은 다른 많은 객체에서처럼 객체가 실제로 동일하다는 것을 의미하지 않습니다:
 
 ```typ
 #let a = 7
@@ -13,7 +13,7 @@ Equality doesn't mean objects are really the same, like in many other objects:
 #(type(a) == type(b))
 ```
 
-That may be less obvious for dictionaries. In dictionaries **the order may matter**, so equality doesn't mean they behave exactly the same way:
+이것은 사전의 경우 덜 명확할 수 있습니다. 사전에서는 **순서가 중요할 수 있으므로**, 동등성이 정확히 동일하게 작동한다는 것을 의미하지는 않습니다:
 
 ```typ
 #let a = (x: 1, y: 2)
@@ -22,19 +22,19 @@ That may be less obvious for dictionaries. In dictionaries **the order may matte
 #(a.pairs() == b.pairs())
 ```
 
-## Check key is in dictionary
+## 키가 사전에 있는지 확인
 
-Use the keyword `in`, like in `Python`:
+`Python`에서처럼 `in` 키워드를 사용하세요:
 
 ```typ
 #let dict = (a: 1, b: 2)
 
 #("a" in dict)
-// gives the same as
+// 다음과 동일합니다
 #(dict.keys().contains("a"))
 ```
 
-Note it works for lists too:
+목록에서도 작동합니다:
 
 ```typ
 #("a" in ("b", "c", "a"))

@@ -1,31 +1,31 @@
-# Tables
+# 표
 
-## Tada: data manipulation
+## Tada: 데이터 조작
 
 ```typ
 #import "@preview/tada:0.2.0"
 
 #let column-data = (
-  name: ("Bread", "Milk", "Eggs"),
+  name: ("빵", "우유", "계란"),
   price: (1.25, 2.50, 1.50),
   quantity: (2, 1, 3),
 )
 #let record-data = (
-  (name: "Bread", price: 1.25, quantity: 2),
-  (name: "Milk", price: 2.50, quantity: 1),
-  (name: "Eggs", price: 1.50, quantity: 3),
+  (name: "빵", price: 1.25, quantity: 2),
+  (name: "우유", price: 2.50, quantity: 1),
+  (name: "계란", price: 1.50, quantity: 3),
 )
 #let row-data = (
-  ("Bread", 1.25, 2),
-  ("Milk", 2.50, 1),
-  ("Eggs", 1.50, 3),
+  ("빵", 1.25, 2),
+  ("우유", 2.50, 1),
+  ("계란", 1.50, 3),
 )
 
 #import tada: TableData, to-tablex
 #let td = TableData(data: column-data)
-// Equivalent to:
+// 다음과 동일:
 #let td2 = tada.from-records(record-data)
-// _Not_ equivalent to (since field names are unknown):
+// 다음과 같지 않음(필드 이름을 알 수 없으므로):
 #let td3 = tada.from-rows(row-data)
 
 #to-tablex(td)
@@ -33,24 +33,24 @@
 #to-tablex(td3)
 ```
 
-## Tablem: markdown tables
+## Tablem: 마크다운 표
 
-> See documentation [there](https://github.com/OrangeX4/typst-tablem)
+> [여기](https://github.com/OrangeX4/typst-tablem)에서 문서 참조
 
-Render markdown tables in Typst.
+Typst에서 마크다운 표를 렌더링합니다.
 
 ```typ
 #import "@preview/tablem:0.2.0": tablem
 
 #tablem[
-  | *Name* | *Location* | *Height* | *Score* |
+  | *이름* | *위치* | *키* | *점수* |
   | ------ | ---------- | -------- | ------- |
   | John   | Second St. | 180 cm   |  5      |
   | Wally  | Third Av.  | 160 cm   |  10     |
 ]
 ```
 
-### Custom render
+### 사용자 정의 렌더링
 
 ```typ
 #import "@preview/tablex:0.0.6": tablex, hlinex
@@ -71,7 +71,7 @@ Render markdown tables in Typst.
 )
 
 #three-line-table[
-  | *Name* | *Location* | *Height* | *Score* |
+  | *이름* | *위치* | *키* | *점수* |
   | ------ | ---------- | -------- | ------- |
   | John   | Second St. | 180 cm   |  5      |
   | Wally  | Third Av.  | 160 cm   |  10     |

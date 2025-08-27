@@ -1,55 +1,55 @@
-# Measure, Layout
-<div class="warning">This section is outdated. It may be still useful, but it is strongly recommended to study new context system (using the reference).</div>
+# 측정, 레이아웃
+<div class="warning">이 섹션은 오래되었습니다. 여전히 유용할 수 있지만, 새로운 컨텍스트 시스템(참조 사용)을 공부하는 것이 좋습니다.</div>
 
-## Style & Measure
+## 스타일 및 측정
 
-> Style [documentation](https://typst.app/docs/reference/foundations/style/).
+> 스타일 [문서](https://typst.app/docs/reference/foundations/style/).
 
-> Measure [documentation](https://typst.app/docs/reference/layout/measure/).
+> 측정 [문서](https://typst.app/docs/reference/layout/measure/).
 
-`measure` returns _the element size_. This command is extremely helpful when doing custom layout with `place`.
+`measure`는 _요소 크기_를 반환합니다. 이 명령은 `place`로 사용자 정의 레이아웃을 수행할 때 매우 유용합니다.
 
-However, there is a catch. Element size depends on styles, applied to this element.
+그러나 함정이 있습니다. 요소 크기는 이 요소에 적용된 스타일에 따라 다릅니다.
 
 ```typ
-#let content = [Hello!]
+#let content = [안녕하세요!]
 #content
 #set text(14pt)
 #content
 ```
 
-So if we will set the big text size for some part of our text, to measure the element's size,
-we have to know _where the element is located_. Without knowing it, we can't tell what styles should be applied.
+따라서 텍스트의 일부에 큰 텍스트 크기를 설정하면 요소의 크기를 측정하기 위해,
+_요소가 어디에 있는지 알아야 합니다_. 그것을 알지 못하면 어떤 스타일을 적용해야 하는지 알 수 없습니다.
 
-So yep, you are right. We need the `context`.
+네, 맞습니다. `context`가 필요합니다.
 
 ```typ
 #let thing(body) = context {
   let size = measure(body)
-  [Width of "#body" is #size.width]
+  [너비 "#body"는 #size.width입니다]
 }
 
 #thing[Hey] \
 #thing[Welcome]
 ```
 
-# Layout
+# 레이아웃
 
-Layout is similar to `measure`, but it returns current scope **parent size**.
+레이아웃은 `measure`와 유사하지만 현재 범위의 **부모 크기**를 반환합니다.
 
-If you are putting elements in block, that will be block's size. If you are just putting right on the page, that will be page's size.
+블록에 요소를 넣으면 블록 크기가 됩니다. 페이지에 바로 넣으면 페이지 크기가 됩니다.
 
-For some technical reasons, however, it can't use `context` and needs to use the very similar scheme (it is the one the `context` has emerged from, in fact):
+그러나 몇 가지 기술적인 이유로 `context`를 사용할 수 없으며 매우 유사한 체계를 사용해야 합니다(사실 `context`가 나온 체계입니다).
 
 ```typ
-/// It's a black box that receives the parent size and renders something with it:
+/// 부모 크기를 받아 무언가를 렌더링하는 블랙박스입니다:
 #layout(size => {
   let half = 50% * size.width
-  [Half a page is #half wide.]
+  [페이지의 절반은 #half 너비입니다.]
 })
 ```
 
-It may be extremely useful to combine `layout` with `measure`, to get width of things that depend on parent's size:
+`layout`과 `measure`를 결합하여 부모 크기에 따라 달라지는 것들의 너비를 얻는 것이 매우 유용할 수 있습니다:
 
 ```typ
 #let text = lorem(30)
@@ -57,8 +57,7 @@ It may be extremely useful to combine `layout` with `measure`, to get width of t
   #let (height,) = measure(
     block(width: size.width, text)
   )
-  This text is #height high with
-  the current page width: \
+  이 텍스트는 현재 페이지 너비에서 #height 높이입니다: \
   #text
 ])
 ```

@@ -1,100 +1,99 @@
-# Markup language
-## Starting
+# 마크업 언어
+## 시작하기
 ```typ
-Starting typing in Typst is easy.
-You don't need packages or other weird things for most of things.
+Typst에서 타이핑을 시작하는 것은 쉽습니다.
+대부분의 작업에 패키지나 다른 이상한 것들이 필요하지 않습니다.
 
-Blank line will move text to a new paragraph.
+빈 줄은 텍스트를 새 문단으로 이동시킵니다.
 
-Btw, you can use any language and unicode symbols
-without any problems as long as the font supports it: ßçœ̃ɛ̃ø∀αβёыა😆…
+참고로, 글꼴이 지원하는 한 어떤 언어와 유니코드 기호든
+문제없이 사용할 수 있습니다: ßçœ̃ɛ̃ø∀αβёыა😆…
 ```
 
-## Markup
+## 마크업
 ```typ
-= Markup
+= 마크업
 
-This was a heading. Number of `=` in front of name corresponds to heading level.
+이것은 제목이었습니다. 이름 앞의 `=`의 수는 제목 수준에 해당합니다.
 
-== Second-level heading
+== 두 번째 수준 제목
 
-Okay, let's move to _emphasis_ and *bold* text.
+자, 이제 _강조_와 *굵은* 텍스트로 넘어가 봅시다.
 
-Markup syntax is generally similar to
-`AsciiDoc` (this was `raw` for monospace text!)
+마크업 구문은 일반적으로
+`AsciiDoc`(이것은 고정폭 텍스트를 위한 `raw`였습니다!)과 유사합니다.
 ```
 
-## New lines & Escaping
+## 줄바꿈 및 이스케이프
 ```typ
-You can break \
-line anywhere you \
-want using "\\" symbol.
+"\\" 기호를 사용하여 원하는 곳 어디에서나
+줄을 바꿀 수 있습니다.
 
-Also you can use that symbol to
-escape \_all the symbols you want\_,
-if you don't want it to be interpreted as markup
-or other special symbols.
+또한 그 기호를 사용하여
+마크업이나 다른 특수 기호로
+해석되기를 원하지 않는 \_모든 기호를
+이스케이프할 수 있습니다.
 ```
 
-## Comments & codeblocks
+## 주석 및 코드 블록
 ```````typ
-You can write comments with `//` and `/* comment */`:
-// Like this
-/* Or even like
-this */
+`//`와 `/* 주석 */`으로 주석을 작성할 수 있습니다:
+// 이렇게
+/* 또는 이렇게
+여러 줄로 */
 
 ```typ
-Just in case you didn't read source,
-this is how it is written:
+소스를 읽지 않으셨을 경우를 대비하여,
+작성 방법은 다음과 같습니다:
 
-// Like this
-/* Or even like
-this */
+// 이렇게
+/* 또는 이렇게
+여러 줄로 */
 
-By the way, I'm writing it all in a _fenced code block_ with *syntax highlighting*!
+덧붙여, 저는 지금 이 모든 것을 *구문 강조*가 적용된 _펜스 코드 블록_ 안에 작성하고 있습니다!
 ```
 ```````
 
-## Smart quotes
+## 스마트 인용 부호
 
 ```typ
-== What else?
+== 또 뭐가 있을까요?
 
-There are not much things in basic "markup" syntax,
-but we will see much more interesting things very soon!
-I hope you noticed auto-matched "smart quotes" there.
+기본적인 "마크업" 구문에는 많은 것이 없지만,
+곧 훨씬 더 흥미로운 것들을 보게 될 것입니다!
+자동으로 맞춰진 "스마트 인용 부호"를 눈치채셨기를 바랍니다.
 ```
 
-## Lists
+## 목록
 ```typ
-- Writing lists in a simple way is great.
-- Nothing complex, start your points with `-`
-  and this will become a list.
-  - Indented lists are created via indentation.
+- 간단한 방법으로 목록을 작성하는 것은 좋습니다.
+- 복잡한 것 없이, `-`로 항목을 시작하면
+  이것이 목록이 됩니다.
+  - 들여쓴 목록은 들여쓰기를 통해 만들어집니다.
 
-+ Numbered lists start with `+` instead of `-`.
-+ There is no alternative markup syntax for lists
-+ So just remember `-` and `+`, all other symbols
-  wouldn't work in an unintended way.
-  + That is a general property of Typst's markup.
-  + Unlike Markdown, there is only one way
-    to write something with it.
++ 번호 매기기 목록은 `-` 대신 `+`로 시작합니다.
++ 목록에 대한 대체 마크업 구문은 없습니다.
++ 그러니 `-`와 `+`만 기억하면, 다른 모든 기호들은
+  의도하지 않은 방식으로 작동하지 않을 것입니다.
+  + 이것이 Typst 마크업의 일반적인 속성입니다.
+  + 마크다운과 달리, 무언가를 작성하는 방법은
+    오직 하나뿐입니다.
 ```
 
-**Notice:**
+**주의:**
 ```typ
-Typst numbered lists differ from markdown-like syntax for lists. If you write them by hand, numbering is preserved:
+Typst의 번호 매기기 목록은 마크다운과 같은 목록 구문과 다릅니다. 직접 작성하면 번호가 유지됩니다:
 
-1. Apple
-1. Orange
-1. Peach
+1. 사과
+1. 오렌지
+1. 복숭아
 ```
 
-## Math
+## 수학
 ```typ
 
-I will just mention math ($a + b/c = sum_i x^i$)
-is possible and quite pretty there:
+수학($a + b/c = sum_i x^i$)이
+가능하고 꽤 예쁘다는 것만 언급하겠습니다:
 
 $
 7.32 beta +
@@ -102,5 +101,5 @@ $
     (Q_i (a_i - epsilon)) / 2
 $
 
-To learn more about math, see corresponding chapter.
+수학에 대해 더 배우려면, 해당 챕터를 보세요.
 ```

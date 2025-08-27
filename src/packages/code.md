@@ -1,8 +1,8 @@
-# Code
+# 코드
 
 ## `codly`
 
-> See docs [there](https://github.com/Dherse/codly)
+> [여기](https://github.com/Dherse/codly)에서 문서 참조
 
 ``````typ
 #import "@preview/codly:0.1.0": codly-init, codly, disable-codly
@@ -19,10 +19,10 @@
 #show: codly-init.with()
 ```
 
-// Still formatted!
+// 여전히 서식이 지정됨!
 ```rust
 pub fn main() {
-    println!("Hello, world!");
+    println!("안녕하세요, 세상!");
 }
 ```
 
@@ -43,8 +43,8 @@ pub fn main() {
   #name
 ]
 
-This report is embedded in the
-ArtosFlow project. ArtosFlow is a
-project of the Artos Institute.
+이 보고서는
+ArtosFlow 프로젝트에 포함되어 있습니다. ArtosFlow는
+Artos Institute의 프로젝트입니다.
 ```]
 ``````

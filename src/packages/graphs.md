@@ -1,12 +1,12 @@
-# Graphs
+# 그래프
 
 ## `cetz`
 
-Cetz comes with quite built-in support of drawing basic graphs.
-It is much more customizable and extensible then packages like `plotst`,
-so it is recommended to skim through its possibilities.
+Cetz는 기본적인 그래프를 그리는 데 꽤 내장된 지원을 제공합니다.
+`plotst`와 같은 패키지보다 훨씬 더 사용자 정의가 가능하고 확장 가능하므로,
+그 가능성을 훑어보는 것이 좋습니다.
 
-> See full manual [there](https://github.com/johannes-wolf/cetz/blob/master/manual.pdf?raw=true).
+> 전체 설명서는 [여기](https://github.com/johannes-wolf/cetz/blob/master/manual.pdf?raw=true)를 참조하세요.
 
 ```typ
 #import "@preview/cetz:0.3.4"
@@ -44,7 +44,7 @@ so it is recommended to skim through its possibilities.
          (a: to, number: .6, abs: true, b: from), mark: (end: ">"))
   }, name: "tree")
 
-  // Draw a "custom" connection between two nodes
+  // 두 노드 사이에 "사용자 정의" 연결 그리기
   let (a, b) = ("tree.0-0-1", "tree.0-1-0",)
   line((a: a, number: .6, abs: true, b: b), (a: b, number: .6, abs: true, b: a), mark: (end: ">", start: ">"))
 })
@@ -109,7 +109,7 @@ so it is recommended to skim through its possibilities.
 })
 ```
 
-### Draw a graph in polar coords
+### 극좌표계에서 그래프 그리기
 ```typ
 #import "@preview/cetz:0.3.4": canvas, plot
 
@@ -131,11 +131,11 @@ canvas(length: 1cm, {
         t => (13*calc.cos(t)-5*calc.cos(2*t)-2*calc.cos(3*t)-calc.cos(4*t), 16*calc.sin(t)*calc.sin(t)*calc.sin(t))
         )
     })
-}), caption: "Plot made with cetz",)
+}), caption: "cetz로 만든 플롯",)
 ```
 
 ## `diagraph`
-### Test
+### 테스트
 
 ```````typ
 #import "@preview/diagraph:0.2.0": *
@@ -157,7 +157,7 @@ canvas(length: 1cm, {
 )
 ```````
 
-### Eating
+### 먹기
 
 ```````typ
 #import "@preview/diagraph:0.2.0": *
@@ -180,7 +180,7 @@ canvas(length: 1cm, {
 
 ### FFT
 
-Labels are overridden manually.
+레이블은 수동으로 재정의됩니다.
 
 ```````typ
 #import "@preview/diagraph:0.2.0": *
@@ -207,7 +207,7 @@ Labels are overridden manually.
 )
 ```````
 
-### State Machine
+### 상태 기계
 
 ```````typ
 #import "@preview/diagraph:0.2.0": *
@@ -246,9 +246,9 @@ Labels are overridden manually.
 )
 ```````
 
-### Clustering
+### 클러스터링
 
-> See [docs](http://www.graphviz.org/content/cluster).
+> [문서](http://www.graphviz.org/content/cluster) 참조.
 
 ```````typ
 #import "@preview/diagraph:0.2.0": *
@@ -328,9 +328,9 @@ Labels are overridden manually.
 )
 ```````
 
-### Overridden labels
+### 재정의된 레이블
 
-Labels for nodes `big` and `sum` are overridden.
+노드 `big` 및 `sum`의 레이블이 재정의됩니다.
 
 ```````typ
 #import "@preview/diagraph:0.2.0": *
@@ -356,7 +356,7 @@ Labels for nodes `big` and `sum` are overridden.
 
 ## `bob-draw`
 
- WASM plugin for [svgbob](https://github.com/ivanceras/svgbob) to draw easily with ASCII,.
+ [svgbob](https://github.com/ivanceras/svgbob)용 WASM 플러그인으로 ASCII로 쉽게 그릴 수 있습니다.
 
 `````typ
 #import "@preview/bob-draw:0.1.0": *
@@ -439,9 +439,8 @@ bob ->  ( o.o )
 
 ## `finite`
 
-Finite automata. See the
-[manual](https://github.com/jneug/typst-finite/blob/main/manual.pdf) for a full
-documentation.
+유한 오토마타. 전체 문서는
+[설명서](https://github.com/jneug/typst-finite/blob/main/manual.pdf)를 참조하세요.
 
 ```typ
 #import "@preview/finite:0.3.0": automaton

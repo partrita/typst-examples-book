@@ -1,133 +1,133 @@
-# Functions
-## Functions
+# 함수
+## 함수
 
 ```typ
-Okay, let's now move to more complex things.
+자, 이제 더 복잡한 것으로 넘어가 봅시다.
 
-First of all, there are *lots of magic* in Typst.
-And it major part of it is called "scripting".
+우선, Typst에는 *많은 마법*이 있습니다.
+그리고 그 대부분은 "스크립팅"이라고 불립니다.
 
-To go to scripting mode, type `#` and *some function name*
-after that. We will start with _something dull_:
+스크립팅 모드로 들어가려면, `#`을 입력하고
+그 뒤에 *함수 이름*을 입력하세요. 우리는 _재미없는 것_부터 시작하겠습니다:
 
 #lorem(50)
 
-_That *function* just generated 50 "Lorem Ipsum" words!_
+_저 *함수*가 방금 "Lorem Ipsum" 단어 50개를 생성했습니다!_
 ```
 
-## More functions
+## 더 많은 함수
 
 ```typ
-#underline[functions can do everything!]
+#underline[함수는 모든 것을 할 수 있습니다!]
 
 #text(orange)[L]ike #text(size: 0.8em)[Really] #sub[E]verything!
 
 #figure(
   caption: [
-    This is a screenshot from one of first theses written in Typst. \
-    _All these things are written with #text(blue)[custom functions] too._
+    이것은 Typst로 작성된 최초의 논문 중 하나의 스크린샷입니다. \
+    _이 모든 것들은 #text(blue)[사용자 정의 함수]로 작성되었습니다._
   ],
   image("../boxes.png", width: 80%)
 )
 
-In fact, you can #strong[forget] about markup
-and #emph[just write] functions everywhere!
+사실, 마크업을 #strong[잊어버리고]
+어디에서나 함수를 #emph[그냥 작성]할 수 있습니다!
 
 #list[
-  All that markup is just a #emph[syntax sugar] over functions!
+  모든 마크업은 함수에 대한 #emph[문법적 설탕]일 뿐입니다!
 ]
 ```
 
-## How to call functions
+## 함수 호출 방법
 
 ```typ
-First, start with `#`. Then write the name.
-Finally, write some parentheses and maybe something inside.
+먼저, `#`으로 시작하세요. 그런 다음 이름을 쓰세요.
+마지막으로, 괄호를 쓰고 안에 무언가를 넣을 수도 있습니다.
 
-You can navigate lots of built-in functions
-in #link("https://typst.app/docs/reference/")[Official Reference].
+#link("https://typst.app/docs/reference/")[공식 레퍼런스]에서
+많은 내장 함수를 탐색할 수 있습니다.
 
-#quote(block: true, attribution: "Typst Examples Book")[
-  That's right, links, quotes and lots of
-  other document elements are created with functions.
+#quote(block: true, attribution: "Typst 예제집")[
+  맞습니다, 링크, 인용 및 기타 많은
+  문서 요소는 함수로 만들어집니다.
 ]
 ```
 
-## Function arguments
+## 함수 인수
 
 ```typ
-There are _two types_ of function arguments:
+함수 인수에는 _두 가지 유형_이 있습니다:
 
-+ *Positional.* Like `50` in `lorem(50)`.
-  Just write them in parentheses and it will be okay.
-  If you have many, use commas.
-+ *Named.* Like in `#quote(attribution: "Whoever")`.
-  Write the value after a name and a colon.
++ *위치.* `lorem(50)`의 `50`과 같습니다.
+  괄호 안에 그냥 쓰면 괜찮습니다.
+  여러 개가 있다면 쉼표를 사용하세요.
++ *이름.* `#quote(attribution: "누군가")`에서처럼요.
+  이름과 콜론 뒤에 값을 쓰세요.
 
-If argument is named, it has some _default value_.
-To find out what it is, see
-#link("https://typst.app/docs/reference/")[Official Typst Reference].
+인수에 이름이 지정되면, _기본값_이 있습니다.
+그것이 무엇인지 알아보려면,
+#link("https://typst.app/docs/reference/")[공식 Typst 레퍼런스]를 보세요.
 ```
 
-## Content
+## 콘텐츠
 
-Now we should probably try writing our own functions
+이제 우리 자신의 함수를 작성해 봐야 할 것 같습니다.
 
 ```typ
-The most "universal" type in Typst language is *content*.
-Everything you write in the document becomes content.
+Typst 언어에서 가장 "보편적인" 유형은 *콘텐츠*입니다.
+문서에 쓰는 모든 것이 콘텐츠가 됩니다.
 
 #[
-  But you can explicitly create it with
-  _scripting mode_ and *square brackets*.
+  하지만 _스크립팅 모드_와 *대괄호*를 사용하여
+  명시적으로 만들 수 있습니다.
 
-  There, in square brackets, you can use any markup
-  functions or whatever you want.
+  거기, 대괄호 안에서, 원하는 마크업
+  함수나 무엇이든 사용할 수 있습니다.
 ]
 ```
 
-## Markup and code modes
+## 마크업 및 코드 모드
 ```typ
-When you use `#`, you are "switching" to code mode.
-When you use `[]`, you turn back into _markup_ (or content) mode:
+`#`를 사용할 때, 당신은 코드 모드로 "전환"하는 것입니다.
+`[]`를 사용할 때, 당신은 _마크업_ (또는 콘텐츠) 모드로 돌아갑니다:
 
-// +-- going from markup (the default mode) to scripting for that function
-// |                 +-- scripting mode: calling `text`, the last argument is markup
-// |     first arg   |
+// +-- 기본 모드인 마크업에서 해당 함수를 위해 스크립팅으로 이동
+// |                 +-- 스크립팅 모드: `text` 호출, 마지막 인수는 마크업
+// |     첫 번째 인수   |
 // v     vvvvvvvvv   vvvv
    #rect(width: 5cm, text(red)[hello *world*])
-//  ^^^^                       ^^^^^^^^^^^^^ just a markup argument for `text`
+//  ^^^^                       ^^^^^^^^^^^^^ `text`를 위한 마크업 인수일 뿐
 //  |
-//  +-- calling `rect` in scripting mode, with two arguments: width and other content
+//  +-- 스크립팅 모드에서 `rect` 호출, 두 개의 인수 사용: 너비와 다른 콘텐츠
 ```
 
-## Passing content into functions
+## 함수에 콘텐츠 전달하기
 ```typ
-So what are these square brackets after functions?
+그렇다면 함수 뒤의 이 대괄호는 무엇일까요?
 
-If you *write content right after
-function, it will be passed as positional argument there*.
+*함수 바로 뒤에 콘텐츠를 작성하면,
+거기에 위치 인수로 전달됩니다*.
 
 #quote(block: true)[
-  So #text(red)[_that_] allows me to write
-  _literally anything in things
-  I pass to #underline[functions]!_
+  그래서 #text(red)[_이것_]은 제가
+  #underline[함수]에 전달하는 것들에
+  _말 그대로 무엇이든_ 쓸 수 있게 해줍니다!
 ]
 ```
 
-## Passing content, part II
+## 콘텐츠 전달하기, 파트 II
 
-`````typ
-So, just to make it clear, when I write
+```````typ
+자, 명확히 하기 위해, 제가 이렇게 쓸 때
 
 ```typ
 - #text(red)[red text]
 - #text([red text], red)
 - #text("red text", red)
 //      ^        ^
-// Quotes there mean a plain string, not a content!
-// This is just text.
+// 여기서 인용 부호는 콘텐츠가 아닌 일반 문자열을 의미합니다!
+// 이것은 그냥 텍스트입니다.
 ```
 
-It all will result in a #text([red text], red).
-`````
+이 모든 것은 #text([red text], red)가 됩니다.
+```````

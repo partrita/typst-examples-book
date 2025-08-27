@@ -1,10 +1,10 @@
-# Setting limits
+# 한계 설정
 
-Sometimes we want to change how the default attaching should work. 
+때로는 기본 첨부 방식이 어떻게 작동하는지 변경하고 싶을 때가 있습니다.
 
-## Limits
-For example, in many countries it is common to write definite integrals with limits below and above.
-To set this, use `limits` function:
+## 한계
+예를 들어, 많은 국가에서는 아래와 위에 한계가 있는 정적분을 작성하는 것이 일반적입니다.
+이를 설정하려면 `limits` 함수를 사용합니다:
 
 ```typ
 $
@@ -13,7 +13,7 @@ limits(integral)_a^b
 $
 ```
 
-You can set this by default using `show` rule:
+`show` 규칙을 사용하여 기본적으로 설정할 수 있습니다:
 
 ```typ
 #show math.integral: math.limits
@@ -22,12 +22,12 @@ $
 integral_a^b
 $
 
-This is inline equation: $integral_a^b$
+이것은 인라인 방정식입니다: $integral_a^b$
 ```
 
-## Only display mode
+## 디스플레이 모드만
 
-Notice that this will also affect inline equations. To enable limits for display math only, use `limits(inline: false)`:
+이것은 인라인 방정식에도 영향을 미칩니다. 디스플레이 수학에만 한계를 활성화하려면 `limits(inline: false)`를 사용하세요:
 
 ```typ
 #show math.integral: math.limits.with(inline: false)
@@ -36,10 +36,10 @@ $
 integral_a^b
 $
 
-This is inline equation: $integral_a^b$.
+이것은 인라인 방정식입니다: $integral_a^b$.
 ```
 
-Of course, it is possible to move them back as bottom attachments:
+물론, 하단 첨부 파일로 다시 이동할 수 있습니다:
 
 ```typ
 $
@@ -48,10 +48,10 @@ $
 ```
 
 
-## Operations
+## 연산
 
-The same scheme works for operations. By default, they are attached to the bottom and top:
+연산에도 동일한 방식이 적용됩니다. 기본적으로 하단과 상단에 첨부됩니다:
 
 ```typ
-$a =_"By lemme 1" b, a scripts(=)_+ b$
+$a =_"정리 1에 의해" b, a scripts(=)_+ b$
 ```

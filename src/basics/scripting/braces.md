@@ -1,76 +1,76 @@
-# Braces, brackets and default
-## Square brackets
-You may remember that square brackets convert everything inside to *content*.
+# 중괄호, 대괄호 및 기본값
+## 대괄호
+대괄호가 안의 모든 것을 *콘텐츠*로 변환한다는 것을 기억할 것입니다.
 ```typ
-#let v = [Some text, _markup_ and other #strong[functions]]
+#let v = [일부 텍스트, _마크업_ 및 기타 #strong[함수]]
 #v
 ```
 
-We may use same for functions bodies:
+함수 본문에도 동일하게 사용할 수 있습니다:
 ```typ
-#let f(name) = [Hello, #name]
-#f[World] // also don't forget we can use it to pass content!
+#let f(name) = [안녕하세요, #name]
+#f[세상] // 콘텐츠를 전달하는 데 사용할 수 있다는 것을 잊지 마세요!
 ```
 
-**Important:** It is very hard to convert _content_ to _plain text_, as _content_ may contain *anything*! So be careful when passing and storing content in variables.
+**중요:** _콘텐츠_는 *무엇이든* 포함할 수 있으므로 _콘텐츠_를 _일반 텍스트_로 변환하는 것은 매우 어렵습니다! 따라서 변수에 콘텐츠를 전달하고 저장할 때 주의하세요.
 
-## Braces
+## 중괄호
 
-However, we often want to use code inside functions.
-That's when we use `{}`:
+그러나 우리는 종종 함수 내에서 코드를 사용하고 싶어합니다.
+그럴 때 `{}`를 사용합니다:
 ```typ
 #let f(name) = {
-  // this is code mode
+  // 이것은 코드 모드입니다
 
-  // First part of our output
-  "Hello, "
+  // 출력의 첫 번째 부분
+  "안녕하세요, "
 
-  // we check if name is empty, and if it is,
-  // insert placeholder
+  // 이름이 비어 있는지 확인하고, 비어 있으면
+  // 자리 표시자를 삽입합니다
   if name == "" {
-      "anonym"
+      "익명"
   } else {
       name
   }
 
-  // finish sentence
+  // 문장 끝내기
   "!"
 }
 
 #f("")
 #f("Joe")
-#f("world")
+#f("세상")
 ```
 
-## When to use what
+## 언제 무엇을 사용해야 할까
 
-So, as we have seen, we can use both
+그래서, 우리가 본 것처럼, 둘 다 사용할 수 있습니다
 
 ```typ
 #let f(name) = [
-  Hello, #name
+  안녕하세요, #name
 ]
 #f("Joe")
 ```
 
-And
+그리고
 
 ```typ
 #let f(name) = {
-  [Hello,]
+  [안녕하세요,]
   name
 }
 #f("Joe")
 ```
 
-So when to use what?
+그렇다면 언제 무엇을 사용해야 할까요?
 
-Well, the answer is simple: which way the code is cleaner.
+음, 답은 간단합니다: 코드가 더 깔끔한 쪽을 사용하세요.
 
-So don't do that:
+그러니 이렇게 하지 마세요:
 ```typ
-// DON'T DO THAT
-// PLEASE
+// 이렇게 하지 마세요
+// 제발
 #let f(inner) = [
   #set align(center)
   #set box(stroke: red)
@@ -82,69 +82,69 @@ So don't do that:
 ]
 ```
 
-Can you see how it can be simplified when using code mode?
+코드 모드를 사용하면 어떻게 단순화될 수 있는지 보이시나요?
 
-## Scopes
-**This is a very important thing to remember**.
+## 스코프
+**이것은 기억해야 할 매우 중요한 것입니다**.
 
-_You can't use variables outside of scopes they are defined (unless it is file root, then you can import them)_. _Set and show rules affect things in their scope only._
+_정의된 스코프 밖에서는 변수를 사용할 수 없습니다(파일 루트인 경우 가져올 수 있음)_. _Set 및 show 규칙은 해당 스코프 내에서만 영향을 미칩니다._
 ```typ
 #{
   let a = 3;
 }
-// can't use "a" there.
+// 여기서 "a"를 사용할 수 없습니다.
 
 #[
   #show "true": "false"
 
-  This is true.
+  이것은 사실입니다.
 ]
 
-This is true.
+이것은 사실입니다.
 ```
 
-## Return
-**Important**: by default braces return anything that "returns" into them. For example,
+## 반환
+**중요**: 기본적으로 중괄호는 그 안으로 "반환"되는 모든 것을 반환합니다. 예를 들어,
 ```typ
 #let change_world() = {
-  // some code there changing everything in the world
+  // 세상을 바꾸는 어떤 코드
   str(4e7)
-  // another code changing the world
+  // 세상을 바꾸는 또 다른 코드
 }
 
 #let g() = {
-  "Hahaha, I will change the world now! "
+  "하하하, 이제 세상을 바꿀 것이다! "
   change_world()
-  " So here is my long evil monologue..."
+  " 그러니 여기 나의 긴 사악한 독백이 있다..."
 }
 
 #g()
 ```
 
-To avoid returning everything, return only what you want explicitly, otherwise everything will be joined:
+모든 것을 반환하는 것을 피하려면, 명시적으로 원하는 것만 반환하세요. 그렇지 않으면 모든 것이 결합됩니다:
 ```typ
 #let f() = {
-  "Some long text"
-  // Crazy numbers
+  "긴 텍스트"
+  // 미친 숫자들
   "2e7"
   return none
 }
 
-// Returns nothing
+// 아무것도 반환하지 않음
 #f()
 ```
 
-## Default values
-What we made just now was inventing "default values".
+## 기본값
+방금 우리가 한 것은 "기본값"을 발명한 것입니다.
 
-They are very common in styling, so there is a special syntax for them:
+이것들은 스타일링에서 매우 일반적이므로, 특별한 구문이 있습니다:
 ```typ
-#let f(name: "anonym") = [Hello, #name!]
+#let f(name: "익명") = [안녕하세요, #name!]
 
 #f()
 #f(name: "Joe")
-#f(name: "world")
+#f(name: "세상")
 ```
 
-You may have noticed that the argument became _named_ now.
-In Typst, named argument is an argument _that has default value_.
+이제 인수가 _이름이 지정_되었다는 것을 눈치챘을 것입니다.
+Typst에서 이름이 지정된 인수는 _기본값이 있는_ 인수입니다.

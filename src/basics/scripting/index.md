@@ -1,2 +1,2 @@
-# Scripting
-**Typst** has a complete interpreted language inside. One of key aspects of working with your document in a nicer way
+# 스크립팅
+**Typst**에는 완전한 인터프리터 언어가 내장되어 있습니다. 문서를 더 멋지게 다루는 핵심적인 측면 중 하나입니다.
