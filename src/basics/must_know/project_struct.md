@@ -75,7 +75,7 @@
 
 #import "../template.typ": *
 
-_스타일링_과 블록이 있는 콘텐츠일 뿐입니다:
+_스타일링_ 과 블록이 있는 콘텐츠일 뿐입니다:
 
 #infoblock[일부 정보].
 
@@ -90,6 +90,6 @@ Typst의 모듈은 스스로 생성했거나 가져온(import) 것만 볼 수 �
 
 ## 순환 참조 (Cyclic imports)
 
-**중요:** Typst는 순환 참조(cyclic imports)를 _금지_합니다. 즉, `chapter_1`에서 `chapter_2`를 가져오면서 동시에 `chapter_2`에서 `chapter_1`을 가져올 수 없습니다!
+**중요:** Typst는 순환 참조(cyclic imports)를 _금지_ 합니다. 즉, `chapter_1`에서 `chapter_2`를 가져오면서 동시에 `chapter_2`에서 `chapter_1`을 가져올 수 없습니다!
 
 하지만 좋은 소식은 언제든지 변수를 가져올 다른 파일을 만들 수 있다는 것입니다.
