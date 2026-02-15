@@ -3,7 +3,7 @@ author = "sitandr"
 language = "ko"
 multilingual = false
 src = "src"
-title = "Typst 예시 북"
+title = "Typst 예시"
 
 [preprocessor.typst-highlight]
 #disable_inline = true
