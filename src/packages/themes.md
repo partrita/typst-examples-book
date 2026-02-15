@@ -37,6 +37,7 @@ Typst에서 테마는 주로 패키지 형태로 제공되며, 문서 전체의 
     lastname: "홍",
     positions: ("전문가", "개발자"),
   ),
+  profile-picture: none,
   font: "Noto Sans CJK KR",
 )
 

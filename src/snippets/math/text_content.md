@@ -13,7 +13,7 @@ $ v = d / t quad "속도는 시간분의 거리이다" $
 `#`을 사용하여 수식 내부에서도 Typst의 모든 기능을 호출할 수 있습니다.
 
 ```typ
-$ integral_0^1 f(x) dif x = #rect(fill: cyan.lighten(80%), [결과값]) $
+$ integral_0^1 f(x) dif x = #rect(fill: blue.lighten(80%), [결과값]) $
 ```
 
 ## 텍스트 스타일 지정
