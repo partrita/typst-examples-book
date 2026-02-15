@@ -1,18 +1,18 @@
-# Grouping
+# 그룹화 (Grouping)
 
-Every grouping can be (currently) done by parenthesis.
-So the parenthesis may be both "real" parenthesis and grouping ones.
+모든 그룹화는 (현재) 괄호로 수행할 수 있습니다.
+따라서 괄호는 "실제" 괄호일 수도 있고 그룹화를 위한 괄호일 수도 있습니다.
 
-For example, these parentheses specify nominator of the fraction:
+예를 들어, 다음 괄호들은 분수의 분자를 지정합니다:
 
 ```typ
 $ (a^2 + b^2)/2 $
 ```
 
-## Left-right
-> See [official documentation](https://typst.app/docs/reference/math/lr).
+## 좌우 (Left-right)
+> [공식 문서](https://typst.app/docs/reference/math/lr)를 참조하세요.
 
-If there are two matching braces of any kind, they will be wrapped as `lr` (left-right) group.
+종류에 상관없이 두 개의 일치하는 괄호가 있으면 `lr`(left-right) 그룹으로 묶입니다.
 
 ```typ
 $
@@ -20,9 +20,9 @@ $
 $
 ```
 
-You can disable it by escaping.
+이스케이프를 사용하여 이 기능을 비활성화할 수 있습니다.
 
-You can also match braces of any kind by using `lr` directly:
+또한 `lr`을 직접 사용하여 모든 종류의 괄호를 일치시킬 수도 있습니다:
 
 ```typ
 $
@@ -31,11 +31,11 @@ lr([a/2, b), size: #150%)
 $
 ```
 
-## Fences
+## 펜스 (Fences)
 
-Fences _are not matched automatically_ because of large amount of false-positives.
+펜스(Fences)는 오탐지가 많기 때문에 _자동으로 짝을 맞추지 않습니다_.
 
-You can use `abs` or `norm` to match them:
+`abs`나 `norm`을 사용하여 짝을 맞출 수 있습니다:
 
 ```typ
 $

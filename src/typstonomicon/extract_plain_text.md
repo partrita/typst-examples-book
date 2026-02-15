@@ -1,6 +1,6 @@
-# Extracting plain text
+# 일반 텍스트 추출
 ```typ
-// original author: ntjess
+// 원저자: ntjess
 #let stringify-by-func(it) = {
   let func = it.func()
   return if func in (parbreak, pagebreak, linebreak) {
@@ -8,10 +8,10 @@
   } else if func == smartquote {
     if it.double { "\"" } else { "'" } // "
   } else if it.fields() == (:) {
-    // a fieldless element is either specially represented (and caught earlier) or doesn't have text
+    // 필드가 없는 요소는 특별히 표현되거나(미리 처리됨) 텍스트가 없음
     ""
   } else {
-    panic("Not sure how to handle type `" + repr(func) + "`")
+    panic("타입 `" + repr(func) + "`을(를) 처리하는 방법을 모르겠습니다.")
   }
 }
 
@@ -31,26 +31,26 @@
       plain-text(it.text)
     }
   } else {
-    // remove this to ignore all other non-text elements
+    // 다른 텍스트가 아닌 요소를 무시하려면 이 부분을 제거하세요
     stringify-by-func(it)
   }
 }
 
-#plain-text(`raw inline text`)
+#plain-text(`raw 인라인 텍스트`)
 
-#plain-text(highlight[Highlighted text])
+#plain-text(highlight[강조된 텍스트])
 
-#plain-text[List
-  - With
-  - Some
-  - Elements
+#plain-text[목록
+  - 일부
+  - 요소를
+  - 포함함
 
-  + And
-  + Enumerated
-  + Too
+  + 그리고
+  + 번호 매기기도
+  + 포함함
 ]
 
-#plain-text(underline[Underlined])
+#plain-text(underline[밑줄])
 
 #plain-text($sin(x + y)$)
 
@@ -69,7 +69,7 @@
   linebreak()
 }
 
-// Some empty elements
+// 일부 빈 요소들
 #plain-text(circle())
 #plain-text(line())
 

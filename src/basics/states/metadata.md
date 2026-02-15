@@ -1,13 +1,13 @@
-# Metadata
+# 메타데이터 (Metadata)
 
-Metadata is invisible content that can be extracted using query or other content.
-This may be very useful with `typst query` to pass values to external tools.
+메타데이터는 쿼리나 다른 콘텐츠를 사용하여 추출할 수 있는 보이지 않는 콘텐츠입니다.
+이는 외부 도구에 값을 전달하기 위해 `typst query`를 사용할 때 매우 유용할 수 있습니다.
 
 ```typ
-// Put metadata somewhere.
-#metadata("This is a note") <note>
+// 어딘가에 메타데이터를 배치합니다.
+#metadata("이것은 메모입니다") <note>
 
-// And find it from anywhere else.
+// 그리고 다른 어디서든 이를 찾습니다.
 #context {
   query(<note>).first().value
 }

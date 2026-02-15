@@ -1,10 +1,10 @@
-# Classes
+# 클래스 (Classes)
 
-> See [official documentation](https://typst.app/docs/reference/math/class/)
+> [공식 문서](https://typst.app/docs/reference/math/class/)를 참조하세요.
 
-Each math symbol has its own "class", the way it behaves. That's one of the main reasons why they are layouted differently.
+각 수학 기호는 고유한 "클래스", 즉 동작 방식을 가지고 있습니다. 이것이 기호들이 서로 다르게 배치되는 주요 이유 중 하나입니다.
 
-## Classes
+## 클래스 종류
 
 ```typ
 $
@@ -13,7 +13,7 @@ a class("normal", b) c\
 a class("punctuation", b) c\
 a class("opening", b) c\
 a lr(b c]) c\
-a lr(class("opening", b) c ]) c\ // notice it is moved vertically
+a lr(class("opening", b) c ]) c\ // 수직으로 이동된 것에 주목하세요.
 a class("closing", b) c\
 a class("fence", b) c\
 a class("large", b) c\
@@ -24,18 +24,18 @@ a class("vary", b) c\
 $
 ```
 
-## Setting class for symbol
+## 기호의 클래스 설정하기
 
 ```typ
-Default:
+기본값:
 
 $square circle square$
 
-With `#h(0)`:
+`#h(0)` 사용:
 
 $square #h(0pt) circle #h(0pt) square$
 
-With `math.class`:
+`math.class` 사용:
 
 #show math.circle: math.class.with("normal")
 $square circle square$

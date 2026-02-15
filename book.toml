@@ -1,9 +1,9 @@
 [book]
 author = "sitandr"
-language = "en"
+language = "ko"
 multilingual = false
 src = "src"
-title = "Typst Examples Book"
+title = "Typst 예시 북"
 
 [preprocessor.typst-highlight]
 #disable_inline = true

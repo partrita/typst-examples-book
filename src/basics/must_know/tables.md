@@ -1,14 +1,14 @@
-# Tables and grids
+# 표와 그리드 (Tables and grids)
 
-While tables are not that necessary to know if you don't plan to use them in your documents, grids may be very useful for _document layout_. We will use both of them them in the book later.
+문서에서 표를 사용할 계획이 없다면 표에 대해 반드시 알 필요는 없지만, 그리드(grid)는 _문서 레이아웃_에 매우 유용할 수 있습니다. 나중에 책에서 두 가지 모두를 사용할 것입니다.
 
-Let's not bother with copying examples from official documentation. Just make sure to skim through it, okay?
+공식 문서의 예제를 복사하는 데 시간을 낭비하지 맙시다. 그냥 가볍게 훑어만 보세요, 알겠죠?
 
-## Basic snippets
+## 기본 스니펫
 
-### Spreading
+### 전개 (Spreading)
 
-Spreading operators (see [there](../scripting/arguments.md)) may be especially useful for the tables:
+전개 연산자([여기](../scripting/arguments.md) 참조)는 특히 표에서 유용할 수 있습니다:
 
 ```typ
 #set text(size: 9pt)
@@ -17,28 +17,28 @@ Spreading operators (see [there](../scripting/arguments.md)) may be especially u
   for i in range(0, n + 1) {
     for j in range(0, n + 1) {
       let product = if i * j != 0 {
-        // math is used for the better look 
+        // 더 예쁜 외관을 위해 수식 사용
         if j <= i { $#{ j * i }$ } 
         else {
-          // upper part of the table
+          // 표의 윗부분
           text(gray.darken(50%), str(i * j))
         }
       } else {
         if i == j {
-          // the top right corner 
+          // 오른쪽 상단 모서리 
           $times$
         } else {
-          // on of them is zero, we are at top/left
+          // 둘 중 하나가 0이면 상단/좌측에 위치함
           $#{i + j}$
         }
       }
-      // this is an array, for loops merge them together
-      // into one large array of cells
+      // 이것은 배열이며, for 루프는 이들을 
+      // 하나의 커다란 셀 배열로 병합합니다.
       (
         table.cell(
-          fill: if i == j and j == 0 { orange } // top right corner
-          else if i == j { yellow } // the diagonal
-          else if i * j == 0 { blue.lighten(50%) }, // multipliers
+          fill: if i == j and j == 0 { orange } // 오른쪽 상단 모서리
+          else if i == j { yellow } // 대각선
+          else if i * j == 0 { blue.lighten(50%) }, // 곱하는 수
           product,),
       )
     }
@@ -51,7 +51,7 @@ Spreading operators (see [there](../scripting/arguments.md)) may be especially u
 )
 ```
 
-### Highlighting table row
+### 표의 행 강조하기
 
 ```typ
 #table(
@@ -64,7 +64,7 @@ Spreading operators (see [there](../scripting/arguments.md)) may be especially u
 )
 ```
 
-For individual cells, use
+개별 셀의 경우 다음과 같이 사용합니다:
 
 ```typ
 #table(
@@ -76,9 +76,9 @@ For individual cells, use
 )
 ```
 
-### Splitting tables
+### 표 나누기
 
-Tables are split between pages automatically.
+표는 페이지 사이에서 자동으로 나뉩니다.
 ```typ
 #set page(height: 8em)
 #(
@@ -93,11 +93,11 @@ table(
 )
 ```
 
-However, if you want to make it breakable inside other element, you'll have to make that element breakable too:
+하지만 다른 요소 내부에서 표를 나눌 수 있게 하려면, 해당 요소도 나눌 수 있게 만들어야 합니다:
 
 ```typ
 #set page(height: 8em)
-// Without this, the table fails to split upon several pages
+// 이것이 없으면 표가 여러 페이지에 걸쳐 나뉘지 못합니다.
 #show figure: set block(breakable: true)
 #figure(
 table(

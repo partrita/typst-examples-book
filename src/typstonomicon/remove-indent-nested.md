@@ -1,4 +1,4 @@
-# Remove indent from nested lists
+# 중첩된 목록에서 들여쓰기 제거
 
 ```typ
 // author: fenjalien
@@ -9,7 +9,7 @@
     if index != none {
       enum.item({
         children.slice(0, index).join()
-        set enum(indent: -1.2em) // Note that this stops an infinitly recursive show rule
+        set enum(indent: -1.2em) // 무한 재귀 show 규칙을 중지한다는 점에 유의하세요
         children.slice(index).join()
       })
     } else {

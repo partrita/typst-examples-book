@@ -1,4 +1,4 @@
-# Counting words
+# 단어 수 세기 (Counting words)
 
 ## Wordometr
 
@@ -7,29 +7,29 @@
 
 #show: word-count
 
-In this document, there are #total-words words all up.
+이 문서에는 총 #total-words 개의 단어가 있습니다.
 
 #word-count(total => [
-  The number of words in this block is #total.words
-  and there are #total.characters letters.
+  이 블록의 단어 수는 #total.words 개이고, 
+  글자 수는 #total.characters 개입니다.
 ])
 ```
 
-### Excluding elements
-You can exclude elements by name (e.g., `"caption"`), function (e.g., `figure.caption`), where-selector (e.g., `raw.where(block: true)`), or `label` (e.g., `<no-wc>`).
+### 요소 제외하기
+이름(예: `"caption"`), 함수(예: `figure.caption`), where-선택자(예: `raw.where(block: true)`), 또는 `레이블`(예: `<no-wc>`)을 사용하여 단어 계산에서 특정 요소를 제외할 수 있습니다.
 
 ```typ
 #import "@preview/wordometer:0.1.4": word-count, total-words
 
 #show: word-count.with(exclude: (heading.where(level: 1), strike))
 
-= This Heading Doesn't Count
-== But I do!
+= 이 제목은 수치에 포함되지 않습니다
+== 하지만 저는 포함됩니다!
 
-In this document #strike[(excluding me)], there are #total-words words all up.
+이 문서에는 #strike[(저를 제외하고)] 총 #total-words 개의 단어가 있습니다.
 
 #word-count(total => [
-  You can exclude elements by label, too.
-  #[That was #total-words, excluding this sentence!] <no-wc>
+  레이블을 사용하여 요소를 제외할 수도 있습니다.
+  #[이 문장을 제외하고 #total-words 개였습니다!] <no-wc>
 ], exclude: <no-wc>)
 ```

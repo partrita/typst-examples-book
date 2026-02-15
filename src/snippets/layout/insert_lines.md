@@ -1,7 +1,7 @@
-# Lines between list items
+# 목록 항목 사이의 선 (Lines between list items)
 
 ```typ
-/// author: frozolotl
+/// 저자: frozolotl
 #show enum.where(tight: false): it => {
   it.children
     .enumerate()
@@ -9,11 +9,11 @@
     .join(line(length: 100%))
 }
 
-+ Item 1
++ 항목 1
 
-+ Item 2
++ 항목 2
 
-+ Item 3
++ 항목 3
 ```
 
-The same approach may be easily adapted to style the enums as you want.
+동일한 접근 방식을 사용하여 원하는 대로 열거형(enum) 스타일을 쉽게 조정할 수 있습니다.

@@ -1,19 +1,19 @@
-# Vectors & Matrices
+# 벡터 및 행렬
 
-You can easily note that the gap isn't necessarily even or the same in different vectors and matrices:
+벡터와 행렬마다 간격이 반드시 일정하거나 같지 않다는 것을 쉽게 알 수 있습니다:
 
 ```typ
 $
 mat(0, 1, -1; -1, 0, 1; 1, -1, 0) vec(a/b, a/b, a/b) = vec(c, d, e)
 $
 ```
-That happens because `gap` refers to _spacing between_ elements, not the distance between their centers.
+이는 `gap`이 요소의 중심 간 거리가 아니라 요소 _사이의 간격_을 의미하기 때문에 발생합니다.
 
-To fix this, you can use this snippet:
+이를 해결하려면 이 스니펫을 사용할 수 있습니다:
 
 ```typ
-// Fixed height vector
-#let fvec(..children, delim: "(", gap: 1.5em) = { // change default gap there
+// 높이 고정 벡터
+#let fvec(..children, delim: "(", gap: 1.5em) = { // 여기서 기본 간격 변경
   context math.vec(
       delim: delim,
       gap: 0em,
@@ -23,14 +23,14 @@ To fix this, you can use this snippet:
             width: measure(el).width,
             height: gap, place(horizon, el)
           )
-        },) // this is an array
-        // `for` merges all these arrays, then we pass it to arguments
+        },) // 이것은 배열입니다
+        // `for`는 이 모든 배열을 병합한 다음, 인수로 전달합니다.
       }
     )
 }
 
-// fixed hight matrix
-// accepts also row-gap, column-gap and gap
+// 높이 고정 행렬
+// row-gap, column-gap, gap도 허용
 #let fmat(..rows, delim: "(", augment: none) = {
   let args = rows.named()
   let (gap, row-gap, column-gap) = (none,)*3;
@@ -41,9 +41,9 @@ To fix this, you can use this snippet:
     column-gap = args.at("row-gap", default: gap)
   }
   else {
-    // change default vertical there
+    // 여기서 기본 수직 간격 변경
     row-gap = args.at("row-gap", default: 1.5em) 
-    // and horizontal there
+    // 그리고 수평 간격은 여기서
     column-gap = rows.named().at("column-gap", default: 0.5em)
   }
 
@@ -72,4 +72,3 @@ $
 "After:"& fmat(a, b; c, d) fvec(e, dot) = fvec(c/d, e/f)
 $
 ```
-

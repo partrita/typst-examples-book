@@ -1,6 +1,6 @@
-# Demos
+# 데모 (Demos)
 
-## Resume (using template)
+## 이력서 (템플릿 사용)
 
 ```typ
 #import "@preview/modern-cv:0.8.0": *
@@ -33,12 +33,12 @@
   paper-size: "us-letter",
 )
 
-= Experience
+= 경력 (Experience)
 
 #resume-entry(
   title: "Senior Software Engineer",
   location: "Example City, EX",
-  date: "2019 - Present",
+  date: "2019 - 현재",
   description: "Example, Inc.",
   title-link: "https://github.com/DeveloperPaul123",
 )
@@ -57,7 +57,7 @@
 )
 
 #resume-item[
-  // content doesn't have to be bullet points
+  // 콘텐츠가 반드시 글머리 기호일 필요는 없습니다
   #lorem(72)
 ]
 
@@ -72,51 +72,51 @@
   - #lorem(25)
 ]
 
-= Projects
+= 프로젝트 (Projects)
 
 #resume-entry(
   title: "Thread Pool C++ Library",
   location: [#github-link("DeveloperPaul123/thread-pool")],
-  date: "May 2021 - Present",
-  description: "Designer/Developer",
+  date: "2021년 5월 - 현재",
+  description: "설계 및 개발",
 )
 
 #resume-item[
-  - Designed and implemented a thread pool library in C++ using the latest C++20 and C++23 features.
-  - Wrote extensive documentation and unit tests for the library and published it on Github.
+  - 최신 C++20 및 C++23 기능을 사용하여 C++로 스레드 풀 라이브러리를 설계하고 구현했습니다.
+  - 라이브러리에 대한 광범위한 문서와 유닛 테스트를 작성하여 Github에 공개했습니다.
 ]
 
 #resume-entry(
   title: "Event Bus C++ Library",
   location: github-link("DeveloperPaul123/eventbus"),
-  date: "Sep. 2019 - Present",
-  description: "Designer/Developer",
+  date: "2019년 9월 - 현재",
+  description: "설계 및 개발",
 )
 
 #resume-item[
-  - Designed and implemented an event bus library using C++17.
-  - Wrote detailed documentation and unit tests for the library and published it on Github.
+  - C++17을 사용하여 이벤트 버스 라이브러리를 설계하고 구현했습니다.
+  - 라이브러리에 대한 상세한 문서와 유닛 테스트를 작성하여 Github에 공개했습니다.
 ]
 
-= Skills
+= 기술 스택 (Skills)
 
 #resume-skill-item(
-  "Languages",
+  "언어",
   (strong("C++"), strong("Python"), "Java", "C#", "JavaScript", "TypeScript"),
 )
-#resume-skill-item("Spoken Languages", (strong("English"), "Spanish"))
+#resume-skill-item("사용 가능 언어", (strong("영어"), "스페인어"))
 #resume-skill-item(
-  "Programs",
+  "프로그램",
   (strong("Excel"), "Word", "Powerpoint", "Visual Studio"),
 )
 
-= Education
+= 학력 (Education)
 
 #resume-entry(
   title: "Example University",
   location: "Example City, EX",
-  date: "August 2014 - May 2019",
-  description: "B.S. in Computer Science",
+  date: "2014년 8월 - 2019년 5월",
+  description: "컴퓨터 과학 학사",
 )
 
 #resume-item[
@@ -126,9 +126,9 @@
 ]
 ```
 
-## Book cover
+## 책 표지
 ```typ
-// author: bamdone
+// 저자: bamdone
 #let accent  = rgb("#00A98F")
 #let accent1 = rgb("#98FFB3")
 #let accent2 = rgb("#D1FF94")
@@ -228,7 +228,7 @@
     fill: accent4,
     stroke:none,
     [#align(center)[
-      #text(size: 60pt,[Title])
+      #text(size: 60pt,[제목])
     ]
     ])
 ]
@@ -238,7 +238,7 @@
     fill: accent4,
     stroke:none,
     [#align(center)[
-      #text(size: 20pt,[author])
+      #text(size: 20pt,[저자])
     ]
     ])
 ]

@@ -1,39 +1,39 @@
-# Typst Examples Book
+# Typst 예시 북
 
-This book provides an extended _tutorial_ and lots of [Typst](https://github.com/typst/typst) snippets that can help you to write better Typst code.
+이 책은 더 나은 Typst 코드를 작성하는 데 도움이 되는 확장된 _튜토리얼_과 수많은 [Typst](https://github.com/typst/typst) 스니펫을 제공합니다.
 
 <div class="warning">
-    This is an unofficial book. Some snippets & suggestions here may be outdated or useless (please let me know if you find some).
+    이 책은 비공식 서적입니다. 여기에 포함된 일부 스니펫과 제안은 오래되었거나 유용하지 않을 수 있습니다 (문제를 발견하면 알려주세요).
 </div>
 
-However, _all of them should compile on last version of Typst[^1]_.
+하지만 _모든 내용은 최신 버전의 Typst[^1]에서 컴파일되어야 합니다_.
 
-**CAUTION:** the book is (probably forever) a **WIP**, so don't rely on it.
+**주의:** 이 책은 (아마도 영원히) **작업 중(WIP)**이므로, 전적으로 의존하지는 마세요.
 
-If you like it, consider [giving a star on GitHub](https://github.com/sitandr/typst-examples-book)!
+이 프로젝트가 마음에 드신다면 [GitHub에서 스타를 눌러주세요](https://github.com/sitandr/typst-examples-book)!
 
-This will help me to stay motivated and continue working on this book.
+스타는 제가 동기를 유지하고 이 책을 계속 작업하는 데 큰 도움이 됩니다.
 
-## Navigation
-The book consists of several chapters, each with its own goal:
+## 탐색
+이 책은 각각 고유한 목표를 가진 여러 장으로 구성되어 있습니다:
 
-1. [Typst Basics](./basics/index.md)
-2. [Typst Snippets](./snippets/index.md)
-3. [Typst Packages](./packages/index.md)
+1. [Typst 기초](./basics/index.md)
+2. [Typst 스니펫](./snippets/index.md)
+3. [Typst 패키지](./packages/index.md)
 4. [Typstonomicon](./typstonomicon/index.md)
 
-## Contributions
+## 기여하기
 
-Any contributions are very welcome! If you have a good code snippet that you want to share, feel free to submit an issue with snippet or make a PR in the [repository](https://github.com/sitandr/typst-examples-book).
+모든 종류의 기여를 환영합니다! 공유하고 싶은 좋은 코드 스니펫이 있다면 자유롭게 Issue를 남기거나 [저장소](https://github.com/sitandr/typst-examples-book)에 PR을 보내주세요.
 
-I will especially appreciate submissions of active community members and compiler contributors!
+활발한 커뮤니티 멤버들과 컴파일러 기여해 주시는 분들의 참여를 특히 환영합니다!
 
-However, I will also really appreciate feedback from beginners to make the book as comprehensible as possible!
+또한, 초보자분들이 이 책을 최대한 이해하기 쉽게 만들 수 있도록 피드백을 주시는 것도 매우 감사하게 생각합니다!
 
-## Acknowledgements
+## 감사의 말
 
-Thanks to everyone in the community who published their code snippets!
+코드 스니펫을 공개해 주신 커뮤니티의 모든 분들께 감사드립니다!
 
-If someone doesn't like their code and/or name being published, please contact me.
+자신의 코드나 이름이 공개되는 것을 원하지 않는 분은 저에게 연락해 주세요.
 
-[^1]: When a new version launches, it may take some time to update the book, feel free to tag me to speed up the process.
+[^1]: 새 버전이 출시되면 책을 업데이트하는 데 시간이 걸릴 수 있습니다. 프로세스를 가속화하고 싶다면 저를 태그해 주세요.

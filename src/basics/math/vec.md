@@ -1,12 +1,12 @@
-# Vectors, matrices, semicolumn syntax
+# 벡터, 행렬, 세미콜론 문법
 
-## Vectors
+## 벡터 (Vectors)
 
-> By vector we mean a column there. \
-> To write arrow notations for letters, use `$arrow(v)$` \
-> I recommend to create shortcut for this, like `#let arr = math.arrow`
+> 여기서 벡터는 열(column)을 의미합니다. \
+> 문자에 화살표 표기법을 쓰려면 `$arrow(v)$`를 사용하세요. \
+> `#let arr = math.arrow`와 같이 단축키를 만드는 것을 추천합니다.
 
-To write columns, use `vec` command:
+열을 쓰려면 `vec` 명령어를 사용하세요:
 
 ```typ
 $
@@ -14,8 +14,8 @@ vec(a, b, c) + vec(1, 2, 3) = vec(a + 1, b + 2, c + 3)
 $
 ```
 
-### Delimiter
-You can change parentheses around the column or even remove them:
+### 구분자 (Delimiter)
+열 주변의 괄호를 변경하거나 제거할 수도 있습니다:
 
 ```typ
 $
@@ -25,9 +25,9 @@ vec(1, 2, 3, delim: #none)
 $
 ```
 
-### Gap
+### 간격 (Gap)
 
-You can change the size of gap between rows:
+행 사이의 간격 크기를 변경할 수 있습니다:
 
 ```typ
 $
@@ -37,24 +37,24 @@ vec(a, b, c, gap:#1em)
 $
 ```
 
-### Making gap even
+### 간격 일정하게 만들기
 
-You can easily note that the gap isn't necessarily even or the same in different vectors:
+벡터마다 간격이 반드시 일정하거나 같지 않다는 것을 쉽게 알 수 있습니다:
 
 ```typ
 $
 vec(a/b, a/b, a/b) = vec(1, 1, 1)
 $
 ```
-That happens because `gap` refers to _spacing between_ elements, not the distance between their centers.
+이는 `gap`이 요소의 중심 간 거리가 아니라 요소 _사이의 간격_을 의미하기 때문에 발생합니다.
 
-To fix this, you can use [this snippet](../../snippets/math/vecs.md).
+이를 해결하려면 [이 스니펫](../../snippets/math/vecs.md)을 사용할 수 있습니다.
 
-## Matrix
+## 행렬 (Matrix)
 
-> See [official reference](https://typst.app/docs/reference/math/mat/)
+> [공식 참조](https://typst.app/docs/reference/math/mat/)를 확인하세요.
 
-Matrix is very similar to `vec`, but accepts rows, separated by `;`:
+행렬은 `vec`과 매우 유사하지만, `;`로 구분된 행을 받습니다:
 
 ```typ
 $
@@ -62,17 +62,17 @@ mat(
     1, 2, ..., 10;
     2, 2, ..., 10;
     dots.v, dots.v, dots.down, dots.v;
-    10, 10, ..., 10; // `;` in the end is optional
+    10, 10, ..., 10; // 끝에 있는 `;`는 선택 사항입니다
 )
 $
 ```
 
-### Delimiters and gaps
+### 구분자와 간격
 
-You can specify them the same way as for vectors.
+벡터와 같은 방식으로 지정할 수 있습니다.
 
 <div class="warning">
-    Specify the arguments either before the content, or <strong>after the semicolon</strong>. The code will panic if there is no semicolon!
+    인수는 내용 앞이나 <strong>세미콜론 뒤에</strong> 지정하세요. 세미콜론이 없으면 코드가 패닉 상태가 됩니다!
 </div>
 
 ```typ
@@ -88,9 +88,9 @@ mat(
 $
 ```
 
-## Semicolon syntax
+## 세미콜론 문법
 
-When you use semicolons, the arguments _between the semicolons_ are merged into arrays. See yourself:
+세미콜론을 사용할 때, _세미콜론 사이의_ 인수는 배열로 병합됩니다. 직접 확인해 보세요:
 
 ```typ
 #let fun(..args) = {
@@ -102,9 +102,9 @@ fun(1, 2;3, 4; 6, ; 8)
 $
 ```
 
-If you miss some of elements, they will be replaced by `none`-s.
+일부 요소를 빠뜨리면 `none`으로 대체됩니다.
 
-You can mix semicolon syntax and named arguments, but be careful!
+세미콜론 문법과 명명된 인수를 섞어 쓸 수 있지만 주의하세요!
 
 ```typ
 #let fun(..args) = {
@@ -117,11 +117,11 @@ fun(1, 2; gap: #3em, 4)
 $
 ```
 
-For example, this will not work:
+예를 들어, 이것은 작동하지 않습니다:
 
 ```typ-norender
 $
-//         ↓ there is no `;`, so it tries to add (gap:) to array
+//         ↓ `;`가 없으므로 (gap:)을 배열에 추가하려고 시도합니다.
 mat(1, 2; 4, gap: #3em)
 $
 ```

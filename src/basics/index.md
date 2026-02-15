@@ -1,12 +1,10 @@
-# Typst Basics
-This is a chapter that consistently introduces you to the most things you need to know when writing with Typst.
+# Typst 기초
+이 장에서는 Typst로 문서를 작성할 때 알아야 할 가장 중요한 사항들을 차근차근 소개합니다.
 
-It show much more things than official tutorial, so maybe it will be interesting to read for some of the experienced users too.
+공식 튜토리얼보다 훨씬 더 많은 내용을 다루고 있으므로, 숙련된 사용자들에게도 흥미로운 읽을거리가 될 것입니다.
 
-Some examples are taken from [Official Tutorial](https://typst.app/docs/tutorial/) and [Official Reference](https://typst.app/docs/reference/).
-Most are created and edited specially for this book.
+일부 예제는 [공식 튜토리얼](https://typst.app/docs/tutorial/) 및 [공식 레퍼런스](https://typst.app/docs/reference/)에서 가져왔습니다. 대부분은 이 책을 위해 특별히 제작되고 편집되었습니다.
 
-> _Important:_ in most cases there will be used "clipped" examples of your rendered documents (no margins, smaller width and so on). 
+> _중요:_ 대부분의 경우 렌더링된 문서의 "잘린" 예시(여백 없음, 좁은 너비 등)가 사용됩니다.
 >
-> To set up the spacing as you want, see [Official Page Setup Guide](https://typst.app/docs/guides/page-setup-guide/).
-
+> 원하는 대로 간격을 설정하려면 [공식 페이지 설정 가이드](https://typst.app/docs/guides/page-setup-guide/)를 참조하세요.

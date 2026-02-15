@@ -1,100 +1,100 @@
-# Getting started
+# 시작하기
 
-Typst is an open-source project that can be built into a pretty small binary, that is very easy to install or even use in Web. Typst is managed and built by a company, a company, the main product of which is Typst editing Web App.
+Typst는 매우 작은 바이너리로 빌드할 수 있는 오픈 소스 프로젝트로, 설치가 매우 쉽고 웹에서도 사용할 수 있습니다. Typst는 회사가 관리하고 개발하며, 그들의 주요 제품은 Typst 편집 웹 앱입니다.
 
-So there are two possibilities for working with Typst: use online Web App or install Typst locally and work with it from your favorite editor. I will briefly cover these two ways with their pros and cons in this chapter.
+따라서 Typst를 사용하는 방법은 두 가지가 있습니다: 온라인 웹 앱을 사용하거나, 로컬에 Typst를 설치하고 즐겨 사용하는 에디터에서 작업하는 것입니다. 이 장에서는 이 두 가지 방법의 장단점을 간략하게 다룹니다.
 
-## WebApp
+## 웹 앱 (WebApp)
 
-Starting is pretty simple: sign on [typst.app](https://typst.app) and create a new document. Then... Just start typing, and the document with your text will appear in the preview Panel.
+시작하는 방법은 매우 간단합니다: [typst.app](https://typst.app)에 가입하고 새 문서를 만드세요. 그런 다음... 그냥 타이핑을 시작하면 미리보기 패널에 텍스트가 포함된 문서가 나타납니다.
 
-I highly recommend starting from scratch at first to try things. When you get some better understanding on Typst, you can continue with _templates_, instructions to style your document ready-to-use. But even then, sometimes it is just easier to make all you need exactly as you need from scratch. Typst makes it easy.
+처음에는 직접 이것저것 시도해 보시는 것을 적극 추천합니다. Typst에 대해 어느 정도 이해가 생기면, 이미 스타일이 지정된 _템플릿_을 사용하여 문서를 바로 작성할 수 있습니다. 하지만 때로는 처음부터 필요한 대로 직접 만드는 것이 더 쉬울 수도 있습니다. Typst는 이를 쉽게 만들어줍니다.
 
-**Pros**:
+**장점**:
 
-- Very easy to start
-- Perfect for collaboration.
-- _Features:_ Typst Team has put lots of effort into the app, so it has a lot of pretty good features (like smart dictionary check or Vim keybindings for pros).
-- _Working Offline_: Once the page is loaded, you can go offline. Compiling document is done on your computer, so you don't need internet connection to make it. And all changes will be saved locally. 
-- Easy to work with same projects across devices.
-- Comes with even more cool features at their paid plan, Typst Pro: like comments for collaboration and Github sync. 
-  It's also a pretty good opportunity to support the project (though there are other ways to support them, like Github Sponsors, contributing and spreading the word about Typst `:)`).
+- 시작하기 매우 쉬움
+- 협업에 최적화됨
+- _기능:_ Typst 팀이 앱에 많은 노력을 기울였기 때문에, 스마트 맞춤법 검사나 전문가를 위한 Vim 키 바인딩과 같은 훌륭한 기능이 많습니다.
+- _오프라인 작업_: 페이지가 로드되면 오프라인 상태에서도 작업할 수 있습니다. 문서 컴파일은 사용자의 컴퓨터에서 수행되므로 인터넷 연결이 필요하지 않으며, 모든 변경 사항은 로컬에 저장됩니다.
+- 여러 기기에서 동일한 프로젝트로 작업하기 쉬움
+- 유료 플랜인 Typst Pro에서는 협업을 위한 댓글 기능과 GitHub 동기화와 같은 더 멋진 기능을 제공합니다.
+  또한 GitHub Sponsors, 기여, 또는 Typst를 주변에 알리는 것(`:)`)과 같이 프로젝트를 후원할 수 있는 좋은 기회이기도 합니다.
 
-**Cons**:
+**단점**:
 
-- Still requires internet
-- Your data is stored online, your development (however, you can make backups and the app crashes very rarely)
-- The App lacks some features that are present in local editors and Tinymist LSP.
-- With local compiler, you can do pretty wild automations, like making automatic report generators.
+- 여전히 인터넷 연결이 필요함
+- 데이터와 개발 환경이 온라인에 저장됨 (하지만 백업이 가능하며 앱이 충돌하는 경우는 매우 드뭅니다)
+- 로컬 에디터나 Tinymist LSP에 있는 일부 기능이 부족할 수 있음
+- 로컬 컴파일러를 사용하면 자동 보고서 생성기와 같은 강력한 자동화가 가능함
 
 
-## Local development
+## 로컬 개발
 
 ### Tinymist
 
-> Don't use Typst LSP, that's a very outdated thing.
+> Typst LSP는 사용하지 마세요. 매우 오래된 것입니다.
 
-Tinymist is a community-developed LSP [^1] that probably has even more features than Web App (well, that may change in some time, and I'm not known for keeping this book very up-to-date). These include things like going-to-defenition, refactoring, formatting,, opening packages the errors are comming from and many-many others. It's not "official", but it doesn't make it any worse. It is definitely worth trying.
+Tinymist는 커뮤니티에서 개발한 LSP[^1]로, 아마도 웹 앱보다 더 많은 기능을 제공할 것입니다. (물론 시간이 지나면 바뀔 수 있고, 제가 이 책을 항상 최신 상태로 유지하는 것은 아닙니다.) 여기에는 정의로 이동, 리팩토링, 포맷팅, 에러가 발생한 패키지 열기 등 수많은 기능이 포함됩니다. "공식"은 아니지만, 그렇다고 성능이 떨어지는 것은 아닙니다. 확실히 시도해 볼 가치가 있습니다.
 
-Works with pretty much any editor supporting LSP. For VS Cod(e,ium), Neovim, Emacs, Sublime Text, Helix and Zed there are also useful frontends available.
+LSP를 지원하는 거의 모든 에디터에서 작동합니다. VS Code(ium), Neovim, Emacs, Sublime Text, Helix, Zed 등을 위한 유용한 프론트엔드도 제공됩니다.
 
-So, to use Typst locally, it's probably enough to open your favourite editor, install Tinymist extension and get a full Typst experience with live preview and many other nice things.
+따라서 로컬에서 Typst를 사용하려면 즐겨 사용하는 에디터를 열고 Tinymist 확장을 설치하기만 하면 실시간 미리보기와 기타 여러 유용한 기능이 포함된 완벽한 Typst 환경을 경험할 수 있습니다.
 
-> Tinymist uses Typst as a library, so it comes with it's own inner Typst version. Sometimes, for example, if your VS Code version is too old, it can't install newer version, and you end up with old Typst version without knowing it.
+> Tinymist는 Typst를 라이브러리로 사용하므로 자체 내장 Typst 버전을 포함합니다. 때때로 VS Code 버전이 너무 오래된 경우 최신 버전을 설치하지 못할 수 있으며, 이 경우 자신도 모르게 오래된 Typst 버전을 사용하게 될 수 있습니다.
 
-> Oh, yep, Tinymist can export documents in any needed format, by the way. You can also set up it to do it automatically on save, too.
+> 아, 참고로 Tinymist는 필요한 모든 형식으로 문서를 내보낼 수 있습니다. 저장 시 자동으로 내보내도록 설정할 수도 있습니다.
 
-> And it's actually possible to just use `tinymist preview document.typ` from terminal, if it's a properly installed tool (that would open a browser preview).
+> 그리고 도구가 제대로 설치되어 있다면 터미널에서 `tinymist preview document.typ`을 실행하여 브라우저 미리보기를 열 수도 있습니다.
 
-**Pros:**
+**장점:**
 
-- _Features:_ probably _the largest set_ available for Typst.
-- Best for programmers or experienced users.
-- It's just a LSP, all other things you need come from your editor, system and so on. It's easy to work with Github, easy to integrate it in whatever you want.
+- _기능:_ 아마도 Typst에서 사용 가능한 _가장 방대한 기능 세트_를 제공할 것입니다.
+- 프로그래머나 숙련된 사용자에게 가장 적합합니다.
+- 단지 LSP일 뿐이므로, 필요한 다른 모든 기능은 에디터와 시스템 등에서 가져옵니다. GitHub와 연동하기 쉽고 원하는 무엇이든 통합하기 쉽습니다.
 
-**Cons:**
+**단점:**
 
-- It's probably a bit harder than just launching WebApp.
-- Collaborating that way is much harder. It requires using Github or setting up your editor.
-- Worse portability (you have to sync your files).
-- There are tiny chances that the development will be dropped in future.
+- 단순히 웹 앱을 실행하는 것보다 조금 더 어려울 수 있습니다.
+- 협업이 훨씬 더 어렵습니다. GitHub를 사용하거나 에디터를 직접 설정해야 합니다.
+- 휴대성이 떨어집니다 (파일을 동기화해야 함).
+- 미래에 개발이 중단될 아주 희박한 가능성이 있습니다.
 
 ### CLI
 
-Typst also comes with it's own CLI (command-line-tool). This way, it is enough to install on your system and then launch from terminal `typst c your_file.typ` (or `compile` instead of `c`) to get a PDF, compiled from your `your_file.typ` document.
+Typst는 자체 CLI(커맨드 라인 도구)도 제공합니다. 이 방식을 사용하면 시스템에 설치한 후 터미널에서 `typst c your_file.typ` (또는 `compile`)을 실행하여 `your_file.typ` 문서로부터 PDF를 컴파일할 수 있습니다.
 
-> Installation notes:
-> - Windows users: just download the exe from Github Releases and unpack it somewhere in your PATH
-> - Unix users: https://github.com/typst/typst?tab=readme-ov-file#installation.
->   Note: Typst version sometimes significantly lags at package managers (and it's not Typst' fault).
+> 설치 참고 사항:
+> - Windows 사용자: GitHub Releases에서 exe 파일을 다운로드하여 PATH에 포함된 폴더에 압축을 푸세요.
+> - Unix 사용자: https://github.com/typst/typst?tab=readme-ov-file#installation 을 참조하세요.
+>   참고: 패키지 매니저의 Typst 버전은 때때로 실제 버전보다 상당히 늦을 수 있습니다 (이것은 Typst의 잘못이 아닙니다).
 
-This way, you can open your favorite text editor, like Notepad (or Vim without any plugins), write Typst document there, then compiling it and looking at the result.
+이 방식을 사용하면 메모장(또는 플러그인 없는 Vim)과 같이 즐겨 사용하는 텍스트 에디터를 열어 Typst 문서를 작성하고 컴파일하여 결과를 확인할 수 있습니다.
 
-CLI also supports _watching_ file: `typst w your_file.typ` (or `watch` instead of `w`). That way, Typst will recompile it each time it is changed (and saved).
+CLI는 파일 _감시(watching)_ 기능도 지원합니다: `typst w your_file.typ` (또는 `watch`). 이 경우 파일이 변경(및 저장)될 때마다 Typst가 다시 컴파일합니다.
 
-That way, however, I recommend having a _live preview PDF viewer_, that would update the viewed PDF as it is changed with need for reload.
+이 경우, 다시 로드할 필요 없이 PDF가 변경될 때마다 업데이트되는 _실시간 미리보기 PDF 뷰어_를 사용하는 것이 좋습니다.
 
-These include:
+다음은 해당 기능을 지원하는 뷰어들입니다:
 
-- SumatraPDF (works on Windows)
-- Zathura and Sioyek (Linux)
-- Okular (cross-platform)
-- MuPDF (must be combined with `entr` on Unix)
-- (some others I've forgotten, feel free to make an Issue / PR)
+- SumatraPDF (Windows 전용)
+- Zathura 및 Sioyek (Linux)
+- Okular (멀티 플랫폼)
+- MuPDF (Unix에서 `entr`와 조합하여 사용)
+- (기타 제가 잊어버린 뷰어들, Issue나 PR을 남겨주세요)
 
-(note that it is not perfect, there probably would be some blinking, but it's much better than having to reload)
+(완벽하지는 않으며 약간의 깜빡임이 있을 수 있지만, 매번 다시 로드하는 것보다는 훨씬 낫습니다.)
 
-**Pros:**
-- Perfect for "I need to quickly compile this file". You can use it along with Tinymist, using Tinymist for preview and editing, and CLI for the fast and precise exporting.
-- Perfect for complex automations and using it from other apps.
-- Can self-update for required version with one command (if installed not from package manager)
+**장점:**
+- "이 파일을 빨리 컴파일해야 해" 할 때 완벽합니다. Tinymist와 병행하여 Tinymist는 미리보기와 편집에 사용하고, CLI는 빠르고 정확한 내보내기에 사용할 수 있습니다.
+- 복잡한 자동화나 다른 앱에서 사용하기에 완벽합니다.
+- (패키지 매니저로 설치하지 않은 경우) 명령 한 번으로 필요한 버전으로 자체 업데이트가 가능합니다.
 
-**Cons:**
-- Harder to use
-- Doesn't provide editor features
+**단점:**
+- 사용하기 더 어렵습니다.
+- 에디터 기능을 제공하지 않습니다.
 
-## Let's go
+## 자, 시작해 봅시다!
 
-I hope you have managed to get something working, so let's go diving into Typst!
+무언가 작동하도록 설정하셨기를 바라며, 이제 Typst의 세계로 뛰어들어 봅시다!
 
-[^1]: A language-server protocol, a thing that provides cool things like autocompletion or refactoring features for most editors.
+[^1]: 언어 서버 프로토콜(Language-Server Protocol)의 약자로, 대부분의 에디터에서 자동 완성이나 리팩토링 기능과 같은 멋진 기능을 제공하는 것입니다.

@@ -1,7 +1,7 @@
-# Cheatsheet
+# 치트시트
 
-Here is a brief cheetsheet for some most needed Typst concepts (by @mewmew and @7i):
+다음은 가장 필요한 몇 가지 Typst 개념에 대한 간략한 치트시트입니다 (@mewmew 및 @7i 작성):
 
-![Cheatsheet](cheat-sheet.svg)
+![치트시트](cheat-sheet.svg)
 
-[Link to repository](https://github.com/mewmew/cheat-sheet-typ)
+[저장소 링크](https://github.com/mewmew/cheat-sheet-typ)

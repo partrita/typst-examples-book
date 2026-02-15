@@ -1,75 +1,75 @@
-# Glossary
+# 용어 사전 (Glossary)
 
 ## glossarium
 
->[Link to the universe](https://typst.app/universe/package/glossarium)
+>[Universe 링크](https://typst.app/universe/package/glossarium)
 
-Package to manage glossary and abbreviations.
+용어 사전과 약어를 관리하는 패키지입니다.
 
-<div class="info">One of the very first cool packages of Typst, made specially for (probably) the first thesis written in Typst.<div>
+<div class="info">Typst의 아주 초기 패키지 중 하나로, (아마도) Typst로 작성된 첫 번째 학위 논문을 위해 특별히 제작되었습니다.<div>
 
 ```typ
 #import "@preview/glossarium:0.5.4": make-glossary, register-glossary, print-glossary, gls, glspl
 #show: make-glossary
 
-// for better link visibility
+// 링크 시인성을 높이기 위해
 #show link: set text(fill: blue.darken(60%))
 
 #let entry-list = (
     (
-    // minimal term
+    // 최소 용어
     (key: "kuleuven", short: "KU Leuven"),
 
-    // a term with a long form and a group
-    (key: "unamur", short: "UNamur", long: "Namur University", group: "Universities"),
+    // 긴 형태와 그룹이 있는 용어
+    (key: "unamur", short: "UNamur", long: "남루르 대학교", group: "대학"),
 
-    // a term with a markup description
+    // 마크업 설명이 있는 용어
     (
       key: "oidc",
       short: "OIDC",
       long: "OpenID Connect",
-      description: [OpenID is an open standard and decentralized authentication protocol promoted by the non-profit
-      #link("https://en.wikipedia.org/wiki/OpenID#OpenID_Foundation")[OpenID Foundation].],
-      group: "Accronyms",
+      description: [OpenID는 비영리 단체인 
+      #link("https://en.wikipedia.org/wiki/OpenID#OpenID_Foundation")[OpenID Foundation]에서 추진하는 오픈 표준이자 분산형 인증 프로토콜입니다.],
+      group: "약어",
     ),
 
-    // a term with a short plural
+    // 짧은 복수형이 있는 용어
     (
       key: "potato",
       short: "potato",
-      // "plural" will be used when "short" should be pluralized
+      // "plural"은 "short"를 복수형으로 만들 때 사용됩니다.
       plural: "potatoes",
       description: [#lorem(10)],
     ),
 
-    // a term with a long plural
+    // 긴 복수형이 있는 용어
     (
       key: "dm",
       short: "DM",
-      long: "diagonal matrix",
-      // "longplural" will be used when "long" should be pluralized
-      longplural: "diagonal matrices",
-      description: "Probably some math stuff idk",
+      long: "대각 행렬 (diagonal matrix)",
+      // "longplural"은 "long"을 복수형으로 만들 때 사용됩니다.
+      longplural: "대각 행렬들 (diagonal matrices)",
+      description: "아마도 어떤 수학 관련 내용인 것 같습니다.",
     ),
   )
 )
 
 #register-glossary(entry-list)
 
-// Your document body
+// 문서 본문
 #print-glossary(
  entry-list
 )
 
-// referencing the OIDC term using gls
+// gls를 사용하여 OIDC 용어 참조
 #gls("oidc")
-// displaying the long form forcibly
+// 강제로 긴 형태 표시
 #gls("oidc", long: true)
 
-// referencing the OIDC term using the reference syntax
+// 참조 구문을 사용하여 OIDC 용어 참조
 @oidc
 
-Plural: #glspl("potato")
+복수형: #glspl("potato")
 
-#gls("oidc", display: "whatever you want")
+#gls("oidc", display: "원하는 대로 표시")
 ```

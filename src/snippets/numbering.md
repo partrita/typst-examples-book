@@ -1,42 +1,42 @@
-# Numbering
-## Individual heading without numbering
+# 번호 매기기
+## 번호 없는 개별 제목
 ```typ
 #let numless(it) = {set heading(numbering: none); it }
 
-= Heading
-#numless[= No numbering heading]
+= 제목
+#numless[= 번호 없는 제목]
 ```
 
-## "Clean" numbering
+## "클린(Clean)" 번호 매기기
 ```typ
-// original author: tromboneher
+// 원저자: tromboneher
 
-// Number sections according to a number of schemes, omitting previous leading elements.
-// For example, where the numbering pattern "A.I.1." would produce:
+// 이전의 상위 요소를 생략하고 섹션 번호를 매깁니다.
+// 예를 들어, 번호 매기기 패턴 "A.I.1."이 다음과 같이 생성된다면:
 //
-// A. A part of the story
-//   A.I. A chapter
-//   A.II. Another chapter
-//     A.II.1. A section
-//       A.II.1.a. A subsection
-//       A.II.1.b. Another subsection
-//     A.II.2. Another section
-// B. Another part of the story
-//   B.I. A chapter in the second part
-//   B.II. Another chapter in the second part
+// A. 이야기의 한 부분
+//   A.I. 장(Chapter)
+//   A.II. 다른 장
+//     A.II.1. 섹션
+//       A.II.1.a. 서브섹션
+//       A.II.1.b. 다른 서브섹션
+//     A.II.2. 다른 섹션
+// B. 이야기의 다른 부분
+//   B.I. 두 번째 부분의 장
+//   B.II. 두 번째 부분의 다른 장
 //
-// clean_numbering("A.", "I.", "1.a.") would produce:
+// clean_numbering("A.", "I.", "1.a.")은 다음과 같이 생성됩니다:
 //
-// A. A part of the story
-//   I. A chapter
-//   II. Another chapter
-//     1. A section
-//       1.a. A subsection
-//       1.b. Another subsection
-//     2. Another section
-// B. Another part of the story
-//   I. A chapter in the second part
-//   II. Another chapter in the second part
+// A. 이야기의 한 부분
+//   I. 장
+//   II. 다른 장
+//     1. 섹션
+//       1.a. 서브섹션
+//       1.b. 다른 서브섹션
+//     2. 다른 섹션
+// B. 이야기의 다른 부분
+//   I. 두 번째 부분의 장
+//   II. 두 번째 부분의 다른 장
 //
 #let clean_numbering(..schemes) = {
   (..nums) => {
@@ -56,35 +56,35 @@
 
 #set heading(numbering: clean_numbering("A.", "I.", "1.a."))
 
-= Part
-== Chapter
-== Another chapter
-=== Section
-==== Subsection
-==== Another subsection
-= Another part of the story
-== A chapter in the second part
-== Another chapter in the second part
+= 부(Part)
+== 장(Chapter)
+== 다른 장
+=== 섹션
+==== 서브섹션
+==== 다른 서브섹션
+= 이야기의 다른 부분
+== 두 번째 부분의 장
+== 두 번째 부분의 다른 장
 ```
 
-## Math numbering
-See [there](./math/numbering.md).
+## 수학 번호 매기기
+[여기](./math/numbering.md)를 참조하세요.
 
-## Numbering each paragraph
+## 각 단락에 번호 매기기
 
 <div class="warning">
-  By the 0.12 version of Typst, this should be replaced with good native solution.
+  Typst 0.12 버전부터는 이 기능을 네이티브 솔루션으로 대체해야 합니다.
 <div>
 
 ```typ
-// original author: roehlichA
-// Legal formatting of enumeration
+// 원저자: roehlichA
+// 열거형의 법률적 서식
 #show enum: it => context {
-  // Retrieve the last heading so we know what level to step at
+  // 어떤 수준에서 단계를 밟을지 알기 위해 마지막 제목을 가져옵니다
   let headings = query(selector(heading).before(here()))
   let last = headings.at(-1)
 
-  // Combine the output items
+  // 출력 항목 결합
   let output = ()
   for item in it.children {
     output.push([
@@ -101,7 +101,7 @@ See [there](./math/numbering.md).
     ])
   }
 
-  // Display in a grid
+  // 그리드에 표시
   grid(
     columns: (auto, 1fr),
     column-gutter: 1em,
@@ -113,15 +113,15 @@ See [there](./math/numbering.md).
 
 #set heading(numbering: "1.")
 
-= Some heading
-+ Paragraph
-= Other
-+ Paragraphs here are preceded with a number so they can be referenced directly.
+= 어떤 제목
++ 단락
+= 기타
++ 여기의 단락 앞에는 번호가 붙어 있어 직접 참조할 수 있습니다.
 + _#lorem(100)_
 + _#lorem(100)_
 
-== A subheading
-+ Paragraphs are also numbered correctly in subheadings.
+== 서브섹션
++ 단락은 서브섹션에서도 올바르게 번호가 매겨집니다.
 + _#lorem(50)_
 + _#lorem(50)_
 ```

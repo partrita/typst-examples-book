@@ -1,6 +1,6 @@
-# Tables
+# 표 (Tables)
 
-## Tada: data manipulation
+## Tada: 데이터 조작 (data manipulation)
 
 ```typ
 #import "@preview/tada:0.2.0"
@@ -23,9 +23,9 @@
 
 #import tada: TableData, to-tablex
 #let td = TableData(data: column-data)
-// Equivalent to:
+// 다음과 동일합니다:
 #let td2 = tada.from-records(record-data)
-// _Not_ equivalent to (since field names are unknown):
+// 다음과는 동일하지 않습니다 (필드 이름을 알 수 없기 때문):
 #let td3 = tada.from-rows(row-data)
 
 #to-tablex(td)
@@ -33,24 +33,24 @@
 #to-tablex(td3)
 ```
 
-## Tablem: markdown tables
+## Tablem: 마크다운 표
 
-> See documentation [there](https://github.com/OrangeX4/typst-tablem)
+> [여기](https://github.com/OrangeX4/typst-tablem)에서 문서를 확인하세요.
 
-Render markdown tables in Typst.
+Typst에서 마크다운 표를 렌더링합니다.
 
 ```typ
 #import "@preview/tablem:0.2.0": tablem
 
 #tablem[
-  | *Name* | *Location* | *Height* | *Score* |
+  | *이름* | *위치* | *키* | *점수* |
   | ------ | ---------- | -------- | ------- |
-  | John   | Second St. | 180 cm   |  5      |
-  | Wally  | Third Av.  | 160 cm   |  10     |
+  | 철수   | 가로수길 | 180 cm   |  5      |
+  | 영희   | 강남대로  | 160 cm   |  10     |
 ]
 ```
 
-### Custom render
+### 사용자 정의 렌더링
 
 ```typ
 #import "@preview/tablex:0.0.6": tablex, hlinex
@@ -71,9 +71,9 @@ Render markdown tables in Typst.
 )
 
 #three-line-table[
-  | *Name* | *Location* | *Height* | *Score* |
+  | *이름* | *위치* | *키* | *점수* |
   | ------ | ---------- | -------- | ------- |
-  | John   | Second St. | 180 cm   |  5      |
-  | Wally  | Third Av.  | 160 cm   |  10     |
+  | 철수   | 가로수길 | 180 cm   |  5      |
+  | 영희   | 강남대로  | 160 cm   |  10     |
 ]
 ```

@@ -1,73 +1,73 @@
-# Types, part I
-Each value in Typst has a type. You don't have to specify it, but it is important.
+# 타입, 파트 I (Types, part I)
+Typst의 각 값은 타입을 가집니다. 타입을 명시할 필요는 없지만, 타입은 중요합니다.
 
-## Content (`content`)
-> [Link to Reference](https://typst.app/docs/reference/foundations/content/).
+## 콘텐츠 (`content`)
+> [참조](https://typst.app/docs/reference/foundations/content/) 링크
 
-We have already seen it. A type that represents what is displayed in document.
+이미 살펴본 타입입니다. 문서에 표시되는 내용을 나타내는 타입입니다.
 ```typ
-#let c = [It is _content_!]
+#let c = [이것은 _콘텐츠_입니다!]
 
-// Check type of c
+// c의 타입 확인
 #(type(c) == content)
 
 #c
 
-// repr gives an "inner representation" of value
+// repr은 값의 "내부 표현"을 보여줍니다.
 #repr(c)
 ```
 
-**Important:** It is very hard to convert _content_ to _plain text_, as _content_ may contain *anything*! So be careful when passing and storing content in variables.
+**중요:** _콘텐츠_는 *무엇이든* 포함할 수 있기 때문에 _콘텐츠_를 _일반 텍스트_로 변환하는 것은 매우 어렵습니다! 따라서 변수에 콘텐츠를 전달하고 저장할 때 주의하세요.
 
 ## None (`none`)
-Nothing. Also known as `null` in other languages. It isn't displayed, converts to empty content.
+아무것도 없음을 의미합니다. 다른 언어의 `null`과 같습니다. 표시되지 않으며, 빈 콘텐츠로 변환됩니다.
 ```typ
 #none
 #repr(none)
 ```
 
-## String (`str`)
-> [Link to Reference](https://typst.app/docs/reference/foundations/str/).
+## 문자열 (`str`)
+> [참조](https://typst.app/docs/reference/foundations/str/) 링크
 
-String contains only plain text and no formatting. Just some chars. That allows us to work with chars:
+문자열은 서식이 없는 일반 텍스트만 포함합니다. 그냥 문자들의 나열입니다. 이를 통해 개별 문자를 다룰 수 있습니다:
 ```typ
-#let s = "Some large string. There could be escape sentences: \n,
- line breaks, and even unicode codes: \u{1251}"
+#let s = "어떤 긴 문자열. 이스케이프 문자가 포함될 수 있습니다: \n,
+ 줄 바꿈, 그리고 유니코드 코드까지: \u{1251}"
 #s \
 #type(s) \
 `repr`: #repr(s)
 
-#let s = "another small string"
-#s.replace("a", sym.alpha) \
-#s.split(" ") // split by space
+#let s = "또 다른 짧은 문자열"
+#s.replace("또", sym.alpha) \
+#s.split(" ") // 공백으로 분할
 ```
 
-You can convert other types to their string representation using this type's constructor (e.g. convert number to string):
+해당 타입의 생성자를 사용하여 다른 타입을 문자열 표현으로 변환할 수 있습니다(예: 숫자를 문자열로 변환):
 
 ```typ
-#str(5) // string, can be worked with as string
+#str(5) // 문자열이 되어 문자열처럼 다룰 수 있습니다.
 ```
 
-## Boolean (`bool`)
-> [Link to Reference](https://typst.app/docs/reference/foundations/bool/).
+## 불리언 (`bool`)
+> [참조](https://typst.app/docs/reference/foundations/bool/) 링크
 
-true/false. Used in `if` and many others
+true/false 값입니다. `if`문 등에서 사용됩니다.
 ```typ
 #let b = false
 #b \
 #repr(b) \
 #(true and not true or true) = #((true and (not true)) or true) \
 #if (4 > 3) {
-  "4 is more than 3"
+  "4는 3보다 큽니다"
 }
 ```
 
-## Integer (`int`)
-> [Link to Reference](https://typst.app/docs/reference/foundations/int/).
+## 정수 (`int`)
+> [참조](https://typst.app/docs/reference/foundations/int/) 링크
 
-A whole number.
+정수입니다.
 
-The number can also be specified as hexadecimal, octal, or binary by starting it with a zero followed by either x, o, or b.
+숫자 앞에 0을 쓰고 그 뒤에 x, o, b를 붙여 16진수, 8진수, 2진수로 지정할 수도 있습니다.
 
 ```typ
 #let n = 5
@@ -91,7 +91,7 @@ The number can also be specified as hexadecimal, octal, or binary by starting it
 #0b1001
 ```
 
-You can convert a value to an integer with this type's constructor (e.g. convert string to int).
+해당 타입의 생성자를 사용하여 값을 정수로 변환할 수 있습니다(예: 문자열을 정수로 변환).
 
 ```typ
 #int(false) \
@@ -100,17 +100,17 @@ You can convert a value to an integer with this type's constructor (e.g. convert
 #(int("27") + int("4"))
 ```
 
-## Float (`float`)
-> [Link to Reference](https://typst.app/docs/reference/foundations/float/).
+## 부동 소수점 (`float`)
+> [참조](https://typst.app/docs/reference/foundations/float/) 링크
 
-Works the same way as integer, but can store floating point numbers.
-However, precision may be lost.
+정수와 비슷하게 작동하지만 부동 소수점 숫자를 저장할 수 있습니다.
+단, 정밀도가 손실될 수 있습니다.
 
 ```typ
 #let n = 5.0
 
-// You can mix floats and integers, 
-// they will be implicitly converted
+// 부동 소수점과 정수를 섞어 쓸 수 있으며,
+// 암시적으로 변환됩니다.
 #(n += 1) \
 #calc.pow(2, n) \
 #(0.2 + 0.1) \
@@ -123,7 +123,7 @@ However, precision may be lost.
 #(10 / 4)
 ```
 
-You can convert a value to a float with this type's constructor (e.g. convert string to float).
+해당 타입의 생성자를 사용하여 값을 부동 소수점으로 변환할 수 있습니다(예: 문자열을 부동 소수점으로 변환).
 
 ```typ
 #float(40%) \

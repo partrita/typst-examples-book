@@ -1,16 +1,16 @@
-# Packages
-Once the [Typst Universe](https://typst.app/universe) was launched, this chapter has become almost redundant. The Universe is actually a very cool place to look for packages.
+# 패키지 (Packages)
+[Typst Universe](https://typst.app/universe)가 런칭된 이후, 이 장은 거의 불필요해졌습니다. Universe는 패키지를 찾기에 매우 훌륭한 곳입니다.
 
-However, there are still some cool examples of interesting package usage.
+그럼에도 불구하고, 여전히 흥미로운 패키지 사용 예시들이 여기에 남아 있습니다.
 
-## General
-Typst has packages, but, unlike LaTeX, you need to remember:
+## 일반 사항
+Typst에는 패키지가 있지만, LaTeX와 달리 다음 사항을 기억해야 합니다:
 
-- You need them only for some specialized tasks, basic formatting _can be totally done without them_.
-- Packages are much lighter and much easier "installed" than LaTeX ones.
-- Packages are just plain Typst files (and sometimes plugins), so you can easily write your own!
+- 패키지는 일부 전문적인 작업에만 필요하며, 기본적인 포맷팅은 _패키지 없이도 충분히 가능합니다_.
+- 패키지는 LaTeX 패키지보다 훨씬 가볍고 "설치"하기 쉽습니다.
+- 패키지는 평범한 Typst 파일(때로는 플러그인)일 뿐이므로, 직접 작성하기도 쉽습니다!
 
-To use mighty package, just write, like this:
+강력한 패키지를 사용하려면 다음과 같이 작성하면 됩니다:
 
 ```typ
 #import "@preview/cetz:0.3.4": canvas, draw
@@ -32,7 +32,7 @@ To use mighty package, just write, like this:
 #canvas({
   import draw: *
 
-  // Set-up a thin axis style
+  // 가느다란 축 스타일 설정
   set-style(axes: (stroke: .5pt, tick: (stroke: .5pt)),
             legend: (stroke: none, orientation: ttb, item: (spacing: .3), scale: 80%))
 
@@ -54,6 +54,5 @@ To use mighty package, just write, like this:
 })
 ```
 
-## Contributing
-If you are author of a package or just want to make a fair overview,
-feel free to make issues/PR-s!
+## 기여하기
+패키지 제작자이거나 공정한 리뷰를 작성하고 싶다면 언제든지 Issue나 PR을 남겨주세요!

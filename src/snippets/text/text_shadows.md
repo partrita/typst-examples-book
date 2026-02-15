@@ -1,9 +1,9 @@
-# Fake italic & Text shadows
+# 가짜 이탤릭 및 텍스트 그림자 (Fake italic & Text shadows)
 
-## Skew
+## 기울이기 (Skew)
 
 ```typ
-// author: Enivex
+// 저자: Enivex
 #set page(width: 21cm, height: 3cm)
 #set text(size:25pt)
 #let skew(angle,vscale: 1,body) = {
@@ -28,8 +28,8 @@
 }
 
 #let fake-italic(body) = skew(-12deg,body)
-#fake-italic[This is fake italic text]
+#fake-italic[이것은 가짜 이탤릭체 텍스트입니다]
 
 #let shadowed(body) = box(place(skew(-50deg, vscale: 0.8, text(fill:luma(200),body)))+place(body))
-#shadowed[This is some fancy text with a shadow]
+#shadowed[이것은 그림자가 있는 멋진 텍스트입니다]
 ```

@@ -1,72 +1,69 @@
-# Math
+# 수학 (Math)
 
-## General
+## 일반 (General)
 ### `physica`
 
-> Physica (Latin for _natural sciences_) provides utilities that simplify
-> otherwise complex and repetitive mathematical expressions in natural sciences.
+> Physica(라틴어로 _자연과학_)는 자연과학에서 복잡하고 반복적인 수학 표현식을 단순화하는 유틸리티를 제공합니다.
 
-> Its [manual](https://github.com/Leedehai/typst-physics/blob/master/physica-manual.pdf)
-> provides a full set of demonstrations of how the package could be helpful.
+> [매뉴얼](https://github.com/Leedehai/typst-physics/blob/master/physica-manual.pdf)은 이 패키지가 어떻게 도움이 될 수 있는지에 대한 전체 데모 세트를 제공합니다.
 
-#### Common notations
+#### 일반적인 표기법
 
-* Calculus: differential, ordinary and partial derivatives
-  * Optional function name,
-  * Optional order number or an array of thereof,
-  * Customizable "d" symbol and product joiner (say, exterior product),
-  * Overridable total order calculation,
-* Vectors and vector fields: div, grad, curl,
-* Taylor expansion,
-* Dirac braket notations,
-* Tensors with abstract index notations,
-* Matrix transpose and dagger (conjugate transpose).
-* Special matrices: determinant, (anti-)diagonal, identity, zero, Jacobian,
-Hessian, etc. <!-- TODO Add rotation and gram matrices in physica:0.9.2 -->
+* 미적분학: 미분, 상미분 및 편미분
+  * 선택적 함수 이름,
+  * 선택적 차수 번호 또는 그 배열,
+  * 사용자 정의 "d" 기호 및 곱 결합자(예: 외적),
+  * 재정의 가능한 총 차수 계산,
+* 벡터 및 벡터장: div, grad, curl,
+* 테일러 전개,
+* 디랙 브라-켓 표기법,
+* 추상 인덱스 표기법이 있는 텐서,
+* 행렬 전치 및 대거(켤레 전치).
+* 특수 행렬: 행렬식, (반)대각, 항등, 영, 야코비안, 헤시안 등. <!-- TODO Add rotation and gram matrices in physica:0.9.2 -->
 
-Below is a preview of those notations.
+아래는 이러한 표기법의 미리보기입니다.
 
 ```typ
-#import "@preview/physica:0.9.1": * // Symbol names annotated below
+#import "@preview/physica:0.9.1": * // 아래에 주석 달린 기호 이름
 
 #table(
   columns: 4, align: horizon, stroke: none, gutter: 1em,
 
-  // vectors: bold, unit, arrow
+  // 벡터: 굵게(bold), 단위(unit), 화살표(arrow)
   [$ vb(a), vb(e_i), vu(a), vu(e_i), va(a), va(e_i) $],
-  // dprod (dot product), cprod (cross product), iprod (innerproduct)
+  // dprod (내적 - dot product), cprod (외적 - cross product), iprod (내적 - innerproduct)
   [$ a dprod b, a cprod b, iprod(a, b) $],
-  // laplacian (different from built-in laplace)
+  // laplacian (내장 laplace와 다름)
   [$ dot.double(u) = laplacian u =: laplace u $],
-  // grad, div, curl (vector fields)
+  // grad, div, curl (벡터장)
   [$ grad phi, div vb(E), \ curl vb(B) $],
 )
 ```
 
 ```typ
-#import "@preview/physica:0.9.1": * // Symbol names annotated below
+#import "@preview/physica:0.9.1": * // 아래에 주석 달린 기호 이름
 
 #table(
   columns: 4, align: horizon, stroke: none, gutter: 1em,
 
-  // Row 1.
-  // dd (differential), var (variation), difference
+  // 1행.
+  // dd (미분), var (변분), 차이
   [$ dd(f), var(f), difference(f) $],
-  // dd, with an order number or an array thereof
+  // dd, 차수 번호 또는 그 배열 포함
   [$ dd(x,y), dd(x,y,2), \ dd(x,y,[1,n]), dd(vb(x),t,[3,]) $],
-  // dd, with custom "d" symbol and joiner
+  // dd, 사용자 정의 "d" 기호 및 결합자 포함
   [$ dd(x,y,p:and), dd(x,y,d:Delta), \ dd(x,y,z,[1,1,n+1],d:d,p:dot) $],
-  // dv (ordinary derivative), with custom "d" symbol and joiner
+  // dv (상미분), 사용자 정의 "d" 기호 및 결합자 포함
   [$ dv(phi,t,d:Delta), dv(phi,t,d:upright(D)), dv(phi,t,d:delta) $],
 
-  // Row 2.
-  // dv, with optional function name and order
+  // 2행.
+  // dv, 선택적 함수 이름 및 차수 포함
   [$ dv(,t) (dv(x,t)) = dv(x,t,2) $],
-  // pdv (partial derivative)
+  // pdv (편미분)
   [$ pdv(f,x,y,2), pdv(,x,y,[k,]) $],
-  // pdv, with auto-added overridable total
+  // pdv, 자동 추가된 재정의 가능한 총계 포함
   [$ pdv(,x,y,[i+2,i+1]), pdv(,y,x,[i+1,i+2],total:3+2i) $],
-  // In a flat form
+  // 평면 형태
   [$ dv(u,x,s:slash), \ pdv(u,x,y,2,s:slash) $],
 )
 ```
@@ -76,61 +73,60 @@ Below is a preview of those notations.
 // TODO Demo expval(A, phi) once physica:0.9.2 is merged.
 -->
 ```typ
-#import "@preview/physica:0.9.1": * // Symbol names annotated below
+#import "@preview/physica:0.9.1": * // 아래에 주석 달린 기호 이름
 
 #table(
   columns: 3, align: horizon, stroke: none, gutter: 1em,
 
-  // tensor
+  // 텐서
   [$ tensor(T,+a,-b,-c) != tensor(T,-b,-c,+a) != tensor(T,+a',-b,-c) $],
-  // Set builder notation
+  // 집합 표기법
   [$ Set(p, {q^*, p} = 1) $],
-  // taylorterm (Taylor series term)
+  // taylorterm (테일러 급수 항)
   [$ taylorterm(f,x,x_0,1) \ taylorterm(f,x,x_0,(n+1)) $],
 )
 ```
 ```typ
-#import "@preview/physica:0.9.1": * // Symbol names annotated below
+#import "@preview/physica:0.9.1": * // 아래에 주석 달린 기호 이름
 
 #table(
   columns: 3, align: horizon, stroke: none, gutter: 1em,
 
-  // expval (mean/expectation value), eval (evaluation boundary)
+  // expval (평균/기대값), eval (평가 경계)
   [$ expval(X) = eval(f(x)/g(x))^oo_1 $],
-  // Dirac braket notations
+  // 디랙 브라-켓 표기법
   [$
     bra(u), braket(u), braket(u, v), \
     ket(u), ketbra(u), ketbra(u, v), \
     mel(phi, hat(p), psi) $],
-  // Superscript show rules that need to be enabled explicitly.
-  // If put in a content block, they only control that block's scope.
+  // 명시적으로 활성화해야 하는 위첨자 show 규칙.
+  // 콘텐츠 블록에 넣으면 해당 블록의 범위만 제어합니다.
   [
-    #show: super-T-as-transpose // "..^T" just like handwriting
-    #show: super-plus-as-dagger // "..^+" just like handwriting
+    #show: super-T-as-transpose // 손글씨처럼 "..^T"
+    #show: super-plus-as-dagger // 손글씨처럼 "..^+"
     $ op("conj")A^T =^"def" A^+ \
-      e^scripts(T), e^scripts(+) $ ], // Override with scripts()
+      e^scripts(T), e^scripts(+) $ ], // scripts()로 재정의
 )
 ```
 
-#### Matrices
+#### 행렬
 
-In addition to Typst's built-in `mat()` to write a matrix, physica provides a
-number of handy tools to make it even easier.
+행렬을 작성하기 위한 Typst의 내장 `mat()` 외에도, physica는 이를 훨씬 더 쉽게 만들어주는 여러 유용한 도구를 제공합니다.
 
 ```typ
 #import "@preview/physica:0.9.1": TT, mdet
 
 $
-// Matrix transpose with "TT", though it is recommended to
-// use super-T-as-transpose so that "A^T" also works (more on that later).
+// "TT"를 사용한 행렬 전치. 하지만 "A^T"도 작동하도록
+// super-T-as-transpose를 사용하는 것을 권장합니다(나중에 자세히 설명).
 A^TT,
-// Determinant with "mdet(...)".
+// "mdet(...)"를 사용한 행렬식.
 det mat(a, b; c, d) := mdet(a, b; c, d)
 $
 ```
 
-Diagonal matrix `dmat(...)`, antidiagonal matrix `admat(...)`,
-identity matrix `imat(n)`, and zero matrix `zmat(n)`.
+대각 행렬 `dmat(...)`, 반대각 행렬 `admat(...)`,
+항등 행렬 `imat(n)`, 영 행렬 `zmat(n)`.
 ```typ
 #import "@preview/physica:0.9.1": dmat, admat, imat, zmat
 
@@ -140,9 +136,9 @@ $ dmat(1, 2)  dmat(1, a_1, xi, fill:0)               quad
   zmat(2)     zmat(3, delim:"|") $
 ```
 
-Jacobian matrix with `jmat(func; ...)` or the longer name `jacobianmatrix`,
-Hessian matrix with `hmat(func; ...)` or the longer name `hessianmatrix`, and
-finally `xmat(row, col, func)` to build a matrix.
+야코비안 행렬 `jmat(func; ...)` 또는 긴 이름 `jacobianmatrix`,
+헤시안 행렬 `hmat(func; ...)` 또는 긴 이름 `hessianmatrix`, 그리고
+마지막으로 행렬을 생성하는 `xmat(row, col, func)`.
 ```typ
 #import "@preview/physica:0.9.1": jmat, hmat, xmat
 
@@ -157,17 +153,17 @@ $
 
 ### `mitex`
 
-> MiTeX provides LaTeX support powered by WASM in Typst, including real-time rendering of LaTeX math equations.
-> You can also use LaTeX syntax to write `\ref` and `\label`.
+> MiTeX는 Typst에서 WASM으로 구동되는 LaTeX 지원을 제공하며, LaTeX 수학 방정식의 실시간 렌더링을 포함합니다.
+> 또한 LaTeX 문법을 사용하여 `\ref`와 `\label`을 작성할 수 있습니다.
 
-> Please refer to the [manual](https://github.com/mitex-rs/mitex) for more details.
+> 자세한 내용은 [매뉴얼](https://github.com/mitex-rs/mitex)을 참조하세요.
 
 ```typ
 #import "@preview/mitex:0.2.4": *
 
-Write inline equations like #mi("x") or #mi[y].
+인라인 방정식은 #mi("x") 또는 #mi[y]와 같이 작성하세요.
 
-Also block equations:
+블록 방정식도 가능합니다:
 
 #mitex(`
   \newcommand{\f}[2]{#1f(#2)}
@@ -176,14 +172,14 @@ Also block equations:
     \,d\xi
 `)
 
-Text mode:
+텍스트 모드:
 
 #mitext(`
   \iftypst
     #set math.equation(numbering: "(1)", supplement: "equation")
   \fi
 
-  An inline equation $x + y$ and block \eqref{eq:pythagoras}.
+  인라인 방정식 $x + y$와 블록 \eqref{eq:pythagoras}.
 
   \begin{equation}
     a^2 + b^2 = c^2 \label{eq:pythagoras}
@@ -194,17 +190,17 @@ Text mode:
 
 ### `i-figured`
 
-Configurable equation numbering per section in Typst.
-There is also figure numbering per section, see more examples in its [manual](https://github.com/RubixDev/typst-i-figured).
+Typst에서 섹션별로 구성 가능한 방정식 번호 매기기.
+섹션별 그림 번호 매기기도 있습니다. 자세한 예제는 [매뉴얼](https://github.com/RubixDev/typst-i-figured)을 참조하세요.
 
 
 ```typ
 #import "@preview/i-figured:0.2.3"
 
-// make sure you have some heading numbering set
+// 제목 번호 매기기가 설정되어 있는지 확인하세요
 #set heading(numbering: "1.1")
 
-// apply the show rules (these can be customized)
+// show 규칙 적용 (사용자 정의 가능)
 #show heading: i-figured.reset-counters
 #show math.equation: i-figured.show-equation.with(
   level: 1,
@@ -212,40 +208,39 @@ There is also figure numbering per section, see more examples in its [manual](ht
   leading-zero: true,
   numbering: "(1.1)",
   prefix: "eqt:",
-  only-labeled: false,  // numbering all block equations implicitly
+  only-labeled: false,  // 모든 블록 방정식에 암시적으로 번호를 매김
   unnumbered-label: "-",
 )
 
 
-= Introduction
+= 소개
 
-You can write inline equations such as $x + y$, and numbered block equations like:
+$x + y$와 같은 인라인 방정식과 다음과 같은 번호 매겨진 블록 방정식을 작성할 수 있습니다:
 
 $ phi.alt := (1 + sqrt(5)) / 2 $ <ratio>
 
-To reference a math equation, please use the `eqt:` prefix. For example, with @eqt:ratio, we have:
+수학 방정식을 참조하려면 `eqt:` 접두사를 사용하세요. 예를 들어, @eqt:ratio를 사용하면 다음과 같습니다:
 
 $ F_n = floor(1 / sqrt(5) phi.alt^n) $
 
 
-= Appdendix
+= 부록 (Appendix)
 
-Additionally, you can use the <-> tag to indicate that a block formula should not be numbered:
+또한 <-> 태그를 사용하여 블록 수식에 번호를 매기지 않도록 표시할 수 있습니다:
 
 $ y = integral_1^2 x^2 dif x $ <->
 
-Subsequent math equations will continue to be numbered as usual:
+이후의 수학 방정식은 평소처럼 계속 번호가 매겨집니다:
 
 $ F_n = floor(1 / sqrt(5) phi.alt^n) $
 ```
 
 
 
-## Theorems
+## 정리 (Theorems)
 ### `ctheorem`
 
-A numbered theorem environment in Typst. See more examples in its
-[manual](https://github.com/sahasatvik/typst-theorems/blob/main/manual.pdf).
+Typst의 번호 매겨진 정리 환경. 더 많은 예제는 [매뉴얼](https://github.com/sahasatvik/typst-theorems/blob/main/manual.pdf)을 참조하세요.
 
 ```typ
 #import "@preview/ctheorems:1.1.0": *
@@ -264,28 +259,25 @@ A numbered theorem environment in Typst. See more examples in its
   bodyfmt: body => [#body #h(1fr) $square$]
 ).with(numbering: none)
 
-= Prime Numbers
+= 소수 (Prime Numbers)
 #lorem(7)
-#definition[ A natural number is called a #highlight[_prime number_] if ... ]
+#definition[ ...이면 자연수를 #highlight[_소수_]라고 합니다... ]
 #example[
-  The numbers $2$, $3$, and $17$ are prime. See @cor_largest_prime shows that
-  this list is not exhaustive!
+  숫자 $2$, $3$, $17$은 소수입니다. @cor_largest_prime을 보면 이 목록이 전부가 아님을 알 수 있습니다!
 ]
-#theorem("Euclid")[There are infinitely many primes.]
+#theorem("유클리드")[무수히 많은 소수가 존재합니다.]
 #proof[
-  Suppose to the contrary that $p_1, p_2, dots, p_n$ is a finite enumeration
-  of all primes. ... a contradiction.
+  반대로 $p_1, p_2, dots, p_n$이 모든 소수의 유한한 나열이라고 가정해 봅시다. ... 모순입니다.
 ]
 #corollary[
-  There is no largest prime number.
+  가장 큰 소수는 없습니다.
 ] <cor_largest_prime>
-#corollary[There are infinitely many composite numbers.]
+#corollary[무수히 많은 합성수가 존재합니다.]
 ```
 
 ### `lemmify`
 
-Lemmify is another theorem evironment generator with many selector and numbering
-capabilities. See documentations in its [readme](https://github.com/Marmare314/lemmify).
+Lemmify는 많은 선택자와 번호 매기기 기능을 갖춘 또 다른 정리 환경 생성기입니다. [readme](https://github.com/Marmare314/lemmify)에서 문서를 확인하세요.
 
 ```typ
 #import "@preview/lemmify:0.1.5": *
@@ -309,69 +301,66 @@ capabilities. See documentations in its [readme](https://github.com/Marmare314/l
 
 #set heading(numbering: "1.1")
 
-= Prime numbers
+= 소수 (Prime numbers)
 #lorem(7) @proof and @thm[theorem]
-#definition[ A natural number is called a #highlight[_prime number_] if ... ]
-#theorem(name: "Theorem name")[There are infinitely many primes.]<thm>
+#definition[ ...이면 자연수를 #highlight[_소수_]라고 합니다... ]
+#theorem(name: "정리 이름")[무수히 많은 소수가 존재합니다.]<thm>
 #proof[
-  Suppose to the contrary that $p_1, p_2, dots, p_n$ is a finite enumeration
-  of all primes. ... #highlight[_a contradiction_].]<proof>
-#lemma[There are infinitely many composite numbers.]
+  반대로 $p_1, p_2, dots, p_n$이 모든 소수의 유한한 나열이라고 가정해 봅시다. ... #highlight[_모순_].]<proof>
+#lemma[무수히 많은 합성수가 존재합니다.]
 ```
 
 ### `frame-it`
-[Frame-It](https://typst.app/universe/package/frame-it/) is enables highlighting theorems with 2 pre-defined styles
-and the option to define arbitrary custom styles. 
-If no color is provided for a frame, it is automatically generated.
-For documentation, have a look at the [README](https://github.com/marc-thieme/frame-it).
+[Frame-It](https://typst.app/universe/package/frame-it/)은 2개의 사전 정의된 스타일과 임의의 사용자 정의 스타일을 정의할 수 있는 옵션으로 정리를 강조할 수 있게 합니다.
+프레임에 색상이 제공되지 않으면 자동으로 생성됩니다.
+문서는 [README](https://github.com/marc-thieme/frame-it)를 참조하세요.
 
 ```typst
 #import "@preview/frame-it:1.0.0": *
 
-// You have to define the kinds of frames you need
+// 필요한 프레임 종류를 정의해야 합니다
 #let (theorem, lemma, definition, important) = make-frames(
-  // This identifies the counter used for all theorems in this definition
+  // 이 정의의 모든 정리에 사용되는 카운터를 식별합니다
   "counter-id",
   theorem: ("Theorem",),
-  // You can provide a color or leave it out and it will be generated
+  // 색상을 제공하거나 생략하면 생성됩니다
   lemma: ("Lemma", gray),
-  // For each frame kind, you have to provide its supplement title to be displayed
+  // 각 프레임 종류에 대해 표시될 보충 제목을 제공해야 합니다
   definition: ("Definition",),
-  // You can add as many as you want
+  // 원하는 만큼 추가할 수 있습니다
   important: ("Important", blue.lighten(25%)),
 )
 
-= Primes
+= 소수
 
-Your frames will have a title.
+프레임에는 제목이 있을 것입니다.
 
-#definition[Prime Number][
-  A natural number greater than 1 is called a _prime number_ 
-  if it is divisible only by 1 and itself. For example, 2, 3, 5, and 7 
-  are all prime numbers.
+#definition[소수][
+  1보다 큰 자연수가 1과 자기 자신으로만 나누어떨어지면 _소수_라고 합니다.
+  예를 들어, 2, 3, 5, 7은 모두 소수입니다.
 ]
 
-Which you can also leave out if you want. 
+원한다면 생략할 수도 있습니다.
 
-#lemma[][Each prime number greater than 2 is divisible by 2 or is an odd number, 
-  but no prime number is divisible by any even number other than 2 itself.
+#lemma[][2보다 큰 각 소수는 2로 나누어떨어지거나 홀수이지만,
+  어떤 소수도 2 자체를 제외한 짝수로 나누어떨어지지 않습니다.
 ]
 
-If you need a custom style, look at the project README to see how to define a custom styling function.
-By default, there are two different styles predefined.
-This is the second one:
+사용자 정의 스타일이 필요한 경우, 프로젝트 README에서 사용자 정의 스타일링 함수를 정의하는 방법을 확인하세요.
+기본적으로 두 가지 다른 스타일이 사전 정의되어 있습니다.
+이것은 두 번째 스타일입니다:
 
-#important(style: styles.hint)[Unique Prime Factorization][Heads–Up][
-  Every positive integer greater than 1 can be uniquely factored 
-  into prime numbers. This is known as the Fundamental Theorem of Arithmetic. 
-  It’s crucial for understanding the structure of integers in number theory.
+#important(style: styles.hint)[유일한 소인수분해][주의][
+  1보다 큰 모든 양의 정수는 소수의 곱으로 유일하게 분해될 수 있습니다.
+  이것은 산술의 기본 정리로 알려져 있습니다.
+  정수론에서 정수의 구조를 이해하는 데 매우 중요합니다.
 ]
 
-An additional feature is to add tags with additional information
+추가 기능으로 추가 정보가 담긴 태그를 추가할 수 있습니다.
 
-#theorem[Euclid's Theorem][Very Important][Exam relevant][
-  There are infinitely many prime numbers. 
-  This fundamental result in number theory demonstrates 
-  that primes cannot be exhausted, no matter how large the set of primes discovered.
+#theorem[유클리드의 정리][매우 중요][시험 관련][
+  무수히 많은 소수가 존재합니다.
+  정수론의 이 기본적인 결과는 발견된 소수의 집합이 아무리 크더라도
+  소수가 고갈될 수 없음을 보여줍니다.
 ]
 ```

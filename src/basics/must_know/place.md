@@ -1,23 +1,21 @@
-# Placing, Moving, Scale & Hide
+# 배치, 이동, 크기 조절 및 숨기기 (Placing, Moving, Scale & Hide)
 
-This is **a very important section** if you want to do arbitrary things with layout,
-create custom elements and hacking a way around current Typst limitations.
+레이아웃으로 임의의 작업을 수행하고, 사용자 정의 요소를 만들고, 현재 Typst의 제한 사항을 우회하려는 경우 **매우 중요한 섹션**입니다.
 
-TODO: WIP, add text and better examples
+TODO: 작업 중(WIP), 텍스트 및 더 나은 예제 추가 예정
 
-# Place
+# 배치 (Place)
 
-_Ignore layout_, just put some object somehow relative to parent and current position.
-The placed object _will not_ affect layouting
+_레이아웃을 무시_하고, 부모 및 현재 위치를 기준으로 특정 개체를 배치합니다. 배치된 개체는 레이아웃에 영향을 _주지 않습니다_.
 
-> Link to [reference](https://typst.app/docs/reference/layout/place/)
+> [참조](https://typst.app/docs/reference/layout/place/) 링크
 
 ```typ
 #set page(height: 60pt)
-Hello, world!
+안녕, 세상아!
 
 #place(
-  top + right, // place at the page right and top
+  top + right, // 페이지 오른쪽 상단에 배치
   square(
     width: 20pt,
     stroke: 2pt + blue
@@ -25,7 +23,7 @@ Hello, world!
 )
 ```
 
-### Basic floating with place
+### place를 사용한 기본적인 플로팅(floating)
 
 ```typ
 #set page(height: 150pt)
@@ -37,15 +35,15 @@ Hello, world!
 )
 
 #lorem(10)
-#note(bottom)[Bottom 1]
-#note(bottom)[Bottom 2]
+#note(bottom)[하단 1]
+#note(bottom)[하단 2]
 #lorem(40)
-#note(top)[Top]
+#note(top)[상단]
 #lorem(10)
 ```
 
 ### dx, dy
-Manually change position by `(dx, dy)` relative to intended.
+원래 위치를 기준으로 `(dx, dy)`만큼 수동으로 위치를 변경합니다.
 
 ```typ
 #set page(height: 100pt)
@@ -55,8 +53,8 @@ Manually change position by `(dx, dy)` relative to intended.
 }
 ```
 
-# Move
-> Link to [reference](https://typst.app/docs/reference/layout/move/)
+# 이동 (Move)
+> [참조](https://typst.app/docs/reference/layout/move/) 링크
 
 ```typ
 #rect(inset: 0pt, move(
@@ -65,19 +63,19 @@ Manually change position by `(dx, dy)` relative to intended.
     inset: 8pt,
     fill: white,
     stroke: black,
-    [Abra cadabra]
+    [아브라카다브라]
   )
 ))
 ```
 
-# Scale
+# 크기 조절 (Scale)
 
-Scale content _without affecting the layout_.
+레이아웃에 영향을 주지 않고 콘텐츠의 _크기를 조절_합니다.
 
-> Link to [reference](https://typst.app/docs/reference/layout/scale/)
+> [참조](https://typst.app/docs/reference/layout/scale/) 링크
 
 ```typ
-#scale(x: -100%)[This is mirrored.]
+#scale(x: -100%)[좌우가 반전되었습니다.]
 ```
 
 ```typ
@@ -85,13 +83,13 @@ A#box(scale(75%)[A])A \
 B#box(scale(75%, origin: bottom + left)[B])B
 ```
 
-# Hide
+# 숨기기 (Hide)
 
-Don't show content, but leave empty space there.
+콘텐츠를 보여주지는 않지만, 그 자리에 빈 공간을 남겨둡니다.
 
-> Link to [reference](https://typst.app/docs/reference/layout/hide/)
+> [참조](https://typst.app/docs/reference/layout/hide/) 링크
 
 ```typ
-Hello Jane \
-#hide[Hello] Joe
+안녕 철수 \
+#hide[안녕] 영희
 ```

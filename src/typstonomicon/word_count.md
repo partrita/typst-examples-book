@@ -1,45 +1,45 @@
-# Word count
+# 단어 수 세기 (Word count)
 
-<div class="warning">This chapter is deprecated now. It will be removed soon.</div>
+<div class="warning">이 장은 이제 더 이상 권장되지 않습니다(deprecated). 곧 제거될 예정입니다.</div>
 
-## Recommended solution
+## 권장되는 해결책
 
-Use `wordometr` [package](https://github.com/Jollywatt/typst-wordometer):
+`wordometr` [패키지](https://github.com/Jollywatt/typst-wordometer)를 사용하세요:
 
 ```typ
 #import "@preview/wordometer:0.1.4": word-count, total-words
 
 #show: word-count
 
-In this document, there are #total-words words all up.
+이 문서에는 총 #total-words 개의 단어가 있습니다.
 
 #word-count(total => [
-  The number of words in this block is #total.words
-  and there are #total.characters letters.
+  이 블록의 단어 수는 #total.words 개이고, 
+  글자 수는 #total.characters 개입니다.
 ])
 ```
 
-## Just count _all_ words in document
+## 문서의 *모든* 단어 세기
 ```typ
-// original author: laurmaedje
+// 원저자: laurmaedje
 #let words = counter("words")
 #show regex("\p{L}+"): it => it + words.step()
 
-== A heading
+== 제목
 #lorem(50)
 
-=== Strong chapter
+=== 강조된 장
 #strong(lorem(25))
 
-// it is ignoring comments
+// 주석은 무시됩니다
 
-#align(right)[(#context words.display() words)]
+#align(right)[(#context words.display() 단어)]
 ```
 
-## Count only some elements, ignore others
+## 특정 요소만 세고 나머지는 무시하기
 
 ```typ
-// original author: jollywatt
+// 원저자: jollywatt
 #let count-words(it) = {
     let fn = repr(it.func())
     if fn == "sequence" { it.children.map(count-words).sum() }
@@ -52,12 +52,12 @@ In this document, there are #total-words words all up.
 
 #show: rest => {
     let n = count-words(rest)
-    rest + align(right, [(#n words)])
+    rest + align(right, [(#n 단어)])
 }
 
-== A heading (shouldn't be counted)
+== 제목 (포함되지 않아야 함)
 #lorem(50)
 
-=== Strong chapter
-#strong(lorem(25)) // counted too!
+=== 강조된 장
+#strong(lorem(25)) // 이것도 세어집니다!
 ```

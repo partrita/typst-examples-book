@@ -1,8 +1,8 @@
-# Headers
+# 헤더 (Headers)
 
-## `hydra`: Contextual headers
+## `hydra`: 문맥 의존적 헤더
 
-We have discussed in `Typst Basics` how to get current heading with `query(selector(heading).before(here()))` for headers. However, this works badly for nested headings with numbering and similar things. For these cases there is `hydra`:
+`Typst 기초` 섹션에서 `query(selector(heading).before(here()))`를 사용하여 현재 제목을 가져와 헤더를 만드는 방법을 논의했습니다. 하지만 이 방식은 번호가 매겨진 중첩된 제목 등에서 제대로 작동하지 않는 경우가 있습니다. 이런 상황을 위해 `hydra` 패키지가 있습니다:
 
 ```typ
 #import "@preview/hydra:0.6.1": hydra
@@ -18,12 +18,12 @@ We have discussed in `Typst Basics` how to get current heading with `query(selec
 #set heading(numbering: "1.1")
 #show heading.where(level: 1): it => pagebreak(weak: true) + it
 
-= Introduction
+= 서론
 #lorem(50)
 
-= Content
-== First Section
+= 본문
+== 첫 번째 섹션
 #lorem(50)
-== Second Section
+== 두 번째 섹션
 #lorem(100)
 ```

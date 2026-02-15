@@ -1,76 +1,75 @@
-# Basic styling
-## `Set` rule
+# 기초 스타일링
+## `Set` 규칙
 ```typ
 #set page(width: 15cm, margin: (left: 4cm, right: 4cm))
 
-That was great, but using functions everywhere, especially
-with many arguments every time is awfully cumbersome.
+정말 좋네요. 하지만 모든 곳에서 함수를 사용하고, 특히
+매번 많은 인수를 사용하는 것은 매우 번거로운 일입니다.
 
-That's why Typst has _rules_. No, not for you, for the document.
+그래서 Typst에는 _규칙(rules)_이 있습니다. 여러분을 위한 것이 아니라 문서를 위한 규칙이죠.
 
 #set par(justify: true)
 
-And the first rule we will consider there is `set` rule.
-As you see, I've just used it on `par` (which is short from paragraph)
-and now all paragraphs became _justified_.
+여기서 살펴볼 첫 번째 규칙은 `set` 규칙입니다.
+보시다시피, 방금 `par`(paragraph의 약자)에 사용했고
+이제 모든 단락이 _양쪽 맞춤(justified)_되었습니다.
 
-It will apply to all paragraphs after the rule,
-but will work only in its _scope_ (we will discuss them later).
+이 규칙은 규칙 이후의 모든 단락에 적용되지만,
+해당 _범위(scope)_ 내에서만 작동합니다(범위에 대해서는 나중에 설명하겠습니다).
 
 #par(justify: false)[
-  Of course, you can override a `set` rule.
-  This rule just sets the _default value_
-  of an argument of an element.
+  물론 `set` 규칙을 덮어쓸 수도 있습니다.
+  이 규칙은 요소 인수의 _기본값_을
+  설정할 뿐입니다.
 ]
 
-By the way, at first line of this snippet
-I've reduced page size to make justifying more visible,
-also increasing margins to add blank space on left and right.
+참고로, 이 스니펫의 첫 번째 줄에서
+양쪽 맞춤을 더 잘 보이게 하기 위해 페이지 크기를 줄였고,
+좌우 공백을 추가하기 위해 여백(margin)을 늘렸습니다.
 ```
 
-## A bit about length units
+## 길이 단위에 대하여
 ```typ
-Before we continue with rules, we should talk about length. There are several absolute length units in Typst:
+규칙에 대해 계속하기 전에, 길이에 대해 이야기해 보겠습니다. Typst에는 여러 절대 길이 단위가 있습니다:
 
 #set rect(height: 1em)
 
 #table(
   columns: 2,
-  [Points], rect(width: 72pt),
-  [Millimeters], rect(width: 25.4mm),
-  [Centimeters], rect(width: 2.54cm),
-  [Inches], rect(width: 1in),
-  [Relative to font size], rect(width: 6.5em)
+  [포인트(Points)], rect(width: 72pt),
+  [밀리미터(Millimeters)], rect(width: 25.4mm),
+  [센티미터(Centimeters)], rect(width: 2.54cm),
+  [인치(Inches)], rect(width: 1in),
+  [글꼴 크기 기준(Relative to font size)], rect(width: 6.5em)
 )
 
-`1 em` = current font size. \
-It is a very convenient unit,
-so we are going to use it a lot
+`1 em` = 현재 글꼴 크기입니다. \
+매우 편리한 단위이므로
+앞으로 많이 사용하게 될 것입니다.
 ```
 
-## Setting something else
+## 다른 것 설정하기
 
-Of course, you can use `set` rule with all built-in functions
-and all their named arguments to make some argument "default".
+물론 모든 내장 함수와 해당 함수의 모든 명명된 인수에 `set` 규칙을 사용하여 특정 인수를 "기본값"으로 만들 수 있습니다.
 
-For example, let's make all quotes in this snippet authored by the book:
+예를 들어, 이 스니펫의 모든 인용문을 이 책이 작성한 것으로 만들어 보겠습니다:
 
 ```typ
-#set quote(block: true, attribution: [Typst Examples Book])
+#set quote(block: true, attribution: [Typst 예시 북])
 
 #quote[
-  Typst is great!
+  Typst는 훌륭합니다!
 ]
 
 #quote[
-  The problem with quotes on the internet is
-  that it is hard to verify their authenticity.
+  인터넷에 떠도는 명언의 문제는
+  그 진위 여부를 확인하기 어렵다는 것입니다.
 ]
 ```
 
-## Opinionated defaults
+## 주관적인 기본값
 
-That allows you to set Typst default styling as you want it:
+이를 통해 여러분이 원하는 대로 Typst의 기본 스타일을 설정할 수 있습니다:
 
 ```typ
 #set par(justify: true)
@@ -78,38 +77,36 @@ That allows you to set Typst default styling as you want it:
 #set enum(indent: 1em)
 #set page(numbering: "1")
 
-- List item
-- List item
+- 목록 항목
+- 목록 항목
 
-+ Enum item
-+ Enum item
++ 열거 항목
++ 열거 항목
 ```
 
-Don't complain about bad defaults! `Set` your own.
+나쁜 기본값에 대해 불평하지 마세요! 여러분만의 기본값을 `설정(Set)`하세요.
 
-## Numbering
+## 번호 매기기
 
 ```typ
-= Numbering
+= 번호 매기기
 
-Some of elements have a property called "numbering".
-They accept so-called "numbering patterns" and
-are very useful with set rules. Let's see what I mean.
+일부 요소에는 "번호 매기기(numbering)"라는 속성이 있습니다.
+이 속성은 이른바 "번호 매기기 패턴"을 허용하며
+set 규칙과 함께 사용하면 매우 유용합니다. 무슨 뜻인지 살펴보겠습니다.
 
 #set heading(numbering: "I.1:")
 
-= This is first level
-= Another first
-== Second
-== Another second
-=== Now third
-== And second again
-= Now returning to first
-= These are actual roman numerals
+= 이것은 1단계입니다
+= 또 다른 1단계
+== 2단계
+== 또 다른 2단계
+=== 이제 3단계
+== 그리고 다시 2단계
+= 이제 다시 1단계로
+= 이것들은 실제 로마 숫자입니다
 ```
 
-Of course, there are lots of other cool properties
-that can be _set_, so feel free to dive into [Official Reference](https://typst.app/docs/reference/)
-and explore them!
+물론 _설정_할 수 있는 다른 멋진 속성들이 많이 있으므로, [공식 참조 문서](https://typst.app/docs/reference/)를 마음껏 살펴보세요!
 
-And now we are moving into something much more interesting…
+이제 훨씬 더 흥미로운 내용으로 넘어가 보겠습니다…

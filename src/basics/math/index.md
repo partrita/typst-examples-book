@@ -1,23 +1,22 @@
-# Math
+# 수학 (Math)
 
-Math is a special environment that has special features related to... math.
+수학은 ...수학과 관련된 특별한 기능을 가진 특별한 환경입니다.
 
-## Syntax
-To start math environment, `$`. The spacing around `$` will make it either
-_inline_ math (smaller, used in text) or _display_ math (used on math equations on their own).
+## 구문 (Syntax)
+수학 환경을 시작하려면 `$`를 사용합니다. `$` 주변의 공백 여부에 따라 _인라인(inline)_ 수식(더 작게 표시되어 텍스트 내에서 사용됨) 또는 _디스플레이(display)_ 수식(수식 자체로 독립된 줄에 표시됨)이 됩니다.
 
 ```typ
-// This is inline math
-Let $a$, $b$, and $c$ be the side
-lengths of right-angled triangle.
-Then, we know that:
+// 이것은 인라인 수식입니다.
+$a$, $b$, $c$를 직각삼각형의
+변의 길이라 하자.
+그러면 다음을 알 수 있습니다:
 
-// This is display math
+// 이것은 디스플레이 수식입니다.
 $ a^2 + b^2 = c^2 $
 
-Prove by induction:
+수학적 귀납법으로 증명하기:
 
-// You can use new lines as spacing too!
+// 공백으로 줄 바꿈을 사용할 수도 있습니다!
 $
 sum_(k=1)^n k = (n(n+1)) / 2
 $
@@ -25,7 +24,7 @@ $
 
 ## Math.equation
 
-The element that math is displayed in is called `math.equation`. You can use it for set/show rules:
+수학이 표시되는 요소를 `math.equation`이라고 합니다. 이를 set/show 규칙에 사용할 수 있습니다:
 
 ```typ
 #show math.equation: set text(red)
@@ -35,51 +34,51 @@ integral_0^oo (f(t) + g(t))/2
 $
 ```
 
-Any symbol/command that is available in math, _is also available_ in code mode using `math.command`:
+수학 환경에서 사용할 수 있는 모든 기호/명령어는 코드 모드에서도 `math.명령어`를 사용하여 _사용 가능_합니다:
 
 ```typ
 #math.integral, #math.underbrace([a + b], [c])
 ```
 
-## Letters and commands
+## 문자와 명령어
 
-Typst aims to have as simple and effective syntax for math as possible.
-That means no special symbols, just using commands.
+Typst는 수학을 위해 가능한 한 간단하고 효율적인 구문을 목표로 합니다.
+즉, 특별한 기호 없이 명령어만 사용합니다.
 
-To make it short, Typst uses several simple rules:
+요약하자면, Typst는 몇 가지 간단한 규칙을 사용합니다:
 
-- All single-letter words _turn into variables_. That includes any _unicode symbols_ too!
-- All multi-letter words _turn into commands_. They may be built-in commands (available with math.something outside of math environment).
-  Or they **may be user-defined variables/functions**. If the command **isn't defined**, there will be **compilation error**.
+- 모든 단일 문자 단어는 _변수_가 됩니다. 여기에는 모든 _유니코드 기호_도 포함됩니다!
+- 모든 다중 문자 단어는 _명령어_가 됩니다. 내장 명령어(수학 환경 밖에서 math.something으로 사용 가능)일 수도 있고,
+  **사용자가 정의한 변수/함수**일 수도 있습니다. 명령어가 **정의되지 않은 경우**, **컴파일 오류**가 발생합니다.
 
   <div class="warning">
-    If you use kebab-case or snake_case for variables you want to use in math,
-    you will have to refer to them as #snake-case-variable.
+    수학에서 사용하려는 변수에 kebab-case나 snake_case를 사용한다면,
+    해당 변수를 호출할 때 #snake-case-variable 과 같이 사용해야 합니다.
   </div>
-- To write simple text, use quotes:
+- 단순한 텍스트를 쓰려면 따옴표를 사용하세요:
     ```typ
-    $a "equals to" 2$
+    $a "는" 2 "와 같다"$
     ```
 
     <div class="warning">
-      Spacing matters there!
+      여기서는 공백이 중요합니다!
     </div>
 
     ```typ
     $a "is" 2$, $a"is"2$
     ```
-- You can turn it into multi-letter variables using `italic`:
+- `italic`을 사용하여 다중 문자 변수로 만들 수 있습니다:
     ```typ
     $(italic("mass") v^2)/2$
     ```
 
-Commands see [there](https://typst.app/docs/reference/math/#definitions) (go to the links to see the commands).
+명령어는 [여기](https://typst.app/docs/reference/math/#definitions)를 참조하세요(링크를 따라가면 명령어를 볼 수 있습니다).
 
-All symbols see [there](https://typst.app/docs/reference/symbols/sym/).
+모든 기호는 [여기](https://typst.app/docs/reference/symbols/sym/)를 참조하세요.
 
-## Multiline equations
+## 여러 줄 수식
 
-To create multiline _display equation_, use the same symbol as in markup mode: `\\`:
+여러 줄 _디스플레이 수식_을 만들려면 마크업 모드와 동일한 기호인 `\\`를 사용합니다:
 
 ```typ
 $
@@ -88,9 +87,9 @@ a = c
 $
 ```
 
-## Escaping
+## 이스케이프 (Escaping)
 
-Any symbol that is used may be escaped with `\\`, like in markup mode. For example, you can disable fraction:
+사용되는 모든 기호는 마크업 모드에서처럼 `\\`로 이스케이프할 수 있습니다. 예를 들어, 분수 기능을 비활성화할 수 있습니다:
 
 ```typ
 $
@@ -99,17 +98,17 @@ a \/ b
 $
 ```
 
-The same way it works with any other syntax.
+다른 모든 구문에도 동일한 방식으로 작동합니다.
 
-## Wrapping inline math
+## 인라인 수식 감싸기
 
-Sometimes, when you write large math, it may be too close to text (especially for some long letter tails).
+긴 수식을 작성할 때 텍스트와 너무 가까워질 수 있습니다(특히 긴 꼬리를 가진 문자들의 경우).
 
 ```typ
 #lorem(17) $display(1)/display(1+x^n)$ #lorem(20)
 ```
 
-You may easily increase the distance it by wrapping into box:
+상자(box)로 감싸서 간격을 쉽게 늘릴 수 있습니다:
 
 ```typ
 #lorem(17) #box($display(1)/display(1+x^n)$, inset: 0.2em) #lorem(20)

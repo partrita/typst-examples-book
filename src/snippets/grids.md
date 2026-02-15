@@ -1,9 +1,11 @@
-## Fractional grids
+# 그리드(Grids)
 
-For tables with lines of changing length, you can try using _grids in grids_. 
+## 비율 그리드
+
+길이가 변하는 선이 있는 표의 경우, _그리드 안의 그리드_를 사용해 볼 수 있습니다.
 
 <div class="warning">
-Don't use this where <a href="https://typst.app/docs/reference/model/table/#definitions-cell-colspan">cell.colspan and rowspan</a> will do.
+<a href="https://typst.app/docs/reference/model/table/#definitions-cell-colspan">cell.colspan 및 rowspan</a>이 가능한 곳에는 사용하지 마세요.
 </div>
 
 ```typ
@@ -12,7 +14,7 @@ Don't use this where <a href="https://typst.app/docs/reference/model/table/#defi
 #grid(
   columns: (1fr,),
   grid(
-    columns: (1fr,)*2, inset: 5pt, stroke: 1pt, [hello], [world]
+    columns: (1fr,)*2, inset: 5pt, stroke: 1pt, [안녕], [세상]
   ),
   grid(
     columns: (1fr,)*3, inset: 5pt, stroke: 1pt, [foo], [bar], [baz]
@@ -21,9 +23,9 @@ Don't use this where <a href="https://typst.app/docs/reference/model/table/#defi
 )
 ```
 
-## Automerge adjacent cells with same values
+## 같은 값을 가진 인접 셀 자동 병합
 
-This example works for adjacent cells horizontally, but it's not hard to upgrade it to columns too.
+이 예제는 가로로 인접한 셀에 대해 작동하지만, 세로(열)로 확장하는 것도 어렵지 않습니다.
 
 ```typ
 // author: tebine
@@ -31,23 +33,23 @@ This example works for adjacent cells horizontally, but it's not hard to upgrade
   let rows = children.chunks(n-cols)
   let new-children = ()
   for r in rows {
-    // First group starts at index 0
+    // 첫 번째 그룹은 인덱스 0에서 시작
     let i = 0 
-    // Search next group
+    // 다음 그룹 검색
     while i < r.len() {
-      // Group starts with one cell
+      // 그룹은 하나의 셀로 시작
       let c = r.at(i).body
       let n = 1
       for j in range(i+1, r.len()) {
         let c-next = r.at(j).body
         if c-next == c {
-          // Add cell to group
+          // 그룹에 셀 추가
           n += 1
         } else {
           break
         }
       }
-      // Group is finished
+      // 그룹 종료
       new-children.push(table.cell(colspan: n, c))
       i += n
     }
@@ -56,7 +58,7 @@ This example works for adjacent cells horizontally, but it's not hard to upgrade
 }
 #show table: it => {
   let merged = merge(it.children, it.columns.len())
-  if it.children.len() == merged.len() { // trick to avoid recursion
+  if it.children.len() == merged.len() { // 재귀를 피하기 위한 트릭
     return it
   }
   table(columns: it.columns.len(), ..merged)
@@ -68,7 +70,7 @@ This example works for adjacent cells horizontally, but it's not hard to upgrade
 )
 ```
 
-## Slanted column headers with slanted borders
+## 기울어진 테두리가 있는 기울어진 열 헤더
 
 ```typ
 // author: tebine
@@ -83,7 +85,7 @@ This example works for adjacent cells horizontally, but it's not hard to upgrade
   place(bottom+left, l, dx: width)
   place(bottom+left, line(length: width), dx: l-width, dy: -l-height)
   place(bottom+left, dx: width/2, b)
-  box(height: l-height) // invisible box to set the height
+  box(height: l-height) // 높이를 설정하기 위한 보이지 않는 상자
 })
 
 #table(

@@ -1,9 +1,9 @@
-# Drawing
+# 그리기
 ## `cetz`
 
-Cetz is an analogue of LaTeX's `tikz`. Maybe it is not as powerful yet, but certainly easier to learn and use.
+Cetz는 LaTeX의 `tikz`와 유사합니다. 아직은 `tikz`만큼 강력하지 않을 수 있지만, 확실히 배우고 사용하기 쉽습니다.
 
-It is the best choice in most of cases you want to draw something in Typst.
+Typst에서 무언가를 그리고 싶을 때 대부분의 경우 최고의 선택입니다.
 
 ```typ
 #import "@preview/cetz:0.3.4"
@@ -47,7 +47,7 @@ It is the best choice in most of cases you want to draw something in Typst.
   let (a, b, c) = ((0, 0), (1, 1), (2, -1))
   line(a, b, c, stroke: gray)
   bezier-through(a, b, c, name: "b")
-  // Show calculated control points
+  // 계산된 제어점 표시
   line(a, "b.ctrl-1", "b.ctrl-2", c, stroke: gray)
 })
 ```
@@ -102,6 +102,6 @@ It is the best choice in most of cases you want to draw something in Typst.
     mark(from, to, symbol: ">",  fill: black)
   }
 
-  content((0, - ell-height), text(fill:blue)[APPLICATION], anchor:"south")
+  content((0, - ell-height), text(fill:blue)[애플리케이션], anchor:"south")
 })
 ```

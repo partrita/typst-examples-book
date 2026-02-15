@@ -1,34 +1,34 @@
-# Special documents
-## Signature places
+# 특수 문서 (Special documents)
+## 서명란 (Signature places)
 ```typ
 #block(width: 150pt)[
   #line(length: 100%)
-  #align(center)[Signature]
+  #align(center)[서명]
 ]
 ```
 
-## Presentations
-See [polylux](../../packages/).
+## 프레젠테이션
+[polylux](../../packages/)를 참조하세요.
 
 
-## Forms
-### Form with placeholder
+## 서식 (Forms)
+### 자리가 있는 서식
 ```typ
 #grid(
   columns: 2,
   rows: 4,
   gutter: 1em,
 
-  [Student:],
+  [학생 이름:],
   [#block()#align(bottom)[#line(length: 10em, stroke: 0.5pt)]],
-  [Teacher:],
+  [지도 교수:],
   [#block()#align(bottom)[#line(length: 10em, stroke: 0.5pt)]],
-  [ID:],
+  [ID 번호:],
   [#block()#align(bottom)[#line(length: 10em, stroke: 0.5pt)]],
-  [School:],
+  [학교:],
   [#block()#align(bottom)[#line(length: 10em, stroke: 0.5pt)]],
 )
 ```
 
-### Interactive
-> Presentation interactive forms are coming! They are currently under heavy work by @tinger.
+### 대화형 (Interactive)
+> 프레젠테이션용 대화형 서식이 추가될 예정입니다! 현재 @tinger가 집중적으로 작업 중입니다.

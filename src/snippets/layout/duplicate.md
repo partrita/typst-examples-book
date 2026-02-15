@@ -1,8 +1,8 @@
-# Duplicate content
+# 콘텐츠 복제 (Duplicate content)
 
 <div class="warning">
-    Notice that this implementation will mess up with labels and similar things.
-    For complex cases see one below.
+    이 구현은 레이블 및 이와 유사한 요소들과 충돌할 수 있습니다.
+    복잡한 사례의 경우 아래의 고급 버전을 참조하세요.
 </div>
 ```typ
 #set page(paper: "a4", flipped: true)
@@ -14,9 +14,9 @@
 #lorem(200)
 ```
 
-## Advanced
+## 고급 버전 (Advanced)
 ```typ
-/// author: frozolotl
+/// 저자: frozolotl
 #set page(paper: "a4", flipped: true)
 #set heading(numbering: "1.1")
 #show ref: it => {
@@ -65,12 +65,12 @@
 
 #outline()
 
-= Foo <foo>
-See @foo and @foobar.
+= 푸 (Foo) <foo>
+@foo 와 @foobar 를 참조하세요.
 
-#figure(rect[This is an image], caption: [Foobar], kind: raw) <foobar>
+#figure(rect[이것은 이미지입니다], caption: [푸바 (Foobar)], kind: raw) <foobar>
 
-== Bar
-== Baz
-#link(<foo>)[Click to visit Foo]
+== 바 (Bar)
+== 바즈 (Baz)
+#link(<foo>)[Foo 방문하려면 클릭]
 ```

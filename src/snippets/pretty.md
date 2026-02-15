@@ -1,19 +1,19 @@
-# Pretty things
-## Set bar to the text's left
-(also known as quote formatting)
+# 예쁜 것들
+## 텍스트 왼쪽에 막대 설정
+(인용구 서식이라고도 함)
 
 ```typ
 #let line-block = rect.with(fill: luma(240), stroke: (left: 0.25em))
 
 + #lorem(10) \
   #line-block[
-    *Solution:* #lorem(10)
+    *해결책:* #lorem(10)
 
     $ a_(n+1)x^n = 2... $
   ]
 ```
 
-## Text on box top
+## 박스 위에 텍스트
 ```typ
 // author: gaiajack
 #let todo(body) = block(
@@ -25,7 +25,7 @@
     top + left,
     dy: -6pt - 14pt, // Account for inset of block
     dx: 6pt - 14pt,
-    block(fill: white, inset: 2pt)[*DRAFT*]
+    block(fill: white, inset: 2pt)[*초안*]
   )
   #body
 ]
@@ -33,7 +33,7 @@
 #todo(lorem(100))
 ```
 
-## Book Ornament
+## 책 장식
 
 ```typ
 // author: thevec

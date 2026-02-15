@@ -1,50 +1,48 @@
-# Basics
-## Variables I
-Let's start with _variables_.
+# 기초 (Basics)
+## 변수 I
+_변수(variables)_부터 시작해 보겠습니다.
 
-The concept is very simple, just some value you can reuse:
+변수의 개념은 매우 간단합니다. 재사용할 수 있는 어떤 값일 뿐입니다:
 ```typ
-#let author = "John Doe"
+#let author = "홍길동"
 
-This is a book by #author. #author is a great guy.
+이것은 #author 가 쓴 책입니다. #author 는 정말 멋진 사람입니다.
 
 #quote(block: true, attribution: author)[
-  \<Some quote\>
+  \<어떤 인용문\>
 ]
 ```
 
-## Variables II
-You can store _any_ Typst value in variable:
+## 변수 II
+변수에는 _어떤_ Typst 값이라도 저장할 수 있습니다:
 
 ```typ
-#let block_text = block(stroke: red, inset: 1em)[Text]
+#let block_text = block(stroke: red, inset: 1em)[텍스트]
 
 #block_text
 
-#figure(caption: "The block", block_text)
+#figure(caption: "블록", block_text)
 ```
 
-## Functions
-We have already seen some "custom" functions
-in [Advanced Styling](../tutorial/advanced_styling.md) chapter.
+## 함수 (Functions)
+우리는 이미 [고급 스타일링](../tutorial/advanced_styling.md) 장에서 몇 가지 "사용자 정의" 함수를 보았습니다.
 
-Functions are values that take some values
-and output some values:
+함수는 어떤 값을 받아서 어떤 값을 출력하는 값입니다:
 
 ```typ
-// This is a syntax that we have seen earlier
-#let f = (name) => "Hello, " + name
+// 이것은 앞서 보았던 구문입니다.
+#let f = (name) => "안녕, " + name
 
-#f("world!")
+#f("세상아!")
 ```
 
-### Alternative syntax
-You can write the same shorter:
+### 대안 구문
+같은 내용을 더 짧게 쓸 수 있습니다:
 
 ```typ
-// The following syntaxes are equivalent
-#let f = (name) => "Hello, " + name
-#let f(name) = "Hello, " + name
+// 다음 구문들은 동일합니다.
+#let f = (name) => "안녕, " + name
+#let f(name) = "안녕, " + name
 
-#f("world!")
+#f("세상아!")
 ```

@@ -1,9 +1,9 @@
-# Shaped boxes with text
+# 텍스트가 있는 도형 상자 (Shaped boxes with text)
 
-(I guess that will make a package eventually, but let it be a snippet for now)
+(나중에는 패키지로 만들어지겠지만, 현재는 스니펫으로 제공합니다)
 
 ```typ
-/// author: JustForFun88
+/// 저자: JustForFun88
 #import "@preview/oxifmt:0.2.1": strfmt
 
 #let shadow_svg_path = `
@@ -108,11 +108,11 @@
     inset: 1em, fill: teal,
     stroke: 1.5pt + teal.darken(50%),
     shadow_fill: red,
-    dx: 0.5em, dy: 0.35em, blur: 3)[Hello there!]
+    dx: 0.5em, dy: 0.35em, blur: 3)[안녕 하세요!]
 #shadowed_shape(shape: parallelogram,
     inset: 1em, fill: teal,
     stroke: 1.5pt + teal.darken(50%),
     shadow_fill: red,
-    dx: 0.5em, dy: 0.35em, blur: 3)[Hello there!]
+    dx: 0.5em, dy: 0.35em, blur: 3)[안녕 하세요!]
 
 ```

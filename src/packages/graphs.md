@@ -1,12 +1,11 @@
-# Graphs
+# 그래프 (Graphs)
 
 ## `cetz`
 
-Cetz comes with quite built-in support of drawing basic graphs.
-It is much more customizable and extensible then packages like `plotst`,
-so it is recommended to skim through its possibilities.
+Cetz는 기본적인 그래프를 그릴 수 있는 기능을 내장하고 있습니다.
+`plotst`와 같은 패키지보다 훨씬 더 사용자 정의가 가능하고 확장성이 뛰어나므로, Cetz의 기능을 살펴보는 것을 추천합니다.
 
-> See full manual [there](https://github.com/johannes-wolf/cetz/blob/master/manual.pdf?raw=true).
+> [전체 매뉴얼](https://github.com/johannes-wolf/cetz/blob/master/manual.pdf?raw=true)을 확인하세요.
 
 ```typ
 #import "@preview/cetz:0.3.4"
@@ -44,7 +43,7 @@ so it is recommended to skim through its possibilities.
          (a: to, number: .6, abs: true, b: from), mark: (end: ">"))
   }, name: "tree")
 
-  // Draw a "custom" connection between two nodes
+  // 두 노드 사이에 "사용자 정의" 연결 그리기
   let (a, b) = ("tree.0-0-1", "tree.0-1-0",)
   line((a: a, number: .6, abs: true, b: b), (a: b, number: .6, abs: true, b: a), mark: (end: ">", start: ">"))
 })
@@ -59,15 +58,15 @@ so it is recommended to skim through its possibilities.
     circle((210deg, 3), radius: 0, name: "structure")
     circle((-30deg, 3), radius: 0, name: "form")
     for (c, a) in (
-    ("content", "bottom"),
-    ("structure", "top-right"),
-    ("form", "top-left")
+    ("내용", "bottom"),
+    ("구조", "top-right"),
+    ("형식", "top-left")
     ) {
-    content(c, box(c + " oriented", inset: 5pt), anchor:
+    content(c, box(c + " 지향", inset: 5pt), anchor:
     a)
     }
     stroke(gray + 1.2pt)
-    line("content", "structure", "form", close: true)
+    line("내용", "구조", "형식", close: true)
     for (c, s, f, cont) in (
     (0.5, 0.1, 1, "PostScript"),
     (1, 0, 0.4, "DVI"),
@@ -80,7 +79,7 @@ so it is recommended to skim through its possibilities.
     (0.8, 0.8, 1, "Word"),
     (1, 0.05, 0.05, "ASCII")
     ) {
-    content((bary: (content: c, structure: s, form:
+    content((bary: (내용: c, 구조: s, 형식:
     f)),cont)
     }
 })
@@ -109,7 +108,7 @@ so it is recommended to skim through its possibilities.
 })
 ```
 
-### Draw a graph in polar coords
+### 극좌표계에서 그래프 그리기
 ```typ
 #import "@preview/cetz:0.3.4": canvas, plot
 
@@ -131,11 +130,11 @@ canvas(length: 1cm, {
         t => (13*calc.cos(t)-5*calc.cos(2*t)-2*calc.cos(3*t)-calc.cos(4*t), 16*calc.sin(t)*calc.sin(t)*calc.sin(t))
         )
     })
-}), caption: "Plot made with cetz",)
+}), caption: "cetz로 만든 그래프",)
 ```
 
 ## `diagraph`
-### Test
+### 테스트
 
 ```````typ
 #import "@preview/diagraph:0.2.0": *
@@ -157,7 +156,7 @@ canvas(length: 1cm, {
 )
 ```````
 
-### Eating
+### 관계도
 
 ```````typ
 #import "@preview/diagraph:0.2.0": *
@@ -180,7 +179,7 @@ canvas(length: 1cm, {
 
 ### FFT
 
-Labels are overridden manually.
+레이블을 수동으로 재정의했습니다.
 
 ```````typ
 #import "@preview/diagraph:0.2.0": *
@@ -207,7 +206,7 @@ Labels are overridden manually.
 )
 ```````
 
-### State Machine
+### 상태 머신 (State Machine)
 
 ```````typ
 #import "@preview/diagraph:0.2.0": *
@@ -246,9 +245,9 @@ Labels are overridden manually.
 )
 ```````
 
-### Clustering
+### 클러스터링 (Clustering)
 
-> See [docs](http://www.graphviz.org/content/cluster).
+> [문서](http://www.graphviz.org/content/cluster)를 참조하세요.
 
 ```````typ
 #import "@preview/diagraph:0.2.0": *
@@ -263,13 +262,13 @@ Labels are overridden manually.
       color=lightgrey;
       node [style=filled,color=white];
       a0 -> a1 -> a2 -> a3;
-      label = "process #1";
+      label = "프로세스 #1";
     }
 
     subgraph cluster_1 {
       node [style=filled];
       b0 -> b1 -> b2 -> b3;
-      label = "process #2";
+      label = "프로세스 #2";
       color=blue
     }
 
@@ -309,7 +308,7 @@ Labels are overridden manually.
       struct3 [label=<
   <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
     <TR>
-      <TD ROWSPAN="3">hello<BR/>world</TD>
+      <TD ROWSPAN="3">안녕<BR/>세상아</TD>
       <TD COLSPAN="3">b</TD>
       <TD ROWSPAN="3">g</TD>
       <TD ROWSPAN="3">h</TD>
@@ -328,9 +327,9 @@ Labels are overridden manually.
 )
 ```````
 
-### Overridden labels
+### 재정의된 레이블
 
-Labels for nodes `big` and `sum` are overridden.
+노드 `big`과 `sum`의 레이블이 재정의되었습니다.
 
 ```````typ
 #import "@preview/diagraph:0.2.0": *
@@ -341,14 +340,14 @@ Labels for nodes `big` and `sum` are overridden.
   digraph {
     rankdir=LR
     node[shape=circle]
-    Hmm -> a_0
-    Hmm -> big
+    음 -> a_0
+    음 -> big
     a_0 -> "a'" -> big [style="dashed"]
     big -> sum
   }
   ```,
   labels: (:
-    big: [_some_#text(2em)[ big ]*text*],
+    big: [_일부_#text(2em)[ 큰 ]*텍스트*],
     sum: $ sum_(i=0)^n 1/i $,
   ),
 )
@@ -356,7 +355,7 @@ Labels for nodes `big` and `sum` are overridden.
 
 ## `bob-draw`
 
- WASM plugin for [svgbob](https://github.com/ivanceras/svgbob) to draw easily with ASCII,.
+ ASCII를 사용하여 쉽게 그릴 수 있게 해주는 [svgbob](https://github.com/ivanceras/svgbob)용 WASM 플러그인입니다.
 
 `````typ
 #import "@preview/bob-draw:0.1.0": *
@@ -390,7 +389,7 @@ bob ->  ( o.o )
 )
 
 ```bob
-"cats:"
+"고양이들:"
  /\_/\  /\_/\  /\_/\  /\_/\ 
 ( o.o )( o.o )( o.o )( o.o )
 ```
@@ -439,9 +438,7 @@ bob ->  ( o.o )
 
 ## `finite`
 
-Finite automata. See the
-[manual](https://github.com/jneug/typst-finite/blob/main/manual.pdf) for a full
-documentation.
+유한 오토마타(Finite automata). 상세한 문서는 [매뉴얼](https://github.com/jneug/typst-finite/blob/main/manual.pdf)을 참조하세요.
 
 ```typ
 #import "@preview/finite:0.3.0": automaton

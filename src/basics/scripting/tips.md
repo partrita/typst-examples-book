@@ -1,10 +1,10 @@
-# Tips
+# 팁 (Tips)
 
-There are lots of elements in Typst scripting that are not obvious, but important. All the book is designated to show them, but some of them
+Typst 스크립팅에는 명확하지 않지만 중요한 요소들이 많이 있습니다. 이 책 전체가 이를 보여주기 위해 만들어졌지만, 그중 일부를 소개합니다.
 
-## Equality
+## 같음 (Equality)
 
-Equality doesn't mean objects are really the same, like in many other objects:
+객체가 완전히 동일하다는 것이 반드시 값의 일치를 의미하지는 않는 다른 객체들과는 달리, Typst에서는 다음과 같습니다:
 
 ```typ
 #let a = 7
@@ -13,7 +13,7 @@ Equality doesn't mean objects are really the same, like in many other objects:
 #(type(a) == type(b))
 ```
 
-That may be less obvious for dictionaries. In dictionaries **the order may matter**, so equality doesn't mean they behave exactly the same way:
+딕셔너리의 경우에는 이것이 덜 명확할 수 있습니다. 딕셔너리에서는 **순서가 중요할 수 있으므로**, 값이 같다고 해서 반드시 정확히 똑같이 동작하는 것은 아닙니다:
 
 ```typ
 #let a = (x: 1, y: 2)
@@ -22,19 +22,19 @@ That may be less obvious for dictionaries. In dictionaries **the order may matte
 #(a.pairs() == b.pairs())
 ```
 
-## Check key is in dictionary
+## 딕셔너리에 키가 있는지 확인
 
-Use the keyword `in`, like in `Python`:
+`Python`에서처럼 `in` 키워드를 사용하세요:
 
 ```typ
 #let dict = (a: 1, b: 2)
 
 #("a" in dict)
-// gives the same as
+// 다음과 동일한 결과를 줍니다.
 #(dict.keys().contains("a"))
 ```
 
-Note it works for lists too:
+이것은 리스트에서도 작동한다는 점에 유의하세요:
 
 ```typ
 #("a" in ("b", "c", "a"))

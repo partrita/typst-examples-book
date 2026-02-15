@@ -1,13 +1,13 @@
-# Empty pages without numbering
+# 번호 없는 빈 페이지
 
-## Empty pages before chapters starting at odd pages
+## 홀수 페이지에서 시작하는 장(Chapter) 앞의 빈 페이지
 
 <div class="warning">
-  This snippet has been broken on 0.12.0. If someone will help fixing it, this would be cool.
+  이 스니펫은 0.12.0 버전에서 작동하지 않습니다. 수정을 도와주실 분이 있다면 정말 감사하겠습니다.
 </div>
 
 `````typ -norender
-// author: janekfleper
+// 저자: janekfleper
 
 #set page(height: 20em)
 
@@ -20,36 +20,36 @@
   let new-chapters = find-labels(<new-chapter>)
   if new-chapters.len() > 0 {
     if new-chapters.contains(here().page()) [
-      _a new chapter starts on this page_
+      _이 페이지에서 새로운 장이 시작됩니다_
       #return
     ]
 
-    // get the index of the next <new-chapter> label
+    // 다음 <new-chapter> 레이블의 인덱스를 가져옵니다
     let new-chapter-index = new-chapters.position(page => page > here().page())
     if new-chapter-index != none {
       let empty-page = empty-pages.at(new-chapter-index)
       if empty-page < here().page() [
-        _this is an empty page to make the next chapter start on an odd page_
+        _다음 장을 홀수 페이지에서 시작하기 위한 빈 페이지입니다_
         #return
       ]
     }
   }
 
-  [and this would be a regular header]
+  [그리고 이것은 일반적인 헤더입니다]
   line(length: 100%)
 }
 
 #let page-footer = context {
-  // since the page breaks in chapter-heading() are inserted after the <empty-page> label,
-  // the selector has to look "before" the current page to find the relevant label
+  // chapter-heading()의 페이지 나누기가 <empty-page> 레이블 뒤에 삽입되므로,
+  // 선택자는 관련 레이블을 찾기 위해 현재 페이지 "이전"을 살펴봐야 합니다.
   let empty-page-labels = query(selector(<empty-page>).before(here()))
   if empty-page-labels.len() > 0 {
     let empty-page = empty-page-labels.last().location().page()
-    // look back at the most recent <new-chapter> label
+    // 가장 최근의 <new-chapter> 레이블을 되돌아봅니다.
     let new-chapter = query(selector(<new-chapter>).before(here())).last().location().page()
-    // check that there is no <new-chapter> label on the current page
+    // 현재 페이지에 <new-chapter> 레이블이 없고, (empty-page + 1 == 현재 페이지)인지 확인합니다.
     if (new-chapter != here().page()) and (empty-page + 1 == here().page()) [
-      _this is an empty page where the page number should be omitted_
+      _페이지 번호를 생략해야 하는 빈 페이지입니다_
       #return
     ]
   }
@@ -69,8 +69,8 @@
 
 
 #show outline.entry.where(level: 1): it => {
-  // reverse the results of the label queries to find the last <empty-page> label for the targeted page
-  // the method array.position() will always return the first one...
+  // 대상 페이지에 대한 마지막 <empty-page> 레이블을 찾기 위해 레이블 쿼리 결과를 뒤집습니다.
+  // array.position() 메서드는 항상 첫 번째 항목을 반환하기 때문입니다.
   let empty-pages = find-labels(<empty-page>).rev()
   let new-chapters = query(<new-chapter>).rev()
   let empty-page-index = empty-pages.position(page => page == int(it.page.text))
@@ -82,23 +82,23 @@
 
 #outline()
 
-= The explanation
+= 설명
 
 ```
-These queries reveal where the corresponding tags are found. The actual empty page is always at the location of the label <empty-page> + 1. If an empty page is actually inserted by the pagebreaks, the two labels will cover the page of the heading and one page before that. If no empty page was inserted, both labels will point to the same page which is not an issue either. And even then we can check for the <new-chapter> label first to give it a higher priority.
+이 쿼리들은 해당 태그가 어디에 있는지 밝혀줍니다. 실제 빈 페이지는 항상 레이블 <empty-page>의 위치 + 1에 있습니다. 실제로 페이지 나누기에 의해 빈 페이지가 삽입되면, 두 레이블은 제목 페이지와 그 이전 페이지를 덮게 됩니다. 빈 페이지가 삽입되지 않은 경우, 두 레이블은 동일한 페이지를 가리키게 되며 이 역시 문제가 되지 않습니다. 심지어 그때도 <new-chapter> 레이블을 먼저 확인하여 더 높은 우선순위를 줄 수 있습니다.
 
-The first <empty-page> label is always on page 1 and can just be ignored since it points to the (non-existing) empty page before the first chapter.
+첫 번째 <empty-page> 레이블은 항상 1페이지에 있으며 첫 번째 장 이전의 (존재하지 않는) 빈 페이지를 가리키므로 무시해도 됩니다.
 
-pages with the label <empty-page>: #context find-labels(<empty-page>)
-pages with the label <new-chapter>: #context find-labels(<new-chapter>)
+레이블 <empty-page>가 있는 페이지들: #context find-labels(<empty-page>)
+레이블 <new-chapter>가 있는 페이지들: #context find-labels(<new-chapter>)
 ```
 
-= A heading
+= 제목
 #lorem(190)
 
-= Another heading
+= 또 다른 제목
 #lorem(100)
 
-= The last heading
+= 마지막 제목
 #lorem(400)
 `````

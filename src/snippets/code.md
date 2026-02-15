@@ -1,14 +1,14 @@
-# Code formatting
+# 코드 포맷팅 (Code formatting)
 
-## Inline highlighting
+## 인라인 강조 (Inline highlighting)
 
 ```typ
 #let r = raw.with(lang: "r")
 
-This can then be used like: #r("x <- c(10, 42)")
+다음과 같이 사용할 수 있습니다: #r("x <- c(10, 42)")
 ```
 
-## Tab size
+## 탭 크기 (Tab size)
 
 ```````typ
 #set raw(tab-size: 8)
@@ -20,18 +20,18 @@ Year	Month	Day
 ```
 ```````
 
-## Theme
+## 테마 (Theme)
 
-See [reference](https://typst.app/docs/reference/text/raw/#parameters-theme)
+[공식 참조 문서](https://typst.app/docs/reference/text/raw/#parameters-theme)를 확인하세요.
 
-## Enable ligatures for code
+## 코드 합자(Ligatures) 활성화
 
 ```typ
 #show raw: set text(ligatures: true, font: "Cascadia Code")
 
-Then the code becomes `x <- a`
+이제 코드가 `x <- a`와 같이 표시됩니다.
 ```
 
-## Advanced formatting
+## 고급 포맷팅
 
-See [packages](../packages/code.md) section.
+[패키지](../packages/code.md) 섹션을 참조하세요.

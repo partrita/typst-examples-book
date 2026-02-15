@@ -1,4 +1,4 @@
-# Must-know
-This section contains things, that are not general enough to be part of "tutorial", but still are very important to know for proper typesetting.
+# 필수 지식 (Must-know)
+이 섹션에는 "튜토리얼"에 포함될 만큼 일반적이지는 않지만, 적절한 조판을 위해 여전히 매우 중요한 내용들이 포함되어 있습니다.
 
-Feel free to skip through things you are sure you will not use.
+사용하지 않을 것이 확실한 내용은 자유롭게 건너뛰어도 좋습니다.

@@ -1,13 +1,13 @@
-# Breakpoints on broken blocks
+# 끊어진 블록의 중단점 (Breakpoints on broken blocks)
 
-### Implementation with table headers & footers
+### 테이블 헤더 및 푸터를 사용한 구현
 
-See a demo project (more comments, I stripped some of them) [there](https://typst.app/project/r-yQHF952iFnPme9BWbRu3).
+[여기](https://typst.app/project/r-yQHF952iFnPme9BWbRu3)에서 데모 프로젝트를 확인하세요(더 많은 주석이 있으며, 일부는 제거했습니다).
 
 ```typ
 /// author: isuffix
 
-// Underlying counter and zig-zag functions
+// 기본 카운터 및 지그재그 함수
 #let counter-family(id) = {
   let parent = counter(id)
   let parent-step() = parent.step()
@@ -15,15 +15,15 @@ See a demo project (more comments, I stripped some of them) [there](https://typs
   return (parent-step, get-child)
 }
 
-// A fun zig-zag line!
+// 재미있는 지그재그 선!
 #let zig-zag(fill: black, rough-width: 6pt, height: 4pt, thick: 1pt, angle: 0deg) = {
   layout((size) => {
-    // Use layout to get the size and measure our horizontal distance
-    // Then get the per-zigzag width with some maths.
+    // layout을 사용하여 크기를 얻고 수평 거리를 측정
+    // 그 다음 수학을 사용하여 지그재그 당 너비 구함
     let count = int(calc.round(size.width / rough-width))
-    // Need to add extra thickness since we join with `h(-thick)`
+    // `h(-thick)`으로 결합하므로 추가 두께를 더해야 함
     let width = thick + (size.width - thick) / count
-    // One zig and one zag:
+    // 지그(Zig)와 재그(Zag):
     let zig-and-zag = {
       let line-stroke = stroke(thickness: thick, cap: "round", paint: fill)
       let top-left = (thick/2, thick/2)
@@ -38,42 +38,42 @@ See a demo project (more comments, I stripped some of them) [there](https://typs
   })
 }
 
-// ---- Define split-box ---- //
+// ---- split-box 정의 ---- //
 
-// Customizable options for a split-box border:
+// 사용자 정의 가능한 split-box 테두리 옵션:
 #let default-border = (
-  // The starting and ending lines
+  // 시작 및 끝 선
   above: line(length: 100%),
   below: line(length: 100%),
-  // Lines to put between the box over multiple pages
+  // 여러 페이지에 걸쳐 상자 사이에 넣을 선
   btwn-above: line(length: 100%, stroke: (dash:"dotted")),
   btwn-below: line(length: 100%, stroke: (dash:"dotted")),
-  // Left/right lines
-  // These *must* use `grid.vline()`, otherwise you will get an error.
-  // To remove the lines, set them to: `grid.vline(stroke: none)`.
-  // You could probably configure this better with a rowspan, but I'm lazy.
+  // 왼쪽/오른쪽 선
+  // 이들은 *반드시* `grid.vline()`을 사용해야 하며, 그렇지 않으면 오류가 발생합니다.
+  // 선을 제거하려면 `grid.vline(stroke: none)`으로 설정하세요.
+  // rowspan으로 더 잘 구성할 수도 있겠지만, 귀찮네요.
   left: grid.vline(),
   right: grid.vline(),
 )
 
-// Create a box for content which spans multiple pages/columns and
-// has custom borders above and below the column-break.
+// 여러 페이지/열에 걸치고
+// 열 중단 위아래에 사용자 정의 테두리가 있는 상자 생성
 #let split-box(
-  // Set the border dictionary, see `default-border` above for options
+  // 테두리 딕셔너리 설정, 옵션은 위의 `default-border` 참조
   border: default-border,
-  // The cell to place content in, this should resolve to a `grid.cell`
+  // 콘텐츠를 배치할 셀, `grid.cell`로 해석되어야 함
   cell: grid.cell.with(inset: 5pt),
-  // The last positional arg or args are your actual content
-  // Any extra named args will be sent to the underlying grid when called
-  // This is useful for fill, align, etc.
+  // 마지막 위치 인수(들)은 실제 콘텐츠입니다.
+  // 추가 명명된 인수는 호출 시 기본 그리드로 전송됩니다.
+  // fill, align 등에 유용합니다.
   ..args
 ) = {
-  // See `utils.typ` for more info.
+  // 더 많은 정보는 `utils.typ` 참조.
   let (parent-step, get-child) = counter-family("split-box-unique-counter-string")
-  parent-step() // Place the parent counter once.
-  // Keep track of each time the header is placed on a page.
-  // Then check if we're at the first placement (for header) or the last (footer)
-  // If not, we'll use the 'between' forms of the  border lines.
+  parent-step() // 부모 카운터를 한 번 배치.
+  // 헤더가 페이지에 배치될 때마다 추적.
+  // 그런 다음 첫 번째 배치(헤더)인지 마지막(푸터)인지 확인.
+  // 그렇지 않다면 테두리 선의 'between' 형태를 사용.
   let border-above = context {
     let header-count = get-child()
     header-count.step()
@@ -83,7 +83,7 @@ See a demo project (more comments, I stripped some of them) [there](https://typs
     let header-count = get-child()
     if header-count.get() == header-count.final() { border.below } else { border.btwn-below }
   }
-  // Place the grid!
+  // 그리드 배치!
   grid(
     ..args.named(),
     columns: 3,
@@ -95,22 +95,22 @@ See a demo project (more comments, I stripped some of them) [there](https://typs
   )
 }
 
-// ---- Examples ---- //
+// ---- 예제 ---- //
 
 #set page(width: 7.2in, height: 3in, columns: 6)
 
-// Tada!
+// 짜잔!
 #split-box[
   #lorem(20)
 ]
 
-// And here's a fun example:
+// 재미있는 예제:
 
 #let fun-border = (
-  // gradients!
+  // 그라디언트!
   above: line(length: 100%, stroke: 2pt + gradient.linear(..color.map.rainbow)),
   below: line(length: 100%, stroke: 2pt + gradient.linear(..color.map.rainbow, angle: 180deg)),
-  // zig-zags!
+  // 지그재그!
   btwn-above: move(dy: +2pt, zig-zag(fill: blue, angle: 3deg)),
   btwn-below: move(dy: -2pt, zig-zag(fill: orange, angle: 177deg)),
   left: grid.vline(stroke: (cap: "round", paint: purple)),
@@ -121,12 +121,12 @@ See a demo project (more comments, I stripped some of them) [there](https://typs
   #lorem(25)
 ]
 
-// And some more tame friends:
+// 그리고 좀 더 얌전한 친구들:
 
 #split-box(border: (
   above: move(dy: -0.5pt, line(length: 100%)),
   below: move(dy: +0.5pt, line(length: 100%)),
-  // zig-zags!
+  // 지그재그!
   btwn-above: move(dy: -1.1pt, zig-zag()),
   btwn-below: move(dy: +1.1pt, zig-zag(angle: 180deg)),
   left: grid.vline(stroke: (cap: "round")),
@@ -151,10 +151,10 @@ See a demo project (more comments, I stripped some of them) [there](https://typs
 
 ```
 
-### Implementation via headers, footers and stated
+### 헤더, 푸터 및 상태(stated)를 통한 구현
 
 <div class="warning">
-  Limitations: <strong>works only with one-column layout and one break</strong>.
+  제한 사항: <strong>단일 열 레이아웃과 한 번의 중단에서만 작동합니다</strong>.
 </div>
 
 ```typ
@@ -163,11 +163,11 @@ See a demo project (more comments, I stripped some of them) [there](https://typs
   let endSelector = selector(label("boundary-end"))
 
   if fromHeader {
-    // Count down from the top of the page
+    // 페이지 상단에서 카운트 다운
     startSelector = startSelector.after(loc)
     endSelector = endSelector.after(loc)
   } else {
-    // Count up from the bottom of the page
+    // 페이지 하단에서 카운트 업
     startSelector = startSelector.before(loc)
     endSelector = endSelector.before(loc)
   }
@@ -187,12 +187,12 @@ See a demo project (more comments, I stripped some of them) [there](https://typs
 
 #set page(
   margin: 2em,
-  // ... other page setup here ...
+  // ... 다른 페이지 설정 ...
   header: context {
     let boundaryCount = countBoundaries(here(), true)
 
     if boundaryCount.end > boundaryCount.start {
-      // Decorate this header with an opening decoration
+      // 이 헤더를 여는 장식으로 꾸미기
       [Block break top: $-->$]
     }
   },
@@ -200,7 +200,7 @@ See a demo project (more comments, I stripped some of them) [there](https://typs
     let boundaryCount = countBoundaries(here(), false)
 
     if boundaryCount.start > boundaryCount.end {
-      // Decorate this footer with a closing decoration
+      // 이 푸터를 닫는 장식으로 꾸미기
       [Block break end: $<--$]
     }
   }
@@ -211,7 +211,7 @@ See a demo project (more comments, I stripped some of them) [there](https://typs
     #metadata("boundary") <boundary-start>
   ]
   stack(
-    // Breakable list content goes here
+    // 분리 가능한 목록 콘텐츠가 여기에 들어감
     body
   )
   [

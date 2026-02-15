@@ -1,12 +1,12 @@
-# States & Query
+# 상태와 쿼리 (States & Query)
 
-<div class="warning">This section may be not very complete and fully updated for last Typst versions. Any contribution is very welcome!.</div>
+<div class="warning">이 섹션은 완전하지 않을 수 있으며 최신 Typst 버전에 맞춰 충분히 업데이트되지 않았을 수 있습니다. 모든 기여를 환영합니다!</div>
 
-Typst tries to be a _pure language_ as much as possible.
+Typst는 가능한 한 _순수 언어(pure language)_가 되고자 합니다.
 
-That means, a function can't change anything outside of it. That also means, if you call function, the result should be always the same.
+즉, 함수는 함수 외부의 어떤 것도 바꿀 수 없습니다. 또한 함수를 호출했을 때 결과가 항상 동일해야 함을 의미합니다.
 
-Unfortunately, our world (and therefore our documents) isn't pure.
-If you create a heading №2, you want the next number to be three.
+불행히도 우리가 사는 세상(그리고 우리가 만드는 문서)은 순수하지 않습니다.
+2번 제목을 만들었다면 다음 번호는 3번이 되기를 원할 것입니다.
 
-That section will guide you to using impure Typst. Don't overuse it, as this knowledge comes close to the Dark Arts of Typst!
+이 섹션에서는 이러한 순수하지 않은 Typst의 기능을 사용하는 방법을 안내합니다. 너무 남용하지 마세요. 이 지식은 Typst의 어둠의 마법(Dark Arts)에 가깝기 때문입니다!

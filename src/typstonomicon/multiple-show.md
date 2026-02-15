@@ -1,6 +1,6 @@
-## Multiple show rules
+## 다중 show 규칙
 
-Sometimes there is a need to apply several rules that look very similar. Or generate them from code. One of the ways to deal with this, the most cursed one, is this:
+때로는 매우 유사해 보이는 여러 규칙을 적용하거나, 코드에서 규칙을 생성해야 할 필요가 있습니다. 이를 처리하는 한 가지 방법(가장 저주받은 방법)은 다음과 같습니다:
 
 ```typ
 #let rules = (math.sum, math.product, math.root)
@@ -20,7 +20,7 @@ $product/sum root(3, x)/2$
 $product/sum root(3, x)/2$
 ```
 
-The recursion problem may be avoided with the power of `fold`, with basically the same idea:
+재귀 문제는 기본적으로 동일한 아이디어로 `fold`의 힘을 빌려 피할 수 있습니다:
 
 ```typ
 // author: Eric
@@ -31,7 +31,7 @@ The recursion problem may be avoided with the power of `fold`, with basically th
 })
 ```
 
-Note that just in case of symbols (if you don't need element functions), one can use regular expressions. That is a more robust way:
+기호의 경우(요소 함수가 필요하지 않은 경우), 정규 표현식을 사용할 수 있다는 점에 유의하세요. 이것이 더 강력한 방법입니다:
 
 ```typ
 #show regex("[" + math.product + math.sum + "]"): math.display
