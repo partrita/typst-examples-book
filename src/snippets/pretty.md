@@ -20,7 +20,7 @@
   above: 2em, stroke: 0.5pt + red,
   width: 100%, inset: 14pt
 )[
-  #set text(font: "Noto Sans", fill: red)
+  #set text(font: "Noto Sans CJK KR", fill: red)
   #place(
     top + left,
     dy: -6pt - 14pt, // Account for inset of block

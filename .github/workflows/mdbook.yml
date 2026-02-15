@@ -36,6 +36,10 @@ jobs:
       - name: Install mdBook
         run: |
           curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.34/mdbook-v0.4.34-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=.
+      - name: Install fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk fonts-cascadia-code fonts-roboto fonts-adobe-sourcesanspro-otf
       - name: Install mdbook-typst-highlight
         run: |
           curl -sSL https://github.com/sitandr/mdbook-typst-highlight/releases/download/v0.2.4/mdbook-typst-highlight-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=.

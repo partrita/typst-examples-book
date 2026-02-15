@@ -31,6 +31,7 @@
   colored-headers: true,
   show-footer: false,
   paper-size: "us-letter",
+  font: "Noto Sans CJK KR",
 )
 
 = 경력 (Experience)

@@ -27,7 +27,7 @@ Year	Month	Day
 ## 코드 합자(Ligatures) 활성화
 
 ```typ
-#show raw: set text(ligatures: true, font: "Cascadia Code")
+#show raw: set text(ligatures: true, font: ("Cascadia Code", "Noto Sans CJK KR"))
 
 이제 코드가 `x <- a`와 같이 표시됩니다.
 ```

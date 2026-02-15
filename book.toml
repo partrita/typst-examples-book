@@ -10,7 +10,7 @@ title = "Typst 예시 북"
 typst_default = true
 render = true
 warn_not_specified = true
-prelude = "#set text(font: \"Noto Sans KR\")"
+prelude = "#set text(font: (\"Noto Sans CJK KR\", \"Fira Math\"))"
 fonts_path = ["src/fonts"]
 
 [output.html]

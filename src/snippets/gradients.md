@@ -7,7 +7,7 @@
 ```typ
 /// author: frozolotl
 #set page(paper: "presentation-16-9", margin: 0pt)
-#set text(fill: white, font: "Inter")
+#set text(fill: white, font: ("Inter", "Noto Sans CJK KR"))
 
 #let grad = gradient.linear(rgb("#953afa"), rgb("#c61a22"), angle: 135deg)
 

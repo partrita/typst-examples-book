@@ -12,7 +12,7 @@
 
 #show list: tree-list
 #set par(leading: 0.8em)
-#show list: set text(font: "DejaVu Sans Mono", size: 0.8em)
+#show list: set text(font: "Noto Sans CJK KR", size: 0.8em)
 - chapters/
   - chapter_1.typ
   - chapter_2.typ
